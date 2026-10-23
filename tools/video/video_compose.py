@@ -394,6 +394,7 @@ class VideoCompose(BaseTool):
 
     def _mux_external_audio(self, video_path: Path, audio_path: str | Path) -> ToolResult:
         """Atomically replace a rendered video's audio with the approved mix."""
+        import math
 
         audio = Path(audio_path).resolve()
         if not audio.is_file():
@@ -403,8 +404,15 @@ class VideoCompose(BaseTool):
             f".{video_path.stem}.audio-mux-{time.time_ns()}{video_path.suffix}"
         )
         try:
+            duration_probe = self.run_command([
+                "ffprobe", "-v", "error", "-show_entries", "format=duration",
+                "-of", "default=nw=1:nk=1", str(video_path),
+            ], timeout=30)
+            video_duration = float(duration_probe.stdout.strip())
+            if not math.isfinite(video_duration) or video_duration <= 0:
+                return ToolResult(success=False, error="Cannot mux audio: invalid video duration")
             self.run_command([
-                "ffmpeg", "-y",
+                "ffmpeg", "-y", "-nostdin",
                 "-i", str(video_path),
                 "-i", str(audio),
                 "-map", "0:v:0",
@@ -414,9 +422,10 @@ class VideoCompose(BaseTool):
                 "-b:a", "192k",
                 "-af", "apad",
                 "-shortest",
+                "-t", f"{video_duration:.6f}",
                 "-movflags", "+faststart",
                 str(temp_output),
-            ])
+            ], timeout=max(60, min(1800, int(video_duration * 2))))
             if not temp_output.is_file():
                 return ToolResult(
                     success=False,
@@ -1020,7 +1029,14 @@ class VideoCompose(BaseTool):
         output_path = Path(inputs.get("output_path", "renders/output.mp4")).resolve()
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
-        cmd = ["npx", "remotion", "render", str(effective_entry), str(comp_id), str(output_path)]
+        # Windows npx/cmd descendants can retain captured stdio after rendering.
+        # Use the installed CLI directly; keep the same Remotion engine and args.
+        import os
+        local_cli = composer_dir / "node_modules" / "@remotion" / "cli" / "remotion-cli.js"
+        if os.name == "nt" and local_cli.is_file():
+            cmd = ["node", str(local_cli), "render", str(effective_entry), str(comp_id), str(output_path)]
+        else:
+            cmd = ["npx", "remotion", "render", str(effective_entry), str(comp_id), str(output_path)]
 
         props_path = bespoke.get("props_path")
         if props_path:
@@ -1046,7 +1062,18 @@ class VideoCompose(BaseTool):
         try:
             # Run from inside the composer dir so npx resolves the local
             # remotion binary (mirrors _remotion_render).
-            self.run_command(cmd, timeout=1800, cwd=composer_dir)
+            if os.name == "nt":
+                # A child retaining a pipe handle can block communicate() after
+                # the renderer exits. File-backed logs avoid that Windows stall.
+                render_log = output_path.with_suffix(".render.log")
+                with render_log.open("w", encoding="utf-8") as log_file:
+                    subprocess.run(
+                        cmd, timeout=1800, cwd=composer_dir,
+                        stdin=subprocess.DEVNULL, stdout=log_file,
+                        stderr=subprocess.STDOUT, check=True,
+                    )
+            else:
+                self.run_command(cmd, timeout=1800, cwd=composer_dir)
         except Exception as e:
             return ToolResult(success=False, error=f"Atelier (bespoke) Remotion render failed: {e}")
 
