@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية) · Script (Episode 1)</title>
+<style>
+:root{
+  --paper:#eceded; --panel:#f5f6f5; --side:#e4e6e3; --ink:#191d21; --ink-2:#5b636a; --ink-3:#8c9298;
+  --rule:#d2d5d0; --rule-2:#c2c6bf; --seal:#8a3324; --seal-2:#c56a4e; --seal-soft:#8a332412; --ok:#3d6b4f;
+  --band:#3d6b4f22;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+.page{max-width:1600px;margin:0 auto;padding:24px 32px 90px}
+h1,h2,h3{margin:0;font-weight:400}
+
+.hd{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.hd h1{font:400 28px/1.1 var(--serif);letter-spacing:.06em}
+.hd .sub{font-size:13px;color:var(--ink-2)}
+.hd .right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.gatepill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--sans);border-radius:99px;padding:6px 12px}
+.gatepill.pass{color:var(--ok);border:1px solid var(--ok)}
+.gatepill.fail{color:var(--seal);border:1px solid var(--seal);background:var(--seal-soft)}
+.expo{font:500 11px/1 var(--sans);color:var(--ink-2);background:var(--panel);
+  border:1px solid var(--rule-2);border-radius:2px;padding:7px 11px;cursor:pointer;transition:.15s}
+.expo:hover{border-color:var(--seal);color:var(--seal)}
+.expo:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:18px 0 6px}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:11px 14px 9px}
+.kpi .l{font:500 10px/1 var(--sans);letter-spacing:.18em;color:var(--ink-3)}
+.kpi .v{font:400 28px/1.15 var(--serif);margin-top:5px}
+.kpi .v small{font:400 14px var(--serif);color:var(--ink-2)}
+.kpi .d{font-size:11px;color:var(--ink-2);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kpi.accent{border-top:2px solid var(--seal)}
+.galert{margin:14px 0 0;border:1px solid var(--seal);background:var(--seal-soft);border-radius:2px;
+  padding:10px 14px;font-size:13px}
+.galert b{color:var(--seal)}
+.galert span{display:block;font-size:12px;color:var(--ink-2)}
+
+section.top-sec{margin-top:34px}
+.sec-h{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule-2);padding-bottom:8px;margin-bottom:16px}
+.sec-h .no{font:500 12px/1 var(--mono);color:var(--seal)}
+.sec-h h2{font:400 20px/1.2 var(--serif);letter-spacing:.05em}
+.sec-h .note{margin-left:auto;font-size:12px;color:var(--ink-3)}
+
+/* duration gauge */
+.timing{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:16px 20px 10px}
+.trow{display:grid;grid-template-columns:44px minmax(0,1fr) 220px;gap:12px;align-items:center;padding:5px 0}
+.tep{font:500 12px/1 var(--mono);color:var(--ink-2)}
+.track{position:relative;height:18px;background:var(--paper);border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.band{position:absolute;top:0;bottom:0;background:var(--band)}
+.fill{position:absolute;top:2px;bottom:2px;border-radius:1px}
+.fill.dlg{left:0;background:var(--seal)}
+.fill.act{background:var(--seal-2)}
+.tval{font:500 12px/1.5 var(--sans);color:var(--ink-2)}
+.tval.okc{color:var(--ok)}
+.tval .over{color:var(--seal);font-weight:600}
+.legend{display:flex;gap:18px;font-size:12px;color:var(--ink-2);margin:8px 0 2px}
+.legend i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px}
+
+/* episode scripts: two per row; scene area clips at 300px with a fade, expandable */
+.eps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.eps.solo{grid-template-columns:minmax(0,1fr)}
+@media(max-width:1100px){.eps{grid-template-columns:minmax(0,1fr)}}
+.ep{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:18px 22px}
+.scenes{position:relative}
+.scenes.clip{max-height:300px;overflow:hidden}
+.scenes.clip::after{content:'';position:absolute;left:0;right:0;bottom:0;height:70px;
+  background:linear-gradient(180deg,transparent,var(--panel));pointer-events:none}
+.scmore{display:block;width:100%;margin-top:8px;font:500 11.5px/1 var(--sans);letter-spacing:.06em;
+  color:var(--ink-2);background:var(--paper);border:1px solid var(--rule-2);border-radius:2px;
+  padding:7px 0;cursor:pointer;transition:.15s}
+.scmore:hover{border-color:var(--seal);color:var(--seal)}
+.scmore:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.ep-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--rule-2);padding-bottom:10px}
+.ep-n{font:400 22px/1 var(--serif);letter-spacing:.04em;color:var(--seal)}
+.ep-est{font-size:12.5px;color:var(--ink-2)}
+.bt{font-style:normal;font-size:11px;padding:2px 8px;border:1px solid var(--seal);border-radius:99px;color:var(--seal)}
+.hk{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px;font-size:13px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.hk.cliff{border-bottom:0;border-top:1px solid var(--rule)}
+.hk b{font:500 11px/1.9 var(--sans);letter-spacing:.14em;color:var(--seal);white-space:nowrap}
+.scene-blk{margin-top:14px}
+.scene-h{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+.scene-h b{font:500 13px var(--serif);letter-spacing:.06em}
+.chip{font:400 10.5px/1.6 var(--mono);border:1px solid var(--rule-2);border-radius:2px;
+  padding:0 6px;background:var(--paper);color:var(--ink-2)}
+.chip.lite{border-color:var(--seal-2);color:var(--seal-2)}
+.chip.prop{border-color:var(--seal);color:var(--seal)}
+.act-line{margin:8px 0;font:400 13.5px/1.9 var(--sans);color:var(--ink-2)}
+.act-line.hooked,.dlg-line.hooked{border-left:2px solid var(--seal);padding-left:10px;background:var(--seal-soft)}
+.hookat{font-style:normal;font-size:11px;padding:1px 8px;border:1px solid var(--seal);border-radius:99px;color:var(--seal);margin-left:8px;white-space:nowrap}
+.dlg-line{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:12px;align-items:baseline;
+  padding:5px 0 5px 10px;border-left:2px solid var(--rule-2)}
+.dlg-line:hover{border-left-color:var(--seal)}
+.who{font:500 13px/1.6 var(--serif)}
+.who i{display:block;font:400 11px var(--sans);color:var(--ink-3);font-style:normal}
+.said{font:400 14.5px/1.8 var(--serif)}
+.dlg-line .copy{opacity:0;transition:.15s}
+.dlg-line:hover .copy{opacity:1}
+
+/* tables */
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--rule);font-size:13px}
+th,td{padding:8px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+th{font:500 11px/1 var(--sans);letter-spacing:.1em;color:var(--ink-3);background:var(--side)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+
+/* line book: two per row; lists capped at 6 rows, scroll vertically */
+.casts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+@media(max-width:1100px){.casts{grid-template-columns:minmax(0,1fr)}}
+.cast-blk{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:14px 18px}
+.cast-h{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule-2);padding-bottom:8px}
+.cast-h b{font:400 17px/1.2 var(--serif);letter-spacing:.04em}
+.cast-meta{font-size:12px;color:var(--ink-2)}
+.cast-h .copy{margin-left:auto}
+.cast-lines{margin:8px 0 0;padding:0 6px 0 0;list-style:none;max-height:186px;overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:var(--rule-2) transparent}
+.cast-lines::-webkit-scrollbar{width:6px}
+.cast-lines::-webkit-scrollbar-thumb{background:var(--rule-2);border-radius:3px}
+.cast-lines li{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:12px;align-items:baseline;
+  padding:4.5px 0;border-top:1px solid var(--rule);font-size:13px}
+.cast-lines li:first-child{border-top:0}
+.cast-lines i{font:400 11px/1.8 var(--mono);color:var(--ink-3);font-style:normal}
+.cast-lines span{font-family:var(--serif)}
+.cast-lines em{font-style:normal;font-size:11.5px;color:var(--ink-3)}
+
+.copy{flex:none;font:500 11px/1 var(--sans);color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-2);border-radius:2px;padding:4px 10px;cursor:pointer;transition:.15s}
+.copy:hover{border-color:var(--seal);color:var(--seal)}
+.copy:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.copy[data-done]{border-color:var(--seal);color:var(--seal)}
+.copy.mini{padding:2px 7px;font-size:10.5px}
+
+.gate{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 28px}
+@media(max-width:900px){.gate{grid-template-columns:1fr}}
+.gate li{display:flex;gap:8px;padding:5px 0;font-size:12.5px;line-height:1.55}
+.gate .m{flex:none;font-weight:700}
+.gate li.ok .m{color:var(--ok)}
+.gate li.bad .m{color:var(--seal)}
+.gate li.bad{background:var(--seal-soft);border-radius:2px;padding-left:6px}
+.gate small{display:block;color:var(--ink-3)}
+.gsum{margin:10px 0 0;font-size:12px;color:var(--ink-2)}
+.gsum b{color:var(--seal)}
+
+.foot{margin-top:40px;font-size:11px;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:14px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{
+  .expo,.copy,.scmore{display:none!important}
+  .scenes.clip{max-height:none}
+  .scenes.clip::after{display:none}
+  .cast-lines{max-height:none;overflow:visible}
+  .eps,.casts{grid-template-columns:minmax(0,1fr)}
+  .page{max-width:none;padding:0}
+  section.top-sec,.ep,.cast-blk{page-break-inside:avoid}
+  body{background:#fff}
+}
+</style></head><body>
+<div class="page">
+
+<header class="hd">
+  <h1>نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية)</h1>
+  <span class="sub">Script · Episode 1</span>
+  <span class="right">
+    <span class="gatepill pass">✓ Quality gates 10 / 10</span>
+    <button class="expo" data-name="نافذة-٢٠٥٠-—-العالم-مستشرف-(سلسلة-أصلية)-script.json">Export JSON</button>
+  </span>
+</header>
+
+<div class="kpis">
+  <div class="kpi accent"><div class="l">Episodes</div><div class="v">1</div><div class="d">4 scenes</div></div>
+  <div class="kpi"><div class="l">Estimated runtime</div><div class="v">0m 53s</div><div class="d">target 1m 0s</div></div>
+  <div class="kpi"><div class="l">Lines</div><div class="v">10 <small>lines</small></div><div class="d">~32.6s of dialogue</div></div>
+  <div class="kpi"><div class="l">Dialogue ratio</div><div class="v">62<small>%</small></div><div class="d">the rest is picture and action</div></div>
+  <div class="kpi"><div class="l">Avg per scene</div><div class="v">13.2 <small>s</small></div><div class="d">scene changes are a statistic, not a gate — AI scene changes are free</div></div>
+</div>
+
+
+<section class="top-sec" id="sec-timing">
+  <div class="sec-h"><span class="no">01</span><h2>Duration gauge</h2><span class="note">green band = target ±15%; dialogue at reading speed, action per beat</span></div>
+  <div class="timing">
+    <div class="legend">
+      <i><span class="sw" style="background:var(--seal)"></span>Dialogue</i>
+      <i><span class="sw" style="background:var(--seal-2)"></span>Action</i>
+      <i><span class="sw" style="background:var(--band)"></span>Target band</i>
+    </div>
+<div class="trow">
+  <span class="tep">E01</span>
+  <div class="track">
+    <span class="band" style="left:68.4%;width:24.2%"></span>
+    <span class="fill dlg" style="width:43.7%"></span>
+    <span class="fill act" style="left:43.7%;width:26.8%"></span>
+  </div>
+  <span class="tval okc">52.6s / 60s</span>
+</div>
+  </div>
+</section>
+
+<section class="top-sec" id="sec-script">
+  <div class="sec-h"><span class="no">02</span><h2>Episode scripts</h2><span class="note"></span></div>
+  <div class="eps solo">
+<article class="ep" id="ep-1">
+  <header class="ep-h">
+    <span class="ep-n">E01</span>
+    <span class="ep-est">est. 52.6s / target 60s</span>
+    <i class="bt">صدمة الافتتاح</i>
+  </header>
+  <div class="hk"><b>Cold open hook</b><span>إذا الجوال بيختفي، وش اللي بيصير في يدك بداله؟ <i class="hookat">lands at scene 1, beat 1</i></span></div>
+  <div class="scenes clip">
+  <section class="scene-blk">
+  <header class="scene-h">
+    <b>Scene 1</b>
+    <span class="chip">S01 معمل المستشرف</span>
+    <span class="chip lite">Lighting · ليل دافئ</span>
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+  </header>
+  <p class="act-line hooked" title="Cold open hook">المستشرف يرمي جوالاً على المكتب الخشبي ويمشي بخطوات ثقيلة نحو الكاميرا.</p>
+<div class="dlg-line"><span class="who">العالم مستشرف<i>صوت أجش بطيء، يطالع المشاهد مباشرة، نبرة تحذير</i></span><span class="said">الجوال اللي في يدك الحين، عمره قصير.</span><button class="copy mini" data-copy="الجوال اللي في يدك الحين، عمره قصير.">Copy</button></div>
+<div class="dlg-line"><span class="who">العالم مستشرف<i>يرفع حاجبه، سر يقوله لأول مرة</i></span><span class="said">أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.</span><button class="copy mini" data-copy="أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.">Copy</button></div>
+<p class="act-line">يمسك طرف الرقعة ويرفعها، فيطلع من عينه ضوء أزرق يملأ المعمل.</p>
+<div class="dlg-line"><span class="who">العالم مستشرف<i>همس غامض، حماس مكتوم</i></span><span class="said">تبي تشوف؟ تعال معي.</span><button class="copy mini" data-copy="تبي تشوف؟ تعال معي.">Copy</button></div>
+</section>
+<section class="scene-blk">
+  <header class="scene-h">
+    <b>Scene 2</b>
+    <span class="chip">S03 بيت المستقبل</span>
+    <span class="chip lite">Lighting · صباح ناعم</span>
+    <span class="chip">شاب الجيل</span>
+    
+  </header>
+  <p class="act-line">شاب الجيل يصحى في بيت المستقبل ويقعد على طرف المجلس.</p>
+<div class="dlg-line"><span class="who">V.O.<i>صوت المستشرف من خارج الكادر، يحكي كأنه شاهد</i></span><span class="said">الساعة سبعة. ومحد صحاه منبه.</span><button class="copy mini" data-copy="الساعة سبعة. ومحد صحاه منبه.">Copy</button></div>
+<p class="act-line">الجدار الأبيض قدامه يتحول لشاشة تعرض جدول يومه.</p>
+<div class="dlg-line"><span class="who">V.O.<i>صوت المستشرف، دهشة خفيفة</i></span><span class="said">الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.</span><button class="copy mini" data-copy="الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.">Copy</button></div>
+<p class="act-line">يلبس نظارة شفافة رفيعة ويبتسم.</p>
+<div class="dlg-line"><span class="who">V.O.<i>صوت المستشرف، يتصاعد الحماس</i></span><span class="said">جواله؟ صار في نظارته، وفي الجدار.</span><button class="copy mini" data-copy="جواله؟ صار في نظارته، وفي الجدار.">Copy</button></div>
+</section>
+<section class="scene-blk">
+  <header class="scene-h">
+    <b>Scene 3</b>
+    <span class="chip">S02 مدينة ٢٠٥٠</span>
+    <span class="chip lite">Lighting · ساعة ذهبية</span>
+    <span class="chip">شاب الجيل</span>
+    
+  </header>
+  <p class="act-line">شاب الجيل يمشي في شارع مدينة ٢٠٥٠، وتاكسي طائر يمر فوق راسه.</p>
+<div class="dlg-line"><span class="who">V.O.<i>صوت المستشرف، إيقاع سريع، ثلاث ضربات</i></span><span class="said">يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.</span><button class="copy mini" data-copy="يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.">Copy</button></div>
+</section>
+<section class="scene-blk">
+  <header class="scene-h">
+    <b>Scene 4</b>
+    <span class="chip">S01 معمل المستشرف</span>
+    <span class="chip lite">Lighting · النافذة مفتوحة</span>
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+  </header>
+  <p class="act-line">المستشرف ينزل الرقعة على عينه، والضوء الأزرق يطفى، ويقرب من الكاميرا.</p>
+<div class="dlg-line"><span class="who">العالم مستشرف<i>جاد جداً، يأشر على المشاهد</i></span><span class="said">اللي يكلم الذكاء الاصطناعي من اليوم،</span><button class="copy mini" data-copy="اللي يكلم الذكاء الاصطناعي من اليوم،">Copy</button></div>
+<div class="dlg-line"><span class="who">العالم مستشرف<i>حكمة ثقيلة، وقفة قبل والباقي</i></span><span class="said">هو اللي بيقود بكرة. والباقي بيتبعون.</span><button class="copy mini" data-copy="هو اللي بيقود بكرة. والباقي بيتبعون.">Copy</button></div>
+<p class="act-line">يلتفت للنافذة الدائرية اللي تومض بالأزرق لحظة.</p>
+<div class="dlg-line"><span class="who">العالم مستشرف<i>نص ابتسامة، صوت منخفض كأنه يفشي سر</i></span><span class="said">وبالمناسبة، نسختي الثانية شغالة الحين.</span><button class="copy mini" data-copy="وبالمناسبة، نسختي الثانية شغالة الحين.">Copy</button></div>
+</section>
+  </div>
+  <button class="scmore">▾ Show all scenes</button>
+  <div class="hk cliff"><b>Cliffhanger</b><span>المستشرف يلمّح إن عنده نسخة ثانية منه تشتغل الحين في مكان ثاني</span></div>
+</article>
+  </div>
+</section>
+
+<section class="top-sec" id="sec-scenes">
+  <div class="sec-h"><span class="no">03</span><h2>Scene table</h2><span class="note">computed, never hand-written</span></div>
+  <table><thead><tr><th>Ep</th><th>Scene</th><th>Setting</th><th>Lighting</th><th>Cast</th><th>Lines</th><th>Est. sec</th></tr></thead>
+<tbody><tr><td>1</td><td>1</td><td>S01 معمل المستشرف</td><td>ليل دافئ</td><td>العالم مستشرف</td><td>3</td><td>13.3</td></tr>
+<tr><td>1</td><td>2</td><td>S03 بيت المستقبل</td><td>صباح ناعم</td><td>شاب الجيل</td><td>3</td><td>17.2</td></tr>
+<tr><td>1</td><td>3</td><td>S02 مدينة ٢٠٥٠</td><td>ساعة ذهبية</td><td>شاب الجيل</td><td>1</td><td>6.4</td></tr>
+<tr><td>1</td><td>4</td><td>S01 معمل المستشرف</td><td>النافذة مفتوحة</td><td>العالم مستشرف</td><td>3</td><td>15.7</td></tr></tbody></table>
+</section>
+
+<section class="top-sec" id="sec-cast">
+  <div class="sec-h"><span class="no">04</span><h2>Line book</h2><span class="note">grouped by character · lists show 6 rows and scroll · feeds straight into batch TTS</span></div>
+  <div class="casts">
+<section class="cast-blk">
+  <header class="cast-h">
+    <b>العالم مستشرف</b>
+    <span class="cast-meta">6 lines · 171 chars · ~19s</span>
+    <button class="copy" data-copy="An elderly Arab man around seventy speaking Gulf Saudi Arabic. Deep, booming, gravelly bass voice with a rough raspy texture and strong chest resonance, the weathered voice of an old wise scientist. Slow, deliberate pacing with weighty pauses before key words, mysterious and wise, with restrained excitement when revealing the future. Clear articulation, close-mic studio quality.">Voice prompt</button>
+    <button class="copy" data-copy="الجوال اللي في يدك الحين، عمره قصير.
+أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.
+تبي تشوف؟ تعال معي.
+اللي يكلم الذكاء الاصطناعي من اليوم،
+هو اللي بيقود بكرة. والباقي بيتبعون.
+وبالمناسبة، نسختي الثانية شغالة الحين.">Copy all lines</button>
+  </header>
+  <ol class="cast-lines"><li><i>E01 scene 1</i><span>الجوال اللي في يدك الحين، عمره قصير.</span><em>صوت أجش بطيء، يطالع المشاهد مباشرة، نبرة تحذير</em></li><li><i>E01 scene 1</i><span>أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.</span><em>يرفع حاجبه، سر يقوله لأول مرة</em></li><li><i>E01 scene 1</i><span>تبي تشوف؟ تعال معي.</span><em>همس غامض، حماس مكتوم</em></li><li><i>E01 scene 4</i><span>اللي يكلم الذكاء الاصطناعي من اليوم،</span><em>جاد جداً، يأشر على المشاهد</em></li><li><i>E01 scene 4</i><span>هو اللي بيقود بكرة. والباقي بيتبعون.</span><em>حكمة ثقيلة، وقفة قبل والباقي</em></li><li><i>E01 scene 4</i><span>وبالمناسبة، نسختي الثانية شغالة الحين.</span><em>نص ابتسامة، صوت منخفض كأنه يفشي سر</em></li></ol>
+</section>
+<section class="cast-blk">
+  <header class="cast-h">
+    <b>V.O.</b>
+    <span class="cast-meta">4 lines · 122 chars · ~13.6s</span>
+    
+    <button class="copy" data-copy="الساعة سبعة. ومحد صحاه منبه.
+الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.
+جواله؟ صار في نظارته، وفي الجدار.
+يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.">Copy all lines</button>
+  </header>
+  <ol class="cast-lines"><li><i>E01 scene 2</i><span>الساعة سبعة. ومحد صحاه منبه.</span><em>صوت المستشرف من خارج الكادر، يحكي كأنه شاهد</em></li><li><i>E01 scene 2</i><span>الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.</span><em>صوت المستشرف، دهشة خفيفة</em></li><li><i>E01 scene 2</i><span>جواله؟ صار في نظارته، وفي الجدار.</span><em>صوت المستشرف، يتصاعد الحماس</em></li><li><i>E01 scene 3</i><span>يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.</span><em>صوت المستشرف، إيقاع سريع، ثلاث ضربات</em></li></ol>
+</section>
+  </div>
+</section>
+
+<section class="top-sec" id="sec-gates">
+  <div class="sec-h"><span class="no">05</span><h2>Quality gates</h2></div>
+  <ul class="gate">
+  <li class="ok"><span class="m">✓</span><span>Episode duration within ±15% of target</span></li>
+  <li class="ok"><span class="m">✓</span><span>Every line ≤ 35 characters</span></li>
+  <li class="ok"><span class="m">✓</span><span>Speaker is in the scene cast, or explicitly marked V.O.</span></li>
+  <li class="ok"><span class="m">✓</span><span>Hook and cliffhanger on paper for every episode</span></li>
+  <li class="ok"><span class="m">✓</span><span>The hook's concrete image lands within the first 3 beats (claimed by hookBeat)</span></li>
+  <li class="ok"><span class="m">✓</span><span>At least one action beat per scene — a dialogue-only scene is radio drama</span></li>
+  <li class="ok"><span class="m">✓</span><span>Action in narrative prose; dialogue only in dialogue entries</span></li>
+  <li class="ok"><span class="m">✓</span><span>Outline beats claimed per episode</span></li>
+  <li class="ok"><span class="m">✓</span><span>Character references audited against the outline</span></li>
+  <li class="ok"><span class="m">✓</span><span>Scenes / lighting / props audited against the art bible</span></li>
+</ul>
+  <p class="gsum">All passed</p>
+</section>
+
+<p class="foot">Script written by the model against the outline and art bible; durations and references checked deterministically by script. Storyboarding and first-frame prompts belong to the next layer, not this report.</p>
+</div>
+
+<script type="application/json" id="script-data">{"source":"نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية)","episodes":[{"ep":1,"targetSeconds":60,"hook":"إذا الجوال بيختفي، وش اللي بيصير في يدك بداله؟","cliff":"المستشرف يلمّح إن عنده نسخة ثانية منه تشتغل الحين في مكان ثاني","beatsClaimed":["صدمة الافتتاح"],"scenes":[{"sceneId":"S01","lighting":"ليل دافئ","characters":["C01"],"props":["P01"],"flow":[{"action":"المستشرف يرمي جوالاً على المكتب الخشبي ويمشي بخطوات ثقيلة نحو الكاميرا."},{"speaker":"C01","line":"الجوال اللي في يدك الحين، عمره قصير.","delivery":"صوت أجش بطيء، يطالع المشاهد مباشرة، نبرة تحذير"},{"speaker":"C01","line":"أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.","delivery":"يرفع حاجبه، سر يقوله لأول مرة"},{"action":"يمسك طرف الرقعة ويرفعها، فيطلع من عينه ضوء أزرق يملأ المعمل."},{"speaker":"C01","line":"تبي تشوف؟ تعال معي.","delivery":"همس غامض، حماس مكتوم"}]},{"sceneId":"S03","lighting":"صباح ناعم","characters":["C02"],"flow":[{"action":"شاب الجيل يصحى في بيت المستقبل ويقعد على طرف المجلس."},{"speaker":"VO","line":"الساعة سبعة. ومحد صحاه منبه.","delivery":"صوت المستشرف من خارج الكادر، يحكي كأنه شاهد"},{"action":"الجدار الأبيض قدامه يتحول لشاشة تعرض جدول يومه."},{"speaker":"VO","line":"الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.","delivery":"صوت المستشرف، دهشة خفيفة"},{"action":"يلبس نظارة شفافة رفيعة ويبتسم."},{"speaker":"VO","line":"جواله؟ صار في نظارته، وفي الجدار.","delivery":"صوت المستشرف، يتصاعد الحماس"}]},{"sceneId":"S02","lighting":"ساعة ذهبية","characters":["C02"],"flow":[{"action":"شاب الجيل يمشي في شارع مدينة ٢٠٥٠، وتاكسي طائر يمر فوق راسه."},{"speaker":"VO","line":"يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.","delivery":"صوت المستشرف، إيقاع سريع، ثلاث ضربات"}]},{"sceneId":"S01","lighting":"النافذة مفتوحة","characters":["C01"],"props":["P01"],"flow":[{"action":"المستشرف ينزل الرقعة على عينه، والضوء الأزرق يطفى، ويقرب من الكاميرا."},{"speaker":"C01","line":"اللي يكلم الذكاء الاصطناعي من اليوم،","delivery":"جاد جداً، يأشر على المشاهد"},{"speaker":"C01","line":"هو اللي بيقود بكرة. والباقي بيتبعون.","delivery":"حكمة ثقيلة، وقفة قبل والباقي"},{"action":"يلتفت للنافذة الدائرية اللي تومض بالأزرق لحظة."},{"speaker":"C01","line":"وبالمناسبة، نسختي الثانية شغالة الحين.","delivery":"نص ابتسامة، صوت منخفض كأنه يفشي سر"}]}],"hookBeat":[1,1]}],"params":{"charsPerSecond":9,"actionSeconds":2.5,"tolerance":0.15,"maxLineChars":35},"lang":"en"}</script>
+<script>
+const L = {"copied":"Copied","failed":"Copy failed","show":"▾ Show all scenes","hide":"▴ Collapse scenes"};
+
+// episode scripts: scene areas clip at 300px; short ones unclip, tall ones toggle
+document.querySelectorAll('.scmore').forEach((btn) => {
+  const zone = btn.previousElementSibling;
+  if (zone.scrollHeight <= 320) {
+    zone.classList.remove('clip');
+    btn.remove();
+    return;
+  }
+  btn.addEventListener('click', () => {
+    const clipped = zone.classList.toggle('clip');
+    btn.textContent = clipped ? L.show : L.hide;
+    if (clipped) zone.closest('.ep').scrollIntoView({ block: 'nearest' });
+  });
+});
+
+// copy buttons (a single line / a character's whole line book)
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('.copy');
+  if (!btn) return;
+  e.preventDefault();
+  const label = btn.textContent;
+  try {
+    await navigator.clipboard.writeText(btn.dataset.copy);
+    btn.textContent = L.copied;
+    btn.dataset.done = '1';
+  } catch {
+    btn.textContent = L.failed;
+  }
+  setTimeout(() => { btn.textContent = label; delete btn.dataset.done; }, 1600);
+});
+
+// export: the report carries the full script.json; the download is it verbatim
+document.querySelector('.expo').addEventListener('click', (e) => {
+  const btn = e.currentTarget;
+  const url = URL.createObjectURL(
+    new Blob([document.getElementById('script-data').textContent], { type: 'application/json' }),
+  );
+  const a = Object.assign(document.createElement('a'), { href: url, download: btn.dataset.name });
+  a.click();
+  // don't revoke right away — Safari kills the blob before the download finishes reading it
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+});
+</script>
+</body></html>

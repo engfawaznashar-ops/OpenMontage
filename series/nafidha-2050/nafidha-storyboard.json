@@ -1,0 +1,391 @@
+{
+  "source": "نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية)",
+  "aspectRatio": "9:16",
+  "episodes": [
+    {
+      "ep": 1,
+      "segments": [
+        {
+          "id": "E01-01",
+          "sceneIndex": 1,
+          "blocking": "开场：العالم مستشرف 站在画面中后景的书桌后方，面朝镜头，距镜头约四步；圆形铜框窗在他身后正中，黑板在画面左侧，书架在右侧。",
+          "soundscape": "老旧实验室的低频电流嗡鸣，爱迪生灯泡轻微滋滋声，手机砸在木桌上的闷响，沉重皮靴脚步声，掀起眼罩时一声电光嗡响。",
+          "music": "低沉合成器长音铺底，慢速心跳般的定音鼓，掀眼罩处一记上扬的电子音。",
+          "cuts": [
+            {
+              "beats": [
+                1,
+                1
+              ],
+              "seconds": 3,
+              "size": "wide",
+              "camera": "Static Shot",
+              "characters": [
+                "C01"
+              ],
+              "props": [
+                "P01"
+              ],
+              "frame": "全景，竖构图。العالم مستشرف 在昏暗暖黄的实验室里，刚把一部手机扔到木书桌上，身体前倾正迈步走向镜头；身后正中是圆形铜框窗，左侧黑板写满粉笔城市草图，右侧书架，天花板垂下电缆和爱迪生灯泡。",
+              "shot": "固定镜头。一名年迈光头、蓄浓黑八字胡、左眼戴黑眼罩的阿拉伯科学家把一部手机扔到木桌上，随后迈着沉重的步子朝镜头走近两步，目光直视镜头。",
+              "lens": "28mm 广角，中景深",
+              "cameraPosition": "العالم مستشرف + 平视正面，略低机位",
+              "composition": "中心构图",
+              "eyeline": "直视镜头",
+              "focus": "锁定 العالم مستشرف 全身",
+              "stability": "stable"
+            },
+            {
+              "beats": [
+                2,
+                2
+              ],
+              "seconds": 3.5,
+              "size": "close",
+              "camera": "Push In",
+              "characters": [
+                "C01"
+              ],
+              "props": [
+                "P01"
+              ],
+              "frame": "特写，竖构图。العالم مستشرف 的脸和肩膀占满画面上半部，眉头紧锁，嘴巴张开正在说话，左眼黑眼罩和额头红色缝线疤痕清晰；背景是虚化的暖黄灯泡。",
+              "shot": "镜头小幅缓推向科学家的脸，他眉头紧锁、嘴唇开合，低沉地警告观众。",
+              "lens": "50mm 标准，浅景深",
+              "cameraPosition": "العالم مستشرف + 平视正面",
+              "composition": "中心构图",
+              "eyeline": "直视镜头",
+              "focus": "锁定 العالم مستشرف 面部",
+              "stability": "stable"
+            },
+            {
+              "beats": [
+                3,
+                3
+              ],
+              "seconds": 3.5,
+              "size": "close",
+              "camera": "Static Shot",
+              "characters": [
+                "C01"
+              ],
+              "props": [
+                "P01"
+              ],
+              "frame": "特写，竖构图，略侧四分之三角度。العالم مستشرف 抬起一侧浓眉，嘴巴张开说话，神情神秘，像在透露一个秘密；身后圆形窗的玻璃泛起淡淡蓝光。",
+              "shot": "固定镜头。科学家抬起一侧眉毛，身体微微前倾，像透露秘密一样压低声音说话。",
+              "lens": "50mm 标准，浅景深",
+              "cameraPosition": "العالم مستشرف + 平视四分之三侧",
+              "composition": "三分法",
+              "eyeline": "直视镜头",
+              "focus": "锁定 العالم مستشرف 面部",
+              "stability": "stable"
+            },
+            {
+              "beats": [
+                4,
+                4
+              ],
+              "seconds": 2.5,
+              "size": "extreme-close",
+              "camera": "Push In",
+              "characters": [
+                "C01"
+              ],
+              "props": [
+                "P01"
+              ],
+              "frame": "大特写，竖构图。العالم مستشرف 用手指掀起左眼的黑皮眼罩，眼罩下射出强烈的青蓝色光芒，光线照亮他的胡子和额头疤痕，暖黄背景被蓝光冲开。",
+              "shot": "镜头快速推向眼罩，科学家用手掀起黑色眼罩，一道强烈的青蓝色光芒从眼中射出，照亮整个房间。",
+              "lens": "85mm 长焦，极浅景深",
+              "cameraPosition": "العالم مستشرف + 平视正面",
+              "composition": "中心构图",
+              "eyeline": "直视镜头",
+              "focus": "锁定眼罩与蓝光",
+              "stability": "slight-shake",
+              "sfx": "电光爆响",
+              "lighting": "青蓝色强光从眼罩下射出"
+            },
+            {
+              "beats": [
+                5,
+                5
+              ],
+              "seconds": 2.5,
+              "size": "close",
+              "camera": "Static Shot",
+              "characters": [
+                "C01"
+              ],
+              "props": [
+                "P01"
+              ],
+              "frame": "特写，竖构图。العالم مستشرف 半张脸被青蓝色光照亮，眼罩翻起，嘴角带一丝笑，嘴巴微张正在低声邀请；房间暖黄与青蓝交织，空气中有光尘。",
+              "shot": "固定镜头。科学家在蓝光中嘴角微扬，压低声音邀请观众跟他走。",
+              "lens": "50mm 标准，浅景深",
+              "cameraPosition": "العالم مستشرف + 平视正面",
+              "composition": "中心构图",
+              "eyeline": "直视镜头",
+              "focus": "锁定 العالم مستشرف 面部",
+              "stability": "stable",
+              "lighting": "青蓝光与暖黄光交织"
+            }
+          ],
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 6.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 10.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 12.50-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a static shot in a dim warm-amber old laboratory: an elderly bald Arab scientist with a thick black horseshoe mustache and a black patch over his left eye tosses a phone onto a heavy wooden desk, then walks two heavy steps toward the camera, staring straight into the lens.\n[Shot 2] At 00:03.000, the camera cuts to <Picture 2>: a slow push in toward the scientist's stern face; his heavy brows knit, his lips move as he warns the viewer in a low voice. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: <d>[Arabic] الجوال اللي في يدك الحين، عمره قصير.</d>\n[Shot 3] At 00:06.500, the camera cuts to <Picture 3>: a static shot as the scientist raises one bushy eyebrow and leans slightly forward, speaking like he is revealing a secret; the round window behind him glows faintly cyan. (S1) says: <d>[Arabic] أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.</d>\n[Shot 4] At 00:10.000, the camera cuts to <Picture 4>: a fast push in on the eye patch as the scientist lifts it with his fingers; an intense cyan beam of light bursts out from beneath it and floods the room.\n[Shot 5] At 00:12.500, the camera cuts to <Picture 5>: a static shot: bathed in cyan light, the scientist gives a faint smile and whispers an invitation to the viewer. (S1) says: <d>[Arabic] تبي تشوف؟ تعال معي.</d>\n\noverall_soundscape: A low electrical hum of an old laboratory and faint buzzing of Edison bulbs; a phone thuds onto a wooden desk, heavy leather boot steps on wooden floor, and a sharp electric whoosh with a rising hum when the eye patch is lifted.\n\nnon_diegetic_music: A deep synth drone with a slow heartbeat-like timpani pulse, ending in a rising electronic swell on the reveal."
+        },
+        {
+          "id": "E01-02",
+          "sceneIndex": 2,
+          "blocking": "开场：شاب الجيل 躺在画面下方的地面坐垫上刚坐起，面朝画面右侧的白色墙面，距墙约三步；全景窗在画面背景，棕榈盆栽在左侧角落。",
+          "soundscape": "清晨安静的室内，远处城市低鸣，墙面亮起时柔和的电子提示音，眼镜戴上时轻微的咔嗒声。",
+          "music": "明亮轻快的合成器琶音，中速，带一点好奇感。",
+          "cuts": [
+            {
+              "beats": [
+                1,
+                2
+              ],
+              "seconds": 4.5,
+              "size": "wide",
+              "camera": "Static Shot",
+              "characters": [
+                "C02"
+              ],
+              "frame": "全景，竖构图。شاب الجيل 在未来客厅的地面坐垫上刚醒来坐起，伸着懒腰；柔和晨光从全景窗照进来，窗外是沙丘形状的玻璃塔楼，左下角有棕榈盆栽。",
+              "shot": "固定镜头。一名穿白色现代长袍的年轻沙特男子在客厅的地面坐垫上醒来，缓慢坐起并伸了个懒腰。",
+              "lens": "24mm 广角，深景深",
+              "cameraPosition": "شاب الجيل + 平视侧前方",
+              "composition": "三分法",
+              "eyeline": "望向窗外",
+              "focus": "锁定 شاب الجيل 上半身",
+              "stability": "stable"
+            },
+            {
+              "beats": [
+                3,
+                4
+              ],
+              "seconds": 4.5,
+              "size": "medium",
+              "camera": "Push In",
+              "characters": [
+                "C02"
+              ],
+              "frame": "中景，竖构图，过肩视角。شاب الجيل 坐着望向前方白色墙面，墙面正在变成一块巨大的屏幕，浮现半透明的青色日程界面和天气图标。",
+              "shot": "镜头小幅缓推越过年轻男子的肩膀，他面前的白墙逐渐亮起，变成显示他一天日程的半透明青色屏幕。",
+              "lens": "35mm，中景深",
+              "cameraPosition": "شاب الجيل 背后过肩 + 平视",
+              "composition": "对角线",
+              "eyeline": "墙面屏幕",
+              "focus": "锁定墙面屏幕",
+              "stability": "stable"
+            },
+            {
+              "beats": [
+                5,
+                6
+              ],
+              "seconds": 4.5,
+              "size": "close",
+              "camera": "Static Shot",
+              "characters": [
+                "C02"
+              ],
+              "frame": "特写，竖构图。شاب الجيل 戴上一副纤细透明的智能眼镜，镜片上闪着小小的青色界面光点，他露出微笑。",
+              "shot": "固定镜头。年轻男子戴上一副纤细透明的智能眼镜，镜片闪起青色光点，他满意地微笑。",
+              "lens": "50mm 标准，浅景深",
+              "cameraPosition": "شاب الجيل + 平视正面",
+              "composition": "中心构图",
+              "eyeline": "镜片中的界面",
+              "focus": "锁定 شاب الجيل 面部与眼镜",
+              "stability": "stable"
+            }
+          ],
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 4.50-second mark of the target video; Picture 3 (from Shot 3) aligns with the 9.00-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a static shot of a bright futuristic living room at morning: a young Saudi man in a modern white thobe wakes up on a floor cushion, slowly sits up and stretches. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] الساعة سبعة. ومحد صحاه منبه.</d>\n[Shot 2] At 00:04.500, the camera cuts to <Picture 2>: a slow push in over the young man's shoulder as the plain white wall in front of him lights up and turns into a translucent cyan screen showing his daily schedule. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.</d>\n[Shot 3] At 00:09.000, the camera cuts to <Picture 3>: a static shot: the young man puts on thin transparent smart glasses; small cyan interface glints appear on the lenses and he smiles. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] جواله؟ صار في نظارته، وفي الجدار.</d>\n\noverall_soundscape: A quiet futuristic morning interior with a distant soft city hum; a gentle electronic chime as the wall lights up, and a light click as the smart glasses are put on.\n\nnon_diegetic_music: Bright, airy synth arpeggios at a medium tempo with a sense of wonder."
+        },
+        {
+          "id": "E01-03",
+          "sceneIndex": 3,
+          "blocking": "开场：شاب الجيل 走在画面中下方的人行道中央，朝镜头方向行走；沙丘形塔楼排列在两侧，空中光道在画面上方。",
+          "soundscape": "未来街道的环境声，飞行出租舱从头顶掠过的呼啸，全息招牌确认时清脆的提示音，轻快脚步声。",
+          "music": "合成器琶音加入轻打击乐，节奏推进，充满惊奇感。",
+          "cuts": [
+            {
+              "beats": [
+                1,
+                1
+              ],
+              "seconds": 3.5,
+              "size": "extreme-wide",
+              "camera": "Tracking Shot",
+              "characters": [
+                "C02"
+              ],
+              "frame": "大远景，竖构图，低机位。شاب الجيل 走在2050年未来沙特城市的宽阔街道上，两侧是沙丘形的金色玻璃塔楼和垂直花园，一辆白色飞行出租舱从他头顶的蓝色光道掠过，黄金时刻阳光。",
+              "shot": "跟拍镜头向后移动，穿白色长袍的年轻男子沿着未来城市的街道走来，一辆白色飞行出租舱从他头顶掠过。",
+              "lens": "24mm 广角，深景深",
+              "cameraPosition": "شاب الجيل + 低机位仰视",
+              "composition": "对称",
+              "eyeline": "抬头看飞行舱",
+              "focus": "锁定 شاب الجيل 全身",
+              "stability": "stable"
+            },
+            {
+              "beats": [
+                2,
+                2
+              ],
+              "seconds": 4.5,
+              "size": "medium",
+              "camera": "Push In",
+              "characters": [
+                "C02"
+              ],
+              "frame": "中景，竖构图。شاب الجيل 站在一块半透明的全息招牌前，眼镜闪着青光，他只是看了招牌一眼，招牌就亮起绿色的确认光环；背景一辆白色飞行出租舱正在降落。",
+              "shot": "镜头小幅缓推，年轻男子看向全息招牌，招牌随即亮起确认光环，他身后一辆白色飞行出租舱缓缓降落。",
+              "lens": "35mm，中景深",
+              "cameraPosition": "شاب الجيل + 平视侧前方",
+              "composition": "三分法",
+              "eyeline": "全息招牌",
+              "focus": "锁定 شاب الجيل 与招牌",
+              "stability": "stable"
+            }
+          ],
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.50-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a tracking shot moving backward as the young man in a white thobe walks down a golden-hour futuristic Saudi street of dune-shaped towers; a white flying taxi pod sweeps overhead along a glowing sky-lane.\n[Shot 2] At 00:03.500, the camera cuts to <Picture 2>: a slow push in as the young man glances at a translucent holographic sign; it instantly glows with a confirmation ring, while a white flying taxi pod gently lands behind him. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.</d>\n\noverall_soundscape: Ambient sounds of a futuristic street; a flying taxi pod whooshes overhead, a crisp confirmation chime from a holographic sign, light footsteps.\n\nnon_diegetic_music: Synth arpeggios joined by light percussion, building momentum and wonder."
+        },
+        {
+          "id": "E01-04",
+          "sceneIndex": 4,
+          "blocking": "开场：العالم مستشرف 站在画面中央，圆形窗在他身后发着青蓝光，他面朝镜头，距镜头约两步，随后靠近到一步。",
+          "soundscape": "蓝光熄灭时的电流衰减声，实验室嗡鸣回归，皮靴向前一步，圆形窗短促闪烁的电子嗡声。",
+          "music": "低沉合成器长音回归，台词结尾处一记神秘的低音提琴拨弦，最后留白。",
+          "cuts": [
+            {
+              "beats": [
+                1,
+                1
+              ],
+              "seconds": 2,
+              "size": "close",
+              "camera": "Push In",
+              "characters": [
+                "C01"
+              ],
+              "props": [
+                "P01"
+              ],
+              "frame": "特写，竖构图。العالم مستشرف 把黑眼罩放回左眼上，青蓝光正在熄灭，暖黄灯光重新照亮他的脸，他向镜头迈近一步。",
+              "shot": "镜头缓推，科学家把眼罩放回眼睛上，蓝光熄灭，他向镜头靠近一步。",
+              "lens": "50mm 标准，浅景深",
+              "cameraPosition": "العالم مستشرف + 平视正面",
+              "composition": "中心构图",
+              "eyeline": "直视镜头",
+              "focus": "锁定 العالم مستشرف 面部",
+              "stability": "stable"
+            },
+            {
+              "beats": [
+                2,
+                2
+              ],
+              "seconds": 3.5,
+              "size": "medium",
+              "camera": "Static Shot",
+              "characters": [
+                "C01"
+              ],
+              "props": [
+                "P01"
+              ],
+              "frame": "中景，竖构图。العالم مستشرف 神情严肃，一只手伸出食指指向镜头，嘴巴张开说话；身后圆形铜框窗与黑板在暖黄灯光中。",
+              "shot": "固定镜头。科学家神情严肃，伸出食指指向镜头，郑重地说话。",
+              "lens": "35mm，中景深",
+              "cameraPosition": "العالم مستشرف + 平视正面",
+              "composition": "中心构图",
+              "eyeline": "直视镜头",
+              "focus": "锁定 العالم مستشرف 上半身与手指",
+              "stability": "stable"
+            },
+            {
+              "beats": [
+                3,
+                3
+              ],
+              "seconds": 3.5,
+              "size": "extreme-close",
+              "camera": "Push In",
+              "characters": [
+                "C01"
+              ],
+              "props": [
+                "P01"
+              ],
+              "frame": "大特写，竖构图。العالم مستشرف 的脸部占满画面，黑眼罩、浓眉、额头红色缝线疤痕、浓黑八字胡清晰，独眼坚定地盯着镜头，嘴巴张开说话。",
+              "shot": "镜头极缓推向科学家的脸，他独眼坚定地盯着观众，缓慢而有分量地说话。",
+              "lens": "85mm 长焦，极浅景深",
+              "cameraPosition": "العالم مستشرف + 平视正面",
+              "composition": "中心构图",
+              "eyeline": "直视镜头",
+              "focus": "锁定 العالم مستشرف 眼睛",
+              "stability": "stable"
+            },
+            {
+              "beats": [
+                4,
+                4
+              ],
+              "seconds": 2,
+              "size": "medium",
+              "camera": "Static Shot",
+              "characters": [
+                "C01"
+              ],
+              "frame": "中景，竖构图，过肩视角。العالم مستشرف 转头看向身后的圆形铜框窗，窗玻璃短暂闪起青蓝光。",
+              "shot": "固定镜头。科学家转头看向身后的圆形窗，窗玻璃短暂闪起青蓝色光。",
+              "lens": "35mm，中景深",
+              "cameraPosition": "العالم مستشرف 背后过肩 + 平视",
+              "composition": "三分法",
+              "eyeline": "圆形窗",
+              "focus": "锁定圆形窗",
+              "stability": "stable",
+              "lighting": "窗玻璃短暂闪起青蓝光"
+            },
+            {
+              "beats": [
+                5,
+                5
+              ],
+              "seconds": 4,
+              "size": "close",
+              "camera": "Push In",
+              "characters": [
+                "C01"
+              ],
+              "props": [
+                "P01"
+              ],
+              "frame": "特写，竖构图。العالم مستشرف 回头看向镜头，嘴角挂着半个神秘的微笑，嘴巴微张低声说话；背后圆形窗残留一点蓝光。",
+              "shot": "镜头缓推，科学家回头望向镜头，嘴角挂起半个神秘的微笑，压低声音像在泄露秘密。",
+              "lens": "50mm 标准，浅景深",
+              "cameraPosition": "العالم مستشرف + 平视四分之三侧",
+              "composition": "三分法",
+              "eyeline": "直视镜头",
+              "focus": "锁定 العالم مستشرف 面部",
+              "stability": "stable"
+            }
+          ],
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 5.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 9.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 11.00-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a slow push in as the scientist lowers the eye patch back over his eye; the cyan glow fades and he steps closer to the camera.\n[Shot 2] At 00:02.000, the camera cuts to <Picture 2>: a static shot: the scientist, very serious, points his index finger straight at the camera as he speaks. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: <d>[Arabic] اللي يكلم الذكاء الاصطناعي من اليوم،</d>\n[Shot 3] At 00:05.500, the camera cuts to <Picture 3>: a very slow push in to an extreme close-up of the scientist's face; his single eye locks onto the viewer as he speaks slowly and with weight. (S1) says: <d>[Arabic] هو اللي بيقود بكرة. والباقي بيتبعون.</d>\n[Shot 4] At 00:09.000, the camera cuts to <Picture 4>: a static shot over his shoulder: the scientist turns his head toward the round brass window behind him as its glass briefly flashes cyan.\n[Shot 5] At 00:11.000, the camera cuts to <Picture 5>: a slow push in as the scientist turns back to the camera with a mysterious half smile, lowering his voice as if leaking a secret. (S1) says: <d>[Arabic] وبالمناسبة، نسختي الثانية شغالة الحين.</d>\n\noverall_soundscape: An electric power-down hum as the cyan light fades, the laboratory hum returns, one boot step forward, and a short electronic flicker buzz from the round window.\n\nnon_diegetic_music: The deep synth drone returns, with a mysterious low pizzicato on the final line, then a beat of silence."
+        }
+      ]
+    }
+  ],
+  "promptLang": "en",
+  "lang": "en",
+  "params": {
+    "maxSegmentSeconds": 15,
+    "minCutSeconds": 2,
+    "maxCutSeconds": 5,
+    "maxOnScreen": 3,
+    "tolerance": 0.15
+  }
+}

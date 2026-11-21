@@ -1,0 +1,501 @@
+{
+  "source": "نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية)",
+  "scenes": [
+    {
+      "id": "S01",
+      "name": "معمل المستشرف",
+      "primary": true,
+      "summary": "مخبأ عالم عجوز يحرس أسرار المستقبل: مكان قديم دافئ مليء بالكتب والأجهزة النحاسية، وفي وسطه نافذة دائرية مطفأة هي بوابة ٢٠٥٠. التباين بين القديم (الخشب والنحاس) والضوء الأزرق المستقبلي هو هوية السلسلة.",
+      "anchors": [
+        {
+          "name": "النافذة الدائرية",
+          "desc": "إطار نحاسي دائري كبير على الجدار الخلفي، زجاجه داكن ويتوهج أزرق لما تنفتح"
+        },
+        {
+          "name": "سبورة المعادلات",
+          "desc": "سبورة خضراء قديمة يسار الكادر مليانة رسومات مدن ومعادلات بالطباشير"
+        },
+        {
+          "name": "مكتب النحاس",
+          "desc": "مكتب خشبي ثقيل عليه كرة أرضية نحاسية ومصباح أخضر"
+        },
+        {
+          "name": "رفوف الكتب",
+          "desc": "رفوف خشب عالية مليانة كتب وملفات وقوارير زجاجية تتوهج"
+        },
+        {
+          "name": "الكابلات المعلقة",
+          "desc": "كابلات سوداء وأسلاك تتدلى من السقف بين لمبات أديسون"
+        }
+      ],
+      "lighting": [
+        {
+          "state": "ليل دافئ",
+          "prompt": "night interior, warm amber tungsten light from Edison bulbs and a green desk lamp, deep shadows, dust motes"
+        },
+        {
+          "state": "النافذة مفتوحة",
+          "prompt": "the circular window glowing intense electric cyan, cyan rim light flooding the room against warm amber practicals, volumetric haze"
+        }
+      ],
+      "image": {
+        "prompt": "Empty old scientist's study-laboratory at night, no people. A large round brass-framed window dominates the back wall, its dark glass faintly glowing cyan. Left: an old green chalkboard covered in chalk sketches of futuristic cities and equations. Center: a heavy worn wooden desk with a brass globe and a green banker's lamp. Tall wooden shelves of books, folders and softly glowing glass flasks. Black cables and Edison bulbs hanging from the ceiling. Warm amber light, deep shadows, dust in the air. Weathered, lived-in materials: chipped paint, water stains, patina on metal, worn wood grain, dust in corners and light shafts; fabric and paper props show creases and age; nothing looks factory-new. Atmospheric depth with haze or volumetric light where the space allows",
+        "negativePrompt": "people, human figures, characters, crowds, silhouettes of people, oversaturated colours, sterile showroom cleanliness, warped perspective, melted geometry, floating objects, text, watermark, signature",
+        "sheet": "16:9 landscape environment sheet. Large master view in the top-left (about 72% width x 70% height): the empty laboratory at night, round brass window on the back wall, chalkboard left, wooden desk center, shelves right, cables and Edison bulbs hanging from the ceiling, warm amber light with a faint cyan glow from the window. An L-shaped border of detail panels along the right column (2 panels) and bottom row (3 panels), separated by thin lines; every detail panel is a cropped close-up of the master view showing the consistency anchors and key materials, nothing invented that is not present in the master view. THE SPACE MUST BE IDENTICAL ACROSS ALL PANELS. Absolutely no people anywhere. Weathered, lived-in materials: chipped paint, water stains, patina on metal, worn wood grain, dust in corners and light shafts; fabric and paper props show creases and age; nothing looks factory-new. Atmospheric depth with haze or volumetric light where the space allows.",
+        "tags": [
+          "environment sheet",
+          "weathered materials",
+          "cinematic",
+          "warm amber",
+          "cyan accent",
+          "laboratory"
+        ]
+      },
+      "usage": {
+        "episodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beats": [
+          "صدمة الافتتاح",
+          "لفّة",
+          "صدمة",
+          "صدمة كبرى",
+          "إبهار",
+          "رسالة",
+          "دهشة",
+          "سؤال أخلاقي",
+          "إبهار كبير",
+          "الكشف الأخير"
+        ]
+      }
+    },
+    {
+      "id": "S02",
+      "name": "مدينة ٢٠٥٠",
+      "primary": true,
+      "summary": "مدينة سعودية في ٢٠٥٠ تبهر من النظرة الأولى: أبراج بأشكال كثبان رملية وخضرة عمودية، تاكسيات طائرة، لوحات هولوغرام عربية. لازم تحس إنها بلدنا مو مدينة غربية.",
+      "anchors": [
+        {
+          "name": "أبراج الكثبان",
+          "desc": "أبراج زجاجية منحنية بشكل كثبان رملية بلون رملي ذهبي"
+        },
+        {
+          "name": "الحدائق العمودية",
+          "desc": "نخيل وخضرة على واجهات الأبراج والجسور"
+        },
+        {
+          "name": "ممرات التاكسي الطائر",
+          "desc": "ممرات ضوئية زرقاء في السماء بين الأبراج تطير فيها كبسولات بيضاء"
+        },
+        {
+          "name": "الشارع الذكي",
+          "desc": "شارع بخطوط ضوئية سماوية تتوهج تحت المركبات"
+        },
+        {
+          "name": "الهولوغرامات العربية",
+          "desc": "لوحات هولوغرام شفافة بخط عربي فوق الأرصفة"
+        }
+      ],
+      "lighting": [
+        {
+          "state": "ساعة ذهبية",
+          "prompt": "golden hour, warm low sun, long soft shadows, cyan accent lights starting to glow"
+        },
+        {
+          "state": "ليل نيون",
+          "prompt": "night, deep blue sky, cyan and magenta neon reflections on glass, glowing light lanes"
+        }
+      ],
+      "image": {
+        "prompt": "Empty futuristic Saudi city street in the year 2050, no people. Sand-gold curved glass towers shaped like desert dunes, vertical gardens with palm trees on facades and bridges, glowing blue sky-lanes with small white flying taxi pods, a smart road with cyan light strips, translucent holographic signs with Arabic calligraphy shapes, clean wide sidewalks. Golden hour. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows",
+        "negativePrompt": "people, human figures, characters, crowds, silhouettes of people, oversaturated colours, sterile showroom cleanliness, warped perspective, melted geometry, floating objects, text, watermark, signature",
+        "sheet": "16:9 landscape environment sheet. Large master view in the top-left (about 72% width x 70% height): the empty 2050 street at golden hour, dune-shaped towers, vertical gardens, sky-lanes with white pods, cyan-lit smart road, holographic Arabic signs. An L-shaped border of detail panels along the right column (2 panels) and bottom row (3 panels), separated by thin lines; every detail panel is a cropped close-up of the master view showing the consistency anchors and key materials, nothing invented that is not present in the master view. THE SPACE MUST BE IDENTICAL ACROSS ALL PANELS. Absolutely no people anywhere. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows.",
+        "tags": [
+          "environment sheet",
+          "maintained materials",
+          "cinematic",
+          "futuristic city",
+          "golden hour",
+          "Saudi"
+        ]
+      },
+      "usage": {
+        "episodes": [
+          1,
+          2,
+          5,
+          6,
+          10
+        ],
+        "beats": [
+          "صدمة الافتتاح",
+          "لفّة",
+          "إبهار",
+          "رسالة",
+          "الكشف الأخير"
+        ]
+      }
+    },
+    {
+      "id": "S03",
+      "name": "بيت المستقبل",
+      "primary": true,
+      "summary": "بيت سعودي مستقبلي هادئ: الجدران نفسها شاشات، ما فيه أجهزة ظاهرة. نبغى المشاهد يحس إنه بيته بعد ٢٥ سنة: دافي، مجلس، نخيل، تقنية مخفية.",
+      "anchors": [
+        {
+          "name": "الجدار الحي",
+          "desc": "جدار أبيض أملس يتحول لشاشة تعرض واجهات زرقاء شفافة"
+        },
+        {
+          "name": "المجلس العصري",
+          "desc": "جلسة أرضية بمساند بيج ونقشة سدو خفيفة"
+        },
+        {
+          "name": "النافذة البانورامية",
+          "desc": "نافذة عريضة تطل على أبراج الكثبان"
+        },
+        {
+          "name": "نبتة النخلة",
+          "desc": "نخلة صغيرة في حوض حجري في الزاوية"
+        },
+        {
+          "name": "الطاولة الهولوغرام",
+          "desc": "طاولة قهوة خشب فوقها هولوغرام دائري صغير"
+        }
+      ],
+      "lighting": [
+        {
+          "state": "صباح ناعم",
+          "prompt": "soft morning daylight through the panoramic window, warm beige tones, gentle cyan UI glow"
+        },
+        {
+          "state": "ذكرى دافئة",
+          "prompt": "warm nostalgic golden light, slight haze, softened edges"
+        }
+      ],
+      "image": {
+        "prompt": "Empty futuristic Saudi living room in 2050, no people. A smooth white living wall acting as a screen with translucent cyan interface panels, a modern floor majlis with beige cushions and subtle Sadu weave pattern, a panoramic window overlooking dune-shaped towers, a small palm tree in a stone planter, a wooden coffee table with a small circular hologram. Soft morning light. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows",
+        "negativePrompt": "people, human figures, characters, crowds, silhouettes of people, oversaturated colours, sterile showroom cleanliness, warped perspective, melted geometry, floating objects, text, watermark, signature",
+        "sheet": "16:9 landscape environment sheet. Large master view in the top-left (about 72% width x 70% height): the empty futuristic living room in soft morning light: living wall screen, floor majlis with Sadu cushions, panoramic window, palm planter, hologram table. An L-shaped border of detail panels along the right column (2 panels) and bottom row (3 panels), separated by thin lines; every detail panel is a cropped close-up of the master view showing the consistency anchors and key materials, nothing invented that is not present in the master view. THE SPACE MUST BE IDENTICAL ACROSS ALL PANELS. Absolutely no people anywhere. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows.",
+        "tags": [
+          "environment sheet",
+          "maintained materials",
+          "cinematic",
+          "smart home",
+          "morning light",
+          "Saudi"
+        ]
+      },
+      "usage": {
+        "episodes": [
+          1,
+          2,
+          8,
+          10
+        ],
+        "beats": [
+          "صدمة الافتتاح",
+          "لفّة",
+          "سؤال أخلاقي",
+          "الكشف الأخير"
+        ]
+      }
+    },
+    {
+      "id": "S04",
+      "name": "فصل المستقبل",
+      "primary": true,
+      "summary": "فصل بلا سبورة ولا مقاعد صفوف: قبة مضيئة، كل طالب حوله معلم ضوئي. نبغى الإحساس إن التعلم صار مغامرة مو واجب.",
+      "anchors": [
+        {
+          "name": "القبة الضوئية",
+          "desc": "سقف قبة بيضاء تعرض نجوم وخرائط متحركة"
+        },
+        {
+          "name": "مكاتب الدائرة",
+          "desc": "مكاتب بيضاء منحنية مرتبة على شكل دائرة"
+        },
+        {
+          "name": "المعلم الضوئي",
+          "desc": "كرات ضوء سماوية تطفو فوق كل مكتب"
+        },
+        {
+          "name": "أرضية الخريطة",
+          "desc": "أرضية تعرض خريطة الجزيرة العربية بخطوط مضيئة"
+        }
+      ],
+      "lighting": [
+        {
+          "state": "نهار تعليمي",
+          "prompt": "bright clean daylight from the dome, cyan and soft white light, gentle glow from floating orbs"
+        }
+      ],
+      "image": {
+        "prompt": "Empty futuristic classroom in 2050, no people. A white dome ceiling projecting moving stars and maps, curved white desks arranged in a circle, small floating cyan light orbs hovering above each desk, a floor displaying a glowing map of the Arabian Peninsula. Bright clean daylight. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows",
+        "negativePrompt": "people, human figures, characters, crowds, silhouettes of people, oversaturated colours, sterile showroom cleanliness, warped perspective, melted geometry, floating objects, text, watermark, signature",
+        "sheet": "16:9 landscape environment sheet. Large master view in the top-left (about 72% width x 70% height): the empty dome classroom: dome ceiling with projected maps, circle of curved white desks, floating cyan orbs, glowing peninsula map floor. An L-shaped border of detail panels along the right column (2 panels) and bottom row (3 panels), separated by thin lines; every detail panel is a cropped close-up of the master view showing the consistency anchors and key materials, nothing invented that is not present in the master view. THE SPACE MUST BE IDENTICAL ACROSS ALL PANELS. Absolutely no people anywhere. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows.",
+        "tags": [
+          "environment sheet",
+          "maintained materials",
+          "cinematic",
+          "classroom",
+          "dome",
+          "cyan"
+        ]
+      },
+      "usage": {
+        "episodes": [
+          3,
+          6,
+          10
+        ],
+        "beats": [
+          "صدمة",
+          "رسالة",
+          "الكشف الأخير"
+        ]
+      }
+    },
+    {
+      "id": "S05",
+      "name": "مستشفى الجسد الرقمي",
+      "primary": false,
+      "summary": "مستشفى بلا انتظار: غرفة بيضاء فيها هولوغرام لجسم الإنسان كامل يكشف المرض قبل وقته. هادي ومطمّن مو مخيف.",
+      "anchors": [
+        {
+          "name": "هولوغرام الجسد",
+          "desc": "هولوغرام بالحجم الطبيعي لجسم إنسان شفاف سماوي في الوسط"
+        },
+        {
+          "name": "الكرسي الأبيض",
+          "desc": "كرسي فحص أبيض منحني"
+        },
+        {
+          "name": "الحلقة الماسحة",
+          "desc": "حلقة ضوئية تطفو حول منطقة الهولوغرام"
+        },
+        {
+          "name": "الجدار الطبي",
+          "desc": "جدار يعرض نبض ومؤشرات بخطوط سماوية"
+        }
+      ],
+      "lighting": [
+        {
+          "state": "أبيض سريري",
+          "prompt": "clean clinical white light, soft cyan hologram glow, calm atmosphere"
+        }
+      ],
+      "image": {
+        "prompt": "Empty futuristic medical room in 2050, no people. A life-size translucent cyan holographic human body model in the center, a curved white examination chair, a floating light ring scanner, a wall displaying heartbeat lines and vitals in cyan. Clean clinical white light. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows",
+        "negativePrompt": "people, human figures, characters, crowds, silhouettes of people, oversaturated colours, sterile showroom cleanliness, warped perspective, melted geometry, floating objects, text, watermark, signature",
+        "sheet": "16:9 landscape environment sheet. Large master view in the top-left (about 72% width x 70% height): the empty medical room: life-size cyan body hologram, white curved chair, floating scanner ring, vitals wall. An L-shaped border of detail panels along the right column (2 panels) and bottom row (3 panels), separated by thin lines; every detail panel is a cropped close-up of the master view showing the consistency anchors and key materials, nothing invented that is not present in the master view. THE SPACE MUST BE IDENTICAL ACROSS ALL PANELS. Absolutely no people anywhere. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows. Keep the structure, materials and wear identical to the reference image.",
+        "tags": [
+          "environment sheet",
+          "maintained materials",
+          "cinematic",
+          "medical",
+          "clinical white"
+        ]
+      },
+      "seedNote": "outline 的复用方案：نعيد استخدام أصل بيت المستقبل بإضاءة بيضاء سريرية وشاشات هولوغرام طبية——考虑做成某个主场景的变体（variantOf + changes）",
+      "usage": {
+        "episodes": [
+          4
+        ],
+        "beats": [
+          "صدمة كبرى"
+        ]
+      },
+      "variantOf": "S03",
+      "changes": "نفس هيكل غرفة بيت المستقبل وجداره الحي، بإضاءة بيضاء سريرية واستبدال المجلس بكرسي فحص وهولوغرام جسد"
+    },
+    {
+      "id": "S06",
+      "name": "واحة الحيوانات",
+      "primary": false,
+      "summary": "واحة على أطراف مدينة ٢٠٥٠ وقت الغروب: نخيل وماء وجمال، وتقنية خفيفة تترجم أصوات الحيوانات. دهشة ودفء.",
+      "anchors": [
+        {
+          "name": "بركة الواحة",
+          "desc": "بركة ماء صافية محاطة بالنخيل"
+        },
+        {
+          "name": "أبراج بعيدة",
+          "desc": "أبراج الكثبان تظهر بعيدة في الأفق"
+        },
+        {
+          "name": "عمود المترجم",
+          "desc": "عمود رفيع يعرض موجات صوت سماوية هولوغرام"
+        },
+        {
+          "name": "الكثبان الذهبية",
+          "desc": "كثبان رمل ناعمة خلف الواحة"
+        }
+      ],
+      "lighting": [
+        {
+          "state": "غروب",
+          "prompt": "warm orange sunset, long shadows, pink sky, soft cyan accents from the translator pole"
+        }
+      ],
+      "image": {
+        "prompt": "Empty desert oasis at the edge of a 2050 Saudi city, no people, no animals. Clear pool surrounded by palm trees, golden dunes behind, dune-shaped glass towers far on the horizon, a slim pole projecting cyan holographic sound waves. Warm sunset. Weathered, lived-in materials: chipped paint, water stains, patina on metal, worn wood grain, dust in corners and light shafts; fabric and paper props show creases and age; nothing looks factory-new. Atmospheric depth with haze or volumetric light where the space allows",
+        "negativePrompt": "people, human figures, characters, crowds, silhouettes of people, oversaturated colours, sterile showroom cleanliness, warped perspective, melted geometry, floating objects, text, watermark, signature, animals",
+        "sheet": "16:9 landscape environment sheet. Large master view in the top-left (about 72% width x 70% height): the empty oasis at sunset: palm-ringed pool, golden dunes, distant dune towers, translator pole with cyan sound waves. An L-shaped border of detail panels along the right column (2 panels) and bottom row (3 panels), separated by thin lines; every detail panel is a cropped close-up of the master view showing the consistency anchors and key materials, nothing invented that is not present in the master view. THE SPACE MUST BE IDENTICAL ACROSS ALL PANELS. Absolutely no people anywhere. Weathered, lived-in materials: chipped paint, water stains, patina on metal, worn wood grain, dust in corners and light shafts; fabric and paper props show creases and age; nothing looks factory-new. Atmospheric depth with haze or volumetric light where the space allows. Keep the structure, materials and wear identical to the reference image.",
+        "tags": [
+          "environment sheet",
+          "weathered materials",
+          "cinematic",
+          "oasis",
+          "sunset"
+        ]
+      },
+      "seedNote": "outline 的复用方案：نعيد استخدام أطراف مدينة ٢٠٥٠ وقت الغروب مع نخيل وحيوانات ومترجم هولوغرام——考虑做成某个主场景的变体（variantOf + changes）",
+      "usage": {
+        "episodes": [
+          7
+        ],
+        "beats": [
+          "دهشة"
+        ]
+      },
+      "variantOf": "S02",
+      "changes": "أطراف مدينة ٢٠٥٠ وقت الغروب: الأبراج تصير بعيدة في الأفق، ونضيف واحة ونخيل وعمود مترجم"
+    },
+    {
+      "id": "S07",
+      "name": "قاعدة القمر",
+      "primary": false,
+      "summary": "قاعدة على القمر بقبة زجاجية، والأرض الزرقاء معلقة في السماء. الإحساس: الحدود صارت بداية.",
+      "anchors": [
+        {
+          "name": "القبة الزجاجية",
+          "desc": "قبة زجاج سداسية الإطارات"
+        },
+        {
+          "name": "الأرض في السماء",
+          "desc": "كوكب الأرض أزرق كبير في السماء السوداء"
+        },
+        {
+          "name": "حديقة القمر",
+          "desc": "أحواض زراعة خضراء داخل القبة"
+        },
+        {
+          "name": "سطح القمر",
+          "desc": "سطح رمادي بحفر خلف الزجاج"
+        }
+      ],
+      "lighting": [
+        {
+          "state": "ضوء الأرض",
+          "prompt": "stark white sunlight on grey lunar surface, soft blue earthshine inside the dome, black sky full of stars"
+        }
+      ],
+      "image": {
+        "prompt": "Empty lunar base interior in 2050, no people. A hexagon-framed glass dome, green hydroponic garden beds inside, grey cratered lunar surface outside, a large blue Earth hanging in the black starry sky. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows",
+        "negativePrompt": "people, human figures, characters, crowds, silhouettes of people, oversaturated colours, sterile showroom cleanliness, warped perspective, melted geometry, floating objects, text, watermark, signature",
+        "sheet": "16:9 landscape environment sheet. Large master view in the top-left (about 72% width x 70% height): the empty lunar dome: hexagon glass frames, green garden beds, grey lunar surface outside, big blue Earth in the black sky. An L-shaped border of detail panels along the right column (2 panels) and bottom row (3 panels), separated by thin lines; every detail panel is a cropped close-up of the master view showing the consistency anchors and key materials, nothing invented that is not present in the master view. THE SPACE MUST BE IDENTICAL ACROSS ALL PANELS. Absolutely no people anywhere. Well-kept, actively maintained materials: sound lacquer with an even sheen, swept stone and timber, polished metal fittings, tight joinery, no peeling paint and no water staining; wear confined to the traffic a space like this really takes — thresholds, handrails, the stone directly inside a doorway. Atmospheric depth with haze or volumetric light where the space allows. Keep the structure, materials and wear identical to the reference image.",
+        "tags": [
+          "environment sheet",
+          "maintained materials",
+          "cinematic",
+          "moon base",
+          "earthshine"
+        ]
+      },
+      "seedNote": "outline 的复用方案：نعيد بناء فصل المستقبل كقبة زجاجية وخلفها سطح القمر والأرض في السماء——考虑做成某个主场景的变体（variantOf + changes）",
+      "usage": {
+        "episodes": [
+          9
+        ],
+        "beats": [
+          "إبهار كبير"
+        ]
+      },
+      "variantOf": "S04",
+      "changes": "نفس هيكل قبة فصل المستقبل لكن زجاجية شفافة، وخلفها سطح القمر والأرض بدل الخرائط"
+    }
+  ],
+  "props": [
+    {
+      "id": "P01",
+      "name": "عدسة الاستشراف (الرقعة)",
+      "scale": "手持级",
+      "summary": "بوابة السلسلة: رقعة جلد سوداء من برا، ومن داخلها عدسة كريستال تتوهج سماوي. لما يرفعها المستشرف تنفتح نافذة ٢٠٥٠. في الحلقة الأخيرة يسلمها للمشاهد.",
+      "anchors": [
+        {
+          "name": "الجلد الأسود",
+          "desc": "رقعة دائرية من جلد أسود مطفي بحافة مخيطة"
+        },
+        {
+          "name": "العدسة السماوية",
+          "desc": "من الداخل عدسة كريستال تتوهج أزرق سماوي"
+        },
+        {
+          "name": "الحزام الرفيع",
+          "desc": "حزام أسود رفيع يلف الرأس"
+        },
+        {
+          "name": "الحلقة النحاسية",
+          "desc": "حلقة نحاس صغيرة تربط الحزام بالرقعة"
+        }
+      ],
+      "states": [
+        {
+          "state": "مغلقة",
+          "prompt": "handheld scale, the black leather eye patch closed, matte leather front, stitched edge, thin black strap, small brass ring"
+        },
+        {
+          "state": "متوهجة",
+          "prompt": "handheld scale, the eye patch flipped to show its inner crystal lens glowing bright cyan, light rays"
+        }
+      ],
+      "relatedScenes": [
+        "S01"
+      ],
+      "carriedBy": [
+        "العالم مستشرف"
+      ],
+      "image": {
+        "prompt": "handheld scale black leather eye patch on a pure white background, three-quarter view, matte leather with stitched edge, thin black strap, small brass ring, inner crystal lens with a faint cyan glow, no people, no hands",
+        "negativePrompt": "people, human figures, hands, fingers, face, head, mannequin, text, watermark, warped geometry",
+        "sheet": "16:9 landscape prop sheet on a pure white background in every panel. Master view (top-left, about 72% width x 70% height): handheld scale black leather eye patch, three-quarter view, closed state. Right column and bottom row: the glowing state with the inner crystal lens lit cyan, an orthographic side view, and close-ups of the stitched edge, brass ring and strap; nothing invented that is not present in the master view. No people and no hands anywhere. Weathered, lived-in materials: chipped paint, water stains, patina on metal, worn wood grain, dust in corners and light shafts; fabric and paper props show creases and age; nothing looks factory-new. Atmospheric depth with haze or volumetric light where the space allows.",
+        "tags": [
+          "prop sheet",
+          "handheld",
+          "leather",
+          "cyan glow"
+        ]
+      },
+      "usage": {
+        "episodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beats": [
+          "صدمة الافتتاح",
+          "الكشف الأخير"
+        ]
+      }
+    }
+  ],
+  "dynasty": "2050年代 近未来沙特阿拉伯",
+  "lang": "en"
+}

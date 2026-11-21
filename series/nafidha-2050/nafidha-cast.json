@@ -1,0 +1,111 @@
+{
+  "source": "نافذة ٢٠٥٠ — العالم مستشرف",
+  "lang": "en",
+  "summary": "عالم عجوز غامض يعيش في معمل قديم مليء بالكتب والنحاس، ورقعة عينه في الحقيقة عدسة تشوف عام ٢٠٥٠. كل حلقة يرفع الرقعة ويفتح نافذة على المستقبل: بيوت تتكلم، مدارس بلا فصول، مدن تطير فيها التاكسيات. وبعد كل تخيل يرجع ويكلم الجيل مباشرة: هذا جاي، وأنت لازم تستعد له من اليوم.",
+  "characters": [
+    {
+      "name": "العالم مستشرف",
+      "aliases": [
+        "المستشرف"
+      ],
+      "importance": "protagonist",
+      "oneLiner": "عالم عجوز أجش برقعة عين تشوف المستقبل، يخوّفك من ٢٠٥٠ عشان تستعد لها.",
+      "persona": {
+        "gender": "ذكر",
+        "ageRange": "حوالي ٧٠ سنة (من وصف صاحب العمل: نبرة كبير في السن)",
+        "identity": "عالم ومستشرف للمستقبل يعيش في معمله",
+        "appearance": "أصلع بأطراف شعر أسود كثيف خلف الأذنين، حواجب سوداء كثيفة معقودة، شنب أسود كث على شكل حدوة. رقعة جلد سوداء على عينه اليسرى بحزام رفيع، وندبة مخيطة بغرز حمراء أعلى الجبهة يسار الرأس. فك عريض وذقن مربع وتجاعيد خفيفة حول العين. جسم عريض الكتفين. يلبس كنزة سوداء طويلة الأكمام برقبة دائرية، بنطلون أسود واسع، وبوت أسود جلد.",
+        "personality": [
+          "حكيم",
+          "غامض",
+          "صارم",
+          "حنون من تحت",
+          "فضولي"
+        ],
+        "temperament": "يتكلم ببطء وثقل، كل جملة كأنها سر. يرفع حاجبه قبل الصدمة، ويبتسم نص ابتسامة لما يشوف الجيل فهم.",
+        "motivation": "يجهّز الجيل لمستقبل شافه بعينه قبل ما يوصل.",
+        "arc": "من حارس أسرار يصدم الجيل، إلى مرشد يسلّمهم العدسة: المستقبل ما يُشاف، يُصنع.",
+        "relationships": [
+          {
+            "name": "شاب الجيل",
+            "relation": "المشاهد نفسه بعد ٢٥ سنة، يظهر داخل تخيلاته"
+          }
+        ],
+        "evidence": [
+          "نخلي اسم العالم يسموه العالم مستشرف",
+          "أجش وحكيم وفي نبرة إنه كبير في السن"
+        ]
+      },
+      "image": {
+        "prompt": "Elderly Arab man around seventy from present-day Saudi Arabia, bald crown with thick black hair tufts at the sides, heavy black eyebrows, thick black horseshoe mustache, a black leather patch over his left eye with a thin strap, a stitched scar with red stitches on the upper left forehead, broad jaw and square chin, broad-shouldered heavy build, black crew-neck long-sleeve sweater, loose black trousers, black leather boots, stern but wise expression, neutral background",
+        "negativePrompt": "young face, beard, glasses, patch on the right eye, missing scar, colorful clothes, thobe, extra fingers, deformed hands, two faces, text, watermark",
+        "tags": [
+          "character sheet",
+          "elderly Arab man",
+          "eye patch",
+          "black outfit",
+          "near future",
+          "Saudi Arabia"
+        ],
+        "sheet": "Single character model sheet on ONE 16:9 landscape canvas of an elderly Arab man around seventy from present-day Saudi Arabia, divided by thin lines. LEFT ZONE (about 34% width): one large bust portrait as the face reference: bald crown, thick black side hair tufts, heavy black eyebrows, thick black horseshoe mustache, black leather patch over the LEFT eye, stitched scar with red stitches on the upper left forehead. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) of the same man in a black crew-neck long-sleeve sweater, loose black trousers and black leather boots; PROPORTIONS ARE CRITICAL, never squash the figure. RIGHT-BOTTOM ZONE: four to five small isolated close-up studies: the eye patch and strap, the stitched scar, the mustache, the boots. ONE PERSON ONLY, the same face in every panel; details give way, the figure never does."
+      },
+      "voice": {
+        "timbre": "جهوري أجش، فيه خشونة وبحة رجل كبير، رنين صدر عميق",
+        "pitch": "منخفض جداً",
+        "pace": "بطيء وثقيل، يوقف قبل الكلمة المهمة",
+        "accent": "عربي خليجي سعودي بنطق واضح",
+        "emotion": "حكمة وغموض، وحماس مكتوم لما يكشف التخيل",
+        "referenceHint": "زي جد حكيم يحكي لأحفاده عن شي شافه بعينه ومحد مصدقه",
+        "prompt": "An elderly Arab man around seventy speaking Gulf Saudi Arabic. Deep, booming, gravelly bass voice with a rough raspy texture and strong chest resonance, the weathered voice of an old wise scientist. Slow, deliberate pacing with weighty pauses before key words, mysterious and wise, with restrained excitement when revealing the future. Clear articulation, close-mic studio quality."
+      }
+    },
+    {
+      "name": "شاب الجيل",
+      "aliases": [],
+      "importance": "minor",
+      "oneLiner": "شاب سعودي صامت في الثلاثينات، يمثل المشاهد بعد ٢٥ سنة داخل تخيلات ٢٠٥٠.",
+      "persona": {
+        "gender": "ذكر",
+        "ageRange": "حوالي ٣٠ سنة في ٢٠٥٠ (استنتاج)",
+        "identity": "مواطن سعودي في ٢٠٥٠",
+        "appearance": "شاب نحيف بشعر أسود قصير مرتب ولحية خفيفة، يلبس ثوب أبيض عصري بقصة ضيقة، ونظارة شفافة رفيعة تعرض واجهات سماوية.",
+        "personality": [
+          "فضولي",
+          "متفائل",
+          "هادي"
+        ],
+        "temperament": "ما يتكلم؛ يعبر بوجهه: دهشة، ابتسامة، تفكير.",
+        "motivation": "يعيش المستقبل اللي يوصفه المستشرف.",
+        "arc": "ثابت؛ هو مرآة المشاهد.",
+        "relationships": [
+          {
+            "name": "العالم مستشرف",
+            "relation": "يظهر داخل تخيلاته"
+          }
+        ],
+        "evidence": []
+      },
+      "image": {
+        "prompt": "Slim young Saudi man around thirty in the year 2050, short neat black hair, light beard, modern slim-cut white thobe, thin transparent smart glasses showing small cyan interface glints, curious friendly expression, neutral background",
+        "negativePrompt": "old face, eye patch, mustache only, black clothes, ghutra, extra fingers, two faces, text, watermark",
+        "tags": [
+          "character sheet",
+          "young Saudi man",
+          "white thobe",
+          "smart glasses",
+          "2050"
+        ],
+        "sheet": "Single character model sheet on ONE 16:9 landscape canvas of a slim young Saudi man around thirty in the year 2050, divided by thin lines. LEFT ZONE (about 34%): large bust portrait as the face reference. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) in a modern slim-cut white thobe and white sneakers; PROPORTIONS ARE CRITICAL. RIGHT-BOTTOM ZONE: close-ups of the smart glasses, the thobe collar, the sneakers. ONE PERSON ONLY."
+      },
+      "voice": {
+        "timbre": "صامت (ما يتكلم في السلسلة)",
+        "pitch": "—",
+        "pace": "—",
+        "accent": "—",
+        "emotion": "دهشة وفضول",
+        "referenceHint": "شخصية صامتة؛ لو احتجنا ردة فعل صوتية: ضحكة قصيرة أو شهقة",
+        "prompt": "Silent character. If a non-verbal reaction is needed: a young Saudi man around thirty, light warm baritone, a short amazed gasp or soft laugh."
+      }
+    }
+  ]
+}
