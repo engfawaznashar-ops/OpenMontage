@@ -17,7 +17,7 @@
                 1,
                 1
               ],
-              "seconds": 3,
+              "seconds": 2.5,
               "size": "wide",
               "camera": "Static Shot",
               "characters": [
@@ -40,7 +40,7 @@
                 2,
                 2
               ],
-              "seconds": 3.5,
+              "seconds": 4.2,
               "size": "close",
               "camera": "Push In",
               "characters": [
@@ -63,7 +63,7 @@
                 3,
                 3
               ],
-              "seconds": 3.5,
+              "seconds": 5,
               "size": "close",
               "camera": "Static Shot",
               "characters": [
@@ -80,7 +80,17 @@
               "eyeline": "直视镜头",
               "focus": "锁定 العالم مستشرف 面部",
               "stability": "stable"
-            },
+            }
+          ],
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.50-second mark of the target video; Picture 3 (from Shot 3) aligns with the 6.70-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a static shot in a dim warm-amber old laboratory: an elderly bald Arab scientist with a thick black horseshoe mustache and a black patch over his left eye tosses a phone onto a heavy wooden desk, then walks two heavy steps toward the camera, staring straight into the lens.\n[Shot 2] At 00:02.500, the camera cuts to <Picture 2>: a slow push in toward the scientist's stern face; his heavy brows knit, his lips move as he warns the viewer in a low voice. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: <d>[Arabic] الجوال اللي في يدك الحين، عمره قصير.</d>\n[Shot 3] At 00:06.700, the camera cuts to <Picture 3>: a static shot as the scientist raises one bushy eyebrow and leans slightly forward, speaking like he is revealing a secret; the round window behind him glows faintly cyan. (S1) says: <d>[Arabic] أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.</d>\n\noverall_soundscape: A low electrical hum of an old laboratory and faint buzzing of Edison bulbs; a phone thuds onto a wooden desk, heavy leather boot steps on wooden floor, and a sharp electric whoosh with a rising hum when the eye patch is lifted.\n\nnon_diegetic_music: A deep synth drone with a slow heartbeat-like timpani pulse, ending in a rising electronic swell on the reveal."
+        },
+        {
+          "id": "E01-02",
+          "sceneIndex": 1,
+          "blocking": "开场：العالم مستشرف 站在书桌前方画面中央，面朝镜头，距镜头约一步，手伸向左眼的眼罩；身后圆形铜框窗。",
+          "soundscape": "老旧实验室的低频电流嗡鸣，爱迪生灯泡轻微滋滋声，手机砸在木桌上的闷响，沉重皮靴脚步声，掀起眼罩时一声电光嗡响。",
+          "music": "低沉合成器长音铺底，慢速心跳般的定音鼓，掀眼罩处一记上扬的电子音。",
+          "cuts": [
             {
               "beats": [
                 4,
@@ -131,10 +141,10 @@
               "lighting": "青蓝光与暖黄光交织"
             }
           ],
-          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 6.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 10.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 12.50-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a static shot in a dim warm-amber old laboratory: an elderly bald Arab scientist with a thick black horseshoe mustache and a black patch over his left eye tosses a phone onto a heavy wooden desk, then walks two heavy steps toward the camera, staring straight into the lens.\n[Shot 2] At 00:03.000, the camera cuts to <Picture 2>: a slow push in toward the scientist's stern face; his heavy brows knit, his lips move as he warns the viewer in a low voice. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: <d>[Arabic] الجوال اللي في يدك الحين، عمره قصير.</d>\n[Shot 3] At 00:06.500, the camera cuts to <Picture 3>: a static shot as the scientist raises one bushy eyebrow and leans slightly forward, speaking like he is revealing a secret; the round window behind him glows faintly cyan. (S1) says: <d>[Arabic] أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.</d>\n[Shot 4] At 00:10.000, the camera cuts to <Picture 4>: a fast push in on the eye patch as the scientist lifts it with his fingers; an intense cyan beam of light bursts out from beneath it and floods the room.\n[Shot 5] At 00:12.500, the camera cuts to <Picture 5>: a static shot: bathed in cyan light, the scientist gives a faint smile and whispers an invitation to the viewer. (S1) says: <d>[Arabic] تبي تشوف؟ تعال معي.</d>\n\noverall_soundscape: A low electrical hum of an old laboratory and faint buzzing of Edison bulbs; a phone thuds onto a wooden desk, heavy leather boot steps on wooden floor, and a sharp electric whoosh with a rising hum when the eye patch is lifted.\n\nnon_diegetic_music: A deep synth drone with a slow heartbeat-like timpani pulse, ending in a rising electronic swell on the reveal."
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.50-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a fast push in on the eye patch as the scientist lifts it with his fingers; an intense cyan beam of light bursts out from beneath it and floods the room.\n[Shot 2] At 00:02.500, the camera cuts to <Picture 2>: a static shot: bathed in cyan light, the scientist gives a faint smile and whispers an invitation to the viewer. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: <d>[Arabic] تبي تشوف؟ تعال معي.</d>\n\noverall_soundscape: A low electrical hum of an old laboratory and faint buzzing of Edison bulbs; a phone thuds onto a wooden desk, heavy leather boot steps on wooden floor, and a sharp electric whoosh with a rising hum when the eye patch is lifted.\n\nnon_diegetic_music: A deep synth drone with a slow heartbeat-like timpani pulse, ending in a rising electronic swell on the reveal."
         },
         {
-          "id": "E01-02",
+          "id": "E01-03",
           "sceneIndex": 2,
           "blocking": "开场：شاب الجيل 躺在画面下方的地面坐垫上刚坐起，面朝画面右侧的白色墙面，距墙约三步；全景窗在画面背景，棕榈盆栽在左侧角落。",
           "soundscape": "清晨安静的室内，远处城市低鸣，墙面亮起时柔和的电子提示音，眼镜戴上时轻微的咔嗒声。",
@@ -145,7 +155,7 @@
                 1,
                 2
               ],
-              "seconds": 4.5,
+              "seconds": 4,
               "size": "wide",
               "camera": "Static Shot",
               "characters": [
@@ -165,7 +175,7 @@
                 3,
                 4
               ],
-              "seconds": 4.5,
+              "seconds": 5,
               "size": "medium",
               "camera": "Push In",
               "characters": [
@@ -185,7 +195,7 @@
                 5,
                 6
               ],
-              "seconds": 4.5,
+              "seconds": 4,
               "size": "close",
               "camera": "Static Shot",
               "characters": [
@@ -201,10 +211,10 @@
               "stability": "stable"
             }
           ],
-          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 4.50-second mark of the target video; Picture 3 (from Shot 3) aligns with the 9.00-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a static shot of a bright futuristic living room at morning: a young Saudi man in a modern white thobe wakes up on a floor cushion, slowly sits up and stretches. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] الساعة سبعة. ومحد صحاه منبه.</d>\n[Shot 2] At 00:04.500, the camera cuts to <Picture 2>: a slow push in over the young man's shoulder as the plain white wall in front of him lights up and turns into a translucent cyan screen showing his daily schedule. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.</d>\n[Shot 3] At 00:09.000, the camera cuts to <Picture 3>: a static shot: the young man puts on thin transparent smart glasses; small cyan interface glints appear on the lenses and he smiles. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] جواله؟ صار في نظارته، وفي الجدار.</d>\n\noverall_soundscape: A quiet futuristic morning interior with a distant soft city hum; a gentle electronic chime as the wall lights up, and a light click as the smart glasses are put on.\n\nnon_diegetic_music: Bright, airy synth arpeggios at a medium tempo with a sense of wonder."
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 4.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 9.00-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a static shot of a bright futuristic living room at morning: a young Saudi man in a modern white thobe wakes up on a floor cushion, slowly sits up and stretches. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] الساعة سبعة. ومحد صحاه منبه.</d>\n[Shot 2] At 00:04.000, the camera cuts to <Picture 2>: a slow push in over the young man's shoulder as the plain white wall in front of him lights up and turns into a translucent cyan screen showing his daily schedule. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.</d>\n[Shot 3] At 00:09.000, the camera cuts to <Picture 3>: a static shot: the young man puts on thin transparent smart glasses; small cyan interface glints appear on the lenses and he smiles. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] جواله؟ صار في نظارته، وفي الجدار.</d>\n\noverall_soundscape: A quiet futuristic morning interior with a distant soft city hum; a gentle electronic chime as the wall lights up, and a light click as the smart glasses are put on.\n\nnon_diegetic_music: Bright, airy synth arpeggios at a medium tempo with a sense of wonder."
         },
         {
-          "id": "E01-03",
+          "id": "E01-04",
           "sceneIndex": 3,
           "blocking": "开场：شاب الجيل 走在画面中下方的人行道中央，朝镜头方向行走；沙丘形塔楼排列在两侧，空中光道在画面上方。",
           "soundscape": "未来街道的环境声，飞行出租舱从头顶掠过的呼啸，全息招牌确认时清脆的提示音，轻快脚步声。",
@@ -215,7 +225,7 @@
                 1,
                 1
               ],
-              "seconds": 3.5,
+              "seconds": 2.5,
               "size": "extreme-wide",
               "camera": "Tracking Shot",
               "characters": [
@@ -235,7 +245,7 @@
                 2,
                 2
               ],
-              "seconds": 4.5,
+              "seconds": 4.8,
               "size": "medium",
               "camera": "Push In",
               "characters": [
@@ -251,10 +261,10 @@
               "stability": "stable"
             }
           ],
-          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.50-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a tracking shot moving backward as the young man in a white thobe walks down a golden-hour futuristic Saudi street of dune-shaped towers; a white flying taxi pod sweeps overhead along a glowing sky-lane.\n[Shot 2] At 00:03.500, the camera cuts to <Picture 2>: a slow push in as the young man glances at a translucent holographic sign; it instantly glows with a confirmation ring, while a white flying taxi pod gently lands behind him. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.</d>\n\noverall_soundscape: Ambient sounds of a futuristic street; a flying taxi pod whooshes overhead, a crisp confirmation chime from a holographic sign, light footsteps.\n\nnon_diegetic_music: Synth arpeggios joined by light percussion, building momentum and wonder."
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.50-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a tracking shot moving backward as the young man in a white thobe walks down a golden-hour futuristic Saudi street of dune-shaped towers; a white flying taxi pod sweeps overhead along a glowing sky-lane.\n[Shot 2] At 00:02.500, the camera cuts to <Picture 2>: a slow push in as the young man glances at a translucent holographic sign; it instantly glows with a confirmation ring, while a white flying taxi pod gently lands behind him. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: <d>[Arabic] يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.</d>\n\noverall_soundscape: Ambient sounds of a futuristic street; a flying taxi pod whooshes overhead, a crisp confirmation chime from a holographic sign, light footsteps.\n\nnon_diegetic_music: Synth arpeggios joined by light percussion, building momentum and wonder."
         },
         {
-          "id": "E01-04",
+          "id": "E01-05",
           "sceneIndex": 4,
           "blocking": "开场：العالم مستشرف 站在画面中央，圆形窗在他身后发着青蓝光，他面朝镜头，距镜头约两步，随后靠近到一步。",
           "soundscape": "蓝光熄灭时的电流衰减声，实验室嗡鸣回归，皮靴向前一步，圆形窗短促闪烁的电子嗡声。",
@@ -311,7 +321,7 @@
                 3,
                 3
               ],
-              "seconds": 3.5,
+              "seconds": 4.3,
               "size": "extreme-close",
               "camera": "Push In",
               "characters": [
@@ -328,7 +338,17 @@
               "eyeline": "直视镜头",
               "focus": "锁定 العالم مستشرف 眼睛",
               "stability": "stable"
-            },
+            }
+          ],
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 5.50-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a slow push in as the scientist lowers the eye patch back over his eye; the cyan glow fades and he steps closer to the camera.\n[Shot 2] At 00:02.000, the camera cuts to <Picture 2>: a static shot: the scientist, very serious, points his index finger straight at the camera as he speaks. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: <d>[Arabic] اللي يكلم الذكاء الاصطناعي من اليوم،</d>\n[Shot 3] At 00:05.500, the camera cuts to <Picture 3>: a very slow push in to an extreme close-up of the scientist's face; his single eye locks onto the viewer as he speaks slowly and with weight. (S1) says: <d>[Arabic] هو اللي بيقود بكرة. والباقي بيتبعون.</d>\n\noverall_soundscape: An electric power-down hum as the cyan light fades, the laboratory hum returns, one boot step forward, and a short electronic flicker buzz from the round window.\n\nnon_diegetic_music: The deep synth drone returns, with a mysterious low pizzicato on the final line, then a beat of silence."
+        },
+        {
+          "id": "E01-06",
+          "sceneIndex": 4,
+          "blocking": "开场：العالم مستشرف 站在画面中央偏右，圆形铜框窗在他身后左侧，他面朝镜头距一步，随后转头看窗。",
+          "soundscape": "蓝光熄灭时的电流衰减声，实验室嗡鸣回归，皮靴向前一步，圆形窗短促闪烁的电子嗡声。",
+          "music": "低沉合成器长音回归，台词结尾处一记神秘的低音提琴拨弦，最后留白。",
+          "cuts": [
             {
               "beats": [
                 4,
@@ -355,7 +375,7 @@
                 5,
                 5
               ],
-              "seconds": 4,
+              "seconds": 4.2,
               "size": "close",
               "camera": "Push In",
               "characters": [
@@ -374,7 +394,7 @@
               "stability": "stable"
             }
           ],
-          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 5.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 9.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 11.00-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a slow push in as the scientist lowers the eye patch back over his eye; the cyan glow fades and he steps closer to the camera.\n[Shot 2] At 00:02.000, the camera cuts to <Picture 2>: a static shot: the scientist, very serious, points his index finger straight at the camera as he speaks. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: <d>[Arabic] اللي يكلم الذكاء الاصطناعي من اليوم،</d>\n[Shot 3] At 00:05.500, the camera cuts to <Picture 3>: a very slow push in to an extreme close-up of the scientist's face; his single eye locks onto the viewer as he speaks slowly and with weight. (S1) says: <d>[Arabic] هو اللي بيقود بكرة. والباقي بيتبعون.</d>\n[Shot 4] At 00:09.000, the camera cuts to <Picture 4>: a static shot over his shoulder: the scientist turns his head toward the round brass window behind him as its glass briefly flashes cyan.\n[Shot 5] At 00:11.000, the camera cuts to <Picture 5>: a slow push in as the scientist turns back to the camera with a mysterious half smile, lowering his voice as if leaking a secret. (S1) says: <d>[Arabic] وبالمناسبة، نسختي الثانية شغالة الحين.</d>\n\noverall_soundscape: An electric power-down hum as the cyan light fades, the laboratory hum returns, one boot step forward, and a short electronic flicker buzz from the round window.\n\nnon_diegetic_music: The deep synth drone returns, with a mysterious low pizzicato on the final line, then a beat of silence."
+          "h3Prompt": "How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.00-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on <Picture 1>, a static shot over his shoulder: the scientist turns his head toward the round brass window behind him as its glass briefly flashes cyan.\n[Shot 2] At 00:02.000, the camera cuts to <Picture 2>: a slow push in as the scientist turns back to the camera with a mysterious half smile, lowering his voice as if leaking a secret. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: <d>[Arabic] وبالمناسبة، نسختي الثانية شغالة الحين.</d>\n\noverall_soundscape: An electric power-down hum as the cyan light fades, the laboratory hum returns, one boot step forward, and a short electronic flicker buzz from the round window.\n\nnon_diegetic_music: The deep synth drone returns, with a mysterious low pizzicato on the final line, then a beat of silence."
         }
       ]
     }
