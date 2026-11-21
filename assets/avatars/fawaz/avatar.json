@@ -1,0 +1,53 @@
+{
+  "id": "fawaz-cartoon",
+  "name": "Fawaz cartoon avatar",
+  "name_ar": "أفاتار فواز الكرتوني",
+  "version": "2026-11-21",
+  "source_folder": "C:\\Users\\fawaz\\Dropbox\\صور فواز",
+  "generation": {
+    "route": "higgsfield-unlimited",
+    "rule": "Always pass primary + the closest expression (+ turnaround for non-frontal angles) as image references. Change expression, pose, action and scene only. Never draw or animate the character in code.",
+    "reference_order": ["primary", "expression", "turnaround"]
+  },
+  "identity_locks": [
+    "round full face, warm orange-tan skin, light stubble shadow around mouth and chin",
+    "large brown eyes, thick expressive black eyebrows, big rounded nose",
+    "white ghutra with black igal, white thobe with collar and chest pocket, black sandals",
+    "flat cartoon style, bold black outline, light-blue shading on whites"
+  ],
+  "primary": "primary/fawaz-avatar-primary.png",
+  "alternates": {
+    "neutral_stance": "primary/fawaz-avatar-neutral-stance.png",
+    "closeup": "primary/fawaz-avatar-closeup.jpg"
+  },
+  "expressions": {
+    "anxious": "expressions/fawaz-anxious.png",
+    "confident": "expressions/fawaz-confident.png",
+    "excited": "expressions/fawaz-excited.png",
+    "happy": "expressions/fawaz-happy.png",
+    "inspired": "expressions/fawaz-inspired.png",
+    "playful": "expressions/fawaz-playful.png",
+    "sad": "expressions/fawaz-sad.png",
+    "serious": "expressions/fawaz-serious.png",
+    "shocked": "expressions/fawaz-shocked.png",
+    "surprised": "expressions/fawaz-surprised.png",
+    "thinking": "expressions/fawaz-thinking.png",
+    "sheet_ar": "expressions/fawaz-expressions-sheet-ar.png"
+  },
+  "turnaround": [
+    "turnaround/fawaz-turnaround-a.png",
+    "turnaround/fawaz-turnaround-b.png"
+  ],
+  "vector": {
+    "expressions_dir": "vector/expressions/",
+    "turnaround_thobe": "vector/fawaz-turnaround-thobe.svg",
+    "turnaround_pajama": "vector/fawaz-turnaround-pajama.svg",
+    "turnaround_blue_shirt": "vector/fawaz-turnaround-blue-shirt.svg"
+  },
+  "styles": {
+    "mediterranean": ["styles/mediterranean/fawaz-mediterranean.png"],
+    "detective": ["styles/detective/fawaz-detective-sheet.png"],
+    "emirati": ["styles/emirati/fawaz-emirati-sheet.png", "styles/emirati/fawaz-emirati-room-board.png"]
+  },
+  "excluded": "Real photographs are intentionally not stored here (public repository)."
+}
