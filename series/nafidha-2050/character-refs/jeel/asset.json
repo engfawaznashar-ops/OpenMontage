@@ -1,0 +1,131 @@
+{
+  "name": "jeel",
+  "source": "نافذة ٢٠٥٠ — شاب الجيل",
+  "lang": "en",
+  "layers": {
+    "identity": {
+      "age": 30,
+      "gender": "male",
+      "en": "A slim thirty-year-old Saudi Arab man living in the year 2050",
+      "text": "شاب الجيل: سعودي حوالي ٣٠ سنة في عام ٢٠٥٠",
+      "source": "stated"
+    },
+    "face": {
+      "en": "Friendly oval face, warm brown eyes, neat dark eyebrows, short neatly trimmed black beard and mustache, curious gentle smile, warm light-brown skin, thin transparent rimless smart glasses with a faint cyan glint on the lenses",
+      "text": "وجه بيضاوي ودود، لحية خفيفة مرتبة، نظارة ذكية شفافة",
+      "source": "inferred"
+    },
+    "hair": {
+      "en": "Short neat black hair, slightly longer and swept up on top",
+      "text": "شعر أسود قصير مرتب",
+      "source": "inferred"
+    },
+    "build": {
+      "en": "Slim, average height, relaxed upright posture",
+      "text": "نحيف ومتوسط الطول",
+      "source": "inferred"
+    },
+    "skin": {
+      "en": "Smooth healthy thirty-year-old skin drawn simply, no pores",
+      "text": "بشرة مرسومة ببساطة",
+      "source": "inferred"
+    }
+  },
+  "outfits": {
+    "default": {
+      "label": "ثوب المستقبل",
+      "top": {
+        "en": "a modern slim-cut white thobe with a clean band collar and a thin pale cyan piping line along the placket",
+        "text": "ثوب أبيض عصري بقصة ضيقة وخط سماوي رفيع",
+        "source": "inferred"
+      },
+      "bottom": {
+        "en": "the white thobe falling to the ankles and clean white minimalist sneakers",
+        "text": "الثوب لين الكعب وجزمة رياضية بيضاء",
+        "source": "inferred"
+      },
+      "details": [
+        {
+          "slot": "neck",
+          "en": "the band collar of the white thobe and the single small button at the throat with the thin pale cyan piping",
+          "text": "ياقة الثوب",
+          "source": "inferred"
+        },
+        {
+          "slot": "feet",
+          "en": "clean white minimalist sneakers under the hem of the white thobe",
+          "text": "الجزمة البيضاء",
+          "source": "inferred"
+        }
+      ],
+      "overrides": {},
+      "look": {
+        "id": "nafidha-cartoon",
+        "label": {
+          "zh": "纳菲达卡通",
+          "en": "Nafidha cartoon"
+        },
+        "medium": "drawn",
+        "style": "A clean 2D modern Western TV animation illustration, like official character art for an adult animated series: bold confident dark brown-black outlines of even weight, flat cel shading with one soft shadow tone, warm muted earthy colors, warm terracotta skin tones, simple solid shapes, slightly exaggerated sturdy proportions, expressive heavy eyebrows. Fabric folds drawn as a few simple lines.",
+        "clean": "Plain pure white background, evenly lit, with at most a faint soft shadow under the feet. Exactly one character, empty hands, no props, no text, no watermark.",
+        "neg": "photograph, photorealistic, realistic skin texture, pores, film grain, 3D render, CGI, semi-realistic, painterly, watercolor, sketch, rough lines, messy lines, anime eyes, chibi, super deformed, gradient background, character sheet, multiple views"
+      },
+      "views": {
+        "front-full": {
+          "current": 1,
+          "versions": [
+            {
+              "v": 1,
+              "id": "jeel/default/front-full/v1",
+              "file": "default/front-full.v1.png",
+              "sha256": "03150875942a2bce6ebdf8d93aff946c047829d00bcfe88bb183633643c8d795",
+              "model": "custom:hf",
+              "seed": 2096489833,
+              "prompt": "Full-body front view: he stands straight and faces the camera squarely, shoulders, hips and feet square to the camera, his face pointing straight at the camera with his nose on the vertical centre line of his face and both ears equally visible, arms relaxed at his sides, the whole figure from head to feet visible and centered, with margin above the head and below the feet. A slim thirty-year-old Saudi Arab man living in the year 2050. Friendly oval face, warm brown eyes, neat dark eyebrows, short neatly trimmed black beard and mustache, curious gentle smile, warm light-brown skin, thin transparent rimless smart glasses with a faint cyan glint on the lenses. Short neat black hair, slightly longer and swept up on top. Slim, average height, relaxed upright posture. He wears a modern slim-cut white thobe with a clean band collar and a thin pale cyan piping line along the placket; the white thobe falling to the ankles and clean white minimalist sneakers. the band collar of the white thobe and the single small button at the throat with the thin pale cyan piping. clean white minimalist sneakers under the hem of the white thobe. A clean 2D modern Western TV animation illustration, like official character art for an adult animated series: bold confident dark brown-black outlines of even weight, flat cel shading with one soft shadow tone, warm muted earthy colors, warm terracotta skin tones, simple solid shapes, slightly exaggerated sturdy proportions, expressive heavy eyebrows. Fabric folds drawn as a few simple lines. Plain pure white background, evenly lit, with at most a faint soft shadow under the feet. Exactly one character, empty hands, no props, no text, no watermark.",
+              "negative": "text, watermark, border, multiple people, extra limbs, deformed hands, props, scenery, colored background, oversaturated colors, photograph, photorealistic, realistic skin texture, pores, film grain, 3D render, CGI, semi-realistic, painterly, watercolor, sketch, rough lines, messy lines, anime eyes, chibi, super deformed, gradient background, character sheet, multiple views, cropped feet, cropped head, three-quarter view, turned body, head turned to the side, contrapposto, dynamic pose",
+              "refs": [],
+              "notes": [],
+              "layersHash": "e158e33ab2413979",
+              "lookHash": "e63ccaf752458c04",
+              "gates": [
+                {
+                  "id": "size",
+                  "label": "单边 300–5760 像素",
+                  "ok": true,
+                  "detail": "1056×1584"
+                },
+                {
+                  "id": "ratio-range",
+                  "label": "宽高比 0.4–2.5",
+                  "ok": true,
+                  "detail": "0.667"
+                },
+                {
+                  "id": "ratio-target",
+                  "label": "比例为 2:3",
+                  "ok": true,
+                  "detail": "0.667"
+                },
+                {
+                  "id": "bytes",
+                  "label": "文件 ≤ 20MB",
+                  "ok": true,
+                  "detail": "0.9MB"
+                },
+                {
+                  "id": "white",
+                  "label": "四边够白",
+                  "ok": true,
+                  "detail": "100% 近白"
+                }
+              ],
+              "createdAt": "2026-11-21T11:07:11.642Z",
+              "confirmed": false
+            }
+          ]
+        }
+      },
+      "upgrades": []
+    }
+  }
+}

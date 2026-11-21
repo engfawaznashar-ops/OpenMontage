@@ -1,0 +1,60 @@
+{
+  "name": "jeel",
+  "lang": "en",
+  "source": "نافذة ٢٠٥٠ — شاب الجيل",
+  "identity": {
+    "age": 30,
+    "gender": "male",
+    "en": "A slim thirty-year-old Saudi Arab man living in the year 2050",
+    "text": "شاب الجيل: سعودي حوالي ٣٠ سنة في عام ٢٠٥٠",
+    "source": "stated"
+  },
+  "face": {
+    "en": "Friendly oval face, warm brown eyes, neat dark eyebrows, short neatly trimmed black beard and mustache, curious gentle smile, warm light-brown skin, thin transparent rimless smart glasses with a faint cyan glint on the lenses",
+    "text": "وجه بيضاوي ودود، لحية خفيفة مرتبة، نظارة ذكية شفافة",
+    "source": "inferred"
+  },
+  "hair": {
+    "en": "Short neat black hair, slightly longer and swept up on top",
+    "text": "شعر أسود قصير مرتب",
+    "source": "inferred"
+  },
+  "build": {
+    "en": "Slim, average height, relaxed upright posture",
+    "text": "نحيف ومتوسط الطول",
+    "source": "inferred"
+  },
+  "outfit": {
+    "id": "default",
+    "label": "ثوب المستقبل",
+    "top": {
+      "en": "a modern slim-cut white thobe with a clean band collar and a thin pale cyan piping line along the placket",
+      "text": "ثوب أبيض عصري بقصة ضيقة وخط سماوي رفيع",
+      "source": "inferred"
+    },
+    "bottom": {
+      "en": "the white thobe falling to the ankles and clean white minimalist sneakers",
+      "text": "الثوب لين الكعب وجزمة رياضية بيضاء",
+      "source": "inferred"
+    },
+    "details": [
+      {
+        "slot": "neck",
+        "en": "the band collar of the white thobe and the single small button at the throat with the thin pale cyan piping",
+        "text": "ياقة الثوب",
+        "source": "inferred"
+      },
+      {
+        "slot": "feet",
+        "en": "clean white minimalist sneakers under the hem of the white thobe",
+        "text": "الجزمة البيضاء",
+        "source": "inferred"
+      }
+    ]
+  },
+  "skin": {
+    "en": "Smooth healthy thirty-year-old skin drawn simply, no pores",
+    "text": "بشرة مرسومة ببساطة",
+    "source": "inferred"
+  }
+}

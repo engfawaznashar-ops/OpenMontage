@@ -1,0 +1,62 @@
+{
+  "name": "mustashrif",
+  "lang": "en",
+  "source": "نافذة ٢٠٥٠ — ورقة تصميم الشخصية المرفقة من صاحب العمل",
+  "identity": {
+    "age": 70,
+    "gender": "male",
+    "en": "A broad-shouldered seventy-year-old Arab man from present-day Saudi Arabia, an old wise scientist",
+    "text": "العالم مستشرف: رجل عربي سعودي حوالي ٧٠ سنة، عالم عجوز حكيم",
+    "source": "stated"
+  },
+  "face": {
+    "en": "Broad square jaw and heavy square chin, deep-set stern eye, heavy thick black eyebrows knitted in a frown, large straight nose, a thick black horseshoe mustache covering the upper lip, a black leather eye patch over his LEFT eye held by a thin black strap around the head, a long-healed stitched scar with small red cross-stitches running vertically on the upper left side of the bald crown, faint wrinkles around the eye, warm terracotta skin",
+    "text": "فك عريض وذقن مربع، حواجب سوداء كثيفة معقودة، شنب أسود كث حدوة، رقعة سوداء على العين اليسرى بحزام رفيع، ندبة قديمة بغرز حمراء أعلى يسار الرأس",
+    "source": "stated"
+  },
+  "hair": {
+    "en": "Bald crown with thick bushy black hair tufts on both sides of the head above and behind the ears, and a thick black hair patch at the back of the head",
+    "text": "أصلع من فوق، شعر أسود كثيف على الجانبين وخلف الرأس",
+    "source": "stated"
+  },
+  "build": {
+    "en": "Stocky, broad-shouldered heavy muscular build, thick neck, upright confident posture",
+    "text": "جسم عريض ممتلئ وعضلي، رقبة غليظة",
+    "source": "stated"
+  },
+  "outfit": {
+    "id": "default",
+    "label": "اللبس الأسود",
+    "top": {
+      "en": "a plain black crew-neck long-sleeve sweater, slightly loose, with ribbed cuffs and waistband",
+      "text": "كنزة سوداء برقبة دائرية وأكمام طويلة",
+      "source": "stated"
+    },
+    "bottom": {
+      "en": "loose plain black trousers gathered at the ankles and black leather lace-up boots",
+      "text": "بنطلون أسود واسع وبوت جلد أسود",
+      "source": "stated"
+    },
+    "details": [
+      {
+        "slot": "custom",
+        "id": "patch",
+        "part": "hair",
+        "en": "the black leather eye patch over his left eye and its thin black strap crossing the bald head",
+        "text": "الرقعة والحزام",
+        "source": "stated"
+      },
+      {
+        "slot": "feet",
+        "en": "black leather lace-up boots and the black trouser hems gathered above them",
+        "text": "البوت الأسود",
+        "source": "stated"
+      }
+    ]
+  },
+  "skin": {
+    "en": "Weathered seventy-year-old skin drawn simply: a few clean wrinkle lines at the eye corners and forehead, no pores, no age spots",
+    "text": "بشرة مرسومة ببساطة",
+    "source": "inferred"
+  }
+}
