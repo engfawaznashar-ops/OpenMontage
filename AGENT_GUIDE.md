@@ -14,6 +14,10 @@ This skill teaches you to run discovery, classify the user's setup, present capa
 
 **Skip onboarding** when the user arrives with a specific, actionable request (e.g., "Make a 60-second explainer about black holes"). Go directly to Rule Zero.
 
+## Skill Aliases (user shorthand)
+
+- **"شوه" / "شوهو" / "shuohao"** = the public repo [`eternityspring/shuohao-skills`](https://github.com/eternityspring/shuohao-skills) (AI short-drama skills: `novel-script`, `novel-storyboard`, `character-refs`, `novel-characters`, `novel-art`, `novel-staging`, `novel-outline`). When the user mentions it, clone it read-only (`GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/eternityspring/shuohao-skills`) and read the relevant `skills/<name>/SKILL.md` before working. Do not ask what it is.
+
 ## Reference Video Entry Point
 
 When the user provides a **video URL or local video file as inspiration** — for example:
