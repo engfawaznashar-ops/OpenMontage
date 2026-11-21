@@ -120,7 +120,182 @@
                 }
               ],
               "createdAt": "2026-11-21T11:07:11.642Z",
-              "confirmed": false
+              "confirmed": true,
+              "confirmedAt": "2026-11-21T11:10:01.399Z"
+            }
+          ]
+        },
+        "face-front": {
+          "current": 1,
+          "versions": [
+            {
+              "v": 1,
+              "id": "jeel/default/face-front/v1",
+              "file": "default/face-front.v1.png",
+              "sha256": "eaf1dd7b87a5ce8fca9ecf8d456ab6a8c1ea80b2eee0126d68347639388c5b03",
+              "model": "custom:hf",
+              "seed": 376822814,
+              "prompt": "Zoom in to an extreme close-up head-and-shoulders portrait, passport-photo framing, of this same man facing the camera squarely. Framing: the top of his head is just below the top edge of the image, his chin sits at the vertical middle of the image, and the bottom edge of the image cuts across his collarbones. He faces straight at the camera: his nose is on the vertical centre line of the image and both ears are equally visible. Keep him exactly the same person as in the reference image: same face, eyes and eyebrows, short neat black hair, slightly longer and swept up on top, the same modern slim-cut white thobe with a clean band collar and a thin pale cyan piping line along the placket. A clean 2D modern Western TV animation illustration, like official character art for an adult animated series: bold confident dark brown-black outlines of even weight, flat cel shading with one soft shadow tone, warm muted earthy colors, warm terracotta skin tones, simple solid shapes, slightly exaggerated sturdy proportions, expressive heavy eyebrows. Fabric folds drawn as a few simple lines. Plain pure white background, evenly lit, with at most a faint soft shadow under the feet. Exactly one character, empty hands, no props, no text, no watermark. Framing reminder: the bottom edge of the image cuts across his collarbones, so his arms, sleeves and cuffs are out of frame.",
+              "negative": "text, watermark, border, multiple people, extra limbs, deformed hands, props, scenery, colored background, oversaturated colors, waist, torso, arms, hands, full body, legs, feet, wide shot, medium shot, photograph, photorealistic, realistic skin texture, pores, film grain, 3D render, CGI, semi-realistic, painterly, watercolor, sketch, rough lines, messy lines, anime eyes, chibi, super deformed, gradient background, character sheet, multiple views, three-quarter view, head turned to the side, profile, tilted head",
+              "refs": [
+                {
+                  "view": "front-full",
+                  "v": 1,
+                  "sha256": "03150875942a2bce6ebdf8d93aff946c047829d00bcfe88bb183633643c8d795"
+                }
+              ],
+              "notes": [],
+              "layersHash": "e158e33ab2413979",
+              "lookHash": "e63ccaf752458c04",
+              "gates": [
+                {
+                  "id": "size",
+                  "label": "单边 300–5760 像素",
+                  "ok": true,
+                  "detail": "1152×1440"
+                },
+                {
+                  "id": "ratio-range",
+                  "label": "宽高比 0.4–2.5",
+                  "ok": true,
+                  "detail": "0.800"
+                },
+                {
+                  "id": "ratio-target",
+                  "label": "比例为 4:5",
+                  "ok": true,
+                  "detail": "0.800"
+                },
+                {
+                  "id": "bytes",
+                  "label": "文件 ≤ 20MB",
+                  "ok": true,
+                  "detail": "1.1MB"
+                },
+                {
+                  "id": "white",
+                  "label": "上边与两侧上半够白",
+                  "ok": true,
+                  "detail": "100% 近白"
+                }
+              ],
+              "createdAt": "2026-11-21T11:23:16.142Z"
+            }
+          ]
+        },
+        "side-full": {
+          "current": 1,
+          "versions": [
+            {
+              "v": 1,
+              "id": "jeel/default/side-full/v1",
+              "file": "default/side-full.v1.png",
+              "sha256": "4d822f1b210795e2053e30476a2a962cf1e1eb95e8624b352f88621333e18458",
+              "model": "custom:hf",
+              "seed": 1152873767,
+              "prompt": "Full-body side profile of this same man: his whole body and his head both face the right edge of the image, looking straight ahead to the right, not at the camera. Only the right side of his face is visible. Head to feet in frame. Keep him exactly the same person as in the reference image: same face, eyes and eyebrows, short neat black hair, slightly longer and swept up on top, the same modern slim-cut white thobe with a clean band collar and a thin pale cyan piping line along the placket, the same white thobe falling to the ankles and clean white minimalist sneakers. A clean 2D modern Western TV animation illustration, like official character art for an adult animated series: bold confident dark brown-black outlines of even weight, flat cel shading with one soft shadow tone, warm muted earthy colors, warm terracotta skin tones, simple solid shapes, slightly exaggerated sturdy proportions, expressive heavy eyebrows. Fabric folds drawn as a few simple lines. Plain pure white background, evenly lit, with at most a faint soft shadow under the feet. Exactly one character, empty hands, no props, no text, no watermark.",
+              "negative": "text, watermark, border, multiple people, extra limbs, deformed hands, props, scenery, colored background, oversaturated colors, photograph, photorealistic, realistic skin texture, pores, film grain, 3D render, CGI, semi-realistic, painterly, watercolor, sketch, rough lines, messy lines, anime eyes, chibi, super deformed, gradient background, character sheet, multiple views, looking at camera, front view, three-quarter view, both eyes visible, cropped feet",
+              "refs": [
+                {
+                  "view": "front-full",
+                  "v": 1,
+                  "sha256": "03150875942a2bce6ebdf8d93aff946c047829d00bcfe88bb183633643c8d795"
+                }
+              ],
+              "notes": [],
+              "layersHash": "e158e33ab2413979",
+              "lookHash": "e63ccaf752458c04",
+              "gates": [
+                {
+                  "id": "size",
+                  "label": "单边 300–5760 像素",
+                  "ok": true,
+                  "detail": "1056×1584"
+                },
+                {
+                  "id": "ratio-range",
+                  "label": "宽高比 0.4–2.5",
+                  "ok": true,
+                  "detail": "0.667"
+                },
+                {
+                  "id": "ratio-target",
+                  "label": "比例为 2:3",
+                  "ok": true,
+                  "detail": "0.667"
+                },
+                {
+                  "id": "bytes",
+                  "label": "文件 ≤ 20MB",
+                  "ok": true,
+                  "detail": "0.9MB"
+                },
+                {
+                  "id": "white",
+                  "label": "四边够白",
+                  "ok": true,
+                  "detail": "100% 近白"
+                }
+              ],
+              "createdAt": "2026-11-21T11:30:08.373Z"
+            }
+          ]
+        },
+        "back-full": {
+          "current": 1,
+          "versions": [
+            {
+              "v": 1,
+              "id": "jeel/default/back-full/v1",
+              "file": "default/back-full.v1.png",
+              "sha256": "32bfd9df28ddf5cc767f534ca455643a31372f6e5543dc852cb9fe79dc856788",
+              "model": "custom:hf",
+              "seed": 870584002,
+              "prompt": "Rotate the camera 180 degrees around him: a full-body back view. He stands with his back to the camera and his face is completely hidden. We see the back of his head with his hair as seen from behind (short neat black hair, slightly longer and swept up on top), the back of his modern slim-cut white thobe with a clean band collar and a thin pale cyan piping line along the placket and of his white thobe falling to the ankles and clean white minimalist sneakers, and his heels. Head to feet in frame. Keep him exactly the same person as in the reference image: same face, eyes and eyebrows, short neat black hair, slightly longer and swept up on top, the same modern slim-cut white thobe with a clean band collar and a thin pale cyan piping line along the placket, the same white thobe falling to the ankles and clean white minimalist sneakers. A clean 2D modern Western TV animation illustration, like official character art for an adult animated series: bold confident dark brown-black outlines of even weight, flat cel shading with one soft shadow tone, warm muted earthy colors, warm terracotta skin tones, simple solid shapes, slightly exaggerated sturdy proportions, expressive heavy eyebrows. Fabric folds drawn as a few simple lines. Plain pure white background, evenly lit, with at most a faint soft shadow under the feet. Exactly one character, empty hands, no props, no text, no watermark.",
+              "negative": "text, watermark, border, multiple people, extra limbs, deformed hands, props, scenery, colored background, oversaturated colors, photograph, photorealistic, realistic skin texture, pores, film grain, 3D render, CGI, semi-realistic, painterly, watercolor, sketch, rough lines, messy lines, anime eyes, chibi, super deformed, gradient background, character sheet, multiple views, face, eyes, nose, front view, buttons, pockets, looking at camera",
+              "refs": [
+                {
+                  "view": "front-full",
+                  "v": 1,
+                  "sha256": "03150875942a2bce6ebdf8d93aff946c047829d00bcfe88bb183633643c8d795"
+                }
+              ],
+              "notes": [],
+              "layersHash": "e158e33ab2413979",
+              "lookHash": "e63ccaf752458c04",
+              "gates": [
+                {
+                  "id": "size",
+                  "label": "单边 300–5760 像素",
+                  "ok": true,
+                  "detail": "1056×1584"
+                },
+                {
+                  "id": "ratio-range",
+                  "label": "宽高比 0.4–2.5",
+                  "ok": true,
+                  "detail": "0.667"
+                },
+                {
+                  "id": "ratio-target",
+                  "label": "比例为 2:3",
+                  "ok": true,
+                  "detail": "0.667"
+                },
+                {
+                  "id": "bytes",
+                  "label": "文件 ≤ 20MB",
+                  "ok": true,
+                  "detail": "1.0MB"
+                },
+                {
+                  "id": "white",
+                  "label": "四边够白",
+                  "ok": true,
+                  "detail": "100% 近白"
+                }
+              ],
+              "createdAt": "2026-11-21T11:30:16.496Z"
             }
           ]
         }

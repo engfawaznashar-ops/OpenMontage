@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Lalezar;src:url(lalezar-arabic-400-normal.woff2)}
+@font-face{font-family:Almarai;font-weight:800;src:url(almarai-arabic-800-normal.woff2)}
+html,body{margin:0;background:#000}
+#c{position:relative;overflow:hidden;direction:rtl}
+#c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shade{position:absolute;inset:0}
+.t{position:absolute;white-space:nowrap;color:#F3E6D5;font-family:Lalezar;line-height:.95;text-shadow:0 0 28px rgba(0,229,255,.35),7px 7px 0 #0D0804}
+.q{color:#29E6FF;text-shadow:0 0 40px rgba(41,230,255,.9),7px 7px 0 #0D0804}
+.s{position:absolute;font-family:Almarai;font-weight:800;color:#29E6FF;letter-spacing:1px;text-shadow:3px 3px 0 #0D0804}
+</style></head><body><div id="c"></div><script>
+const P=new URLSearchParams(location.search); const v=P.get('v');
+const c=document.getElementById('c');
+if(v==='v'){c.style.width='1080px';c.style.height='1920px';
+ c.innerHTML=`<img src="E01-cover-art-9x16.png"><div class="shade" style="background:linear-gradient(#000c 0%,#0006 30%,#0000 45%)"></div>
+ <div class="s" style="top:300px;right:90px;font-size:44px">نافذة ٢٠٥٠</div>
+ <div class="t" style="top:370px;right:90px;font-size:170px">جوالك</div>
+ <div class="t" style="top:540px;right:90px;font-size:150px">عمره قصير<span class="q" style="font-size:230px"> ؟</span></div>`;}
+else{c.style.width='1280px';c.style.height='720px';
+ c.innerHTML=`<img src="E01-cover-art-16x9.png"><div class="shade" style="background:linear-gradient(270deg,#0000 40%,#000a 75%)"></div>
+ <div class="s" style="top:70px;left:60px;right:auto;font-size:34px;direction:rtl">نافذة ٢٠٥٠</div>
+ <div class="t" style="top:130px;left:60px;font-size:150px">جوالك</div>
+ <div class="t" style="top:285px;left:60px;font-size:120px">عمره قصير<span class="q" style="font-size:190px"> ؟</span></div>`;}
+</script></body></html>

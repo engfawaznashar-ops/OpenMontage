@@ -1,0 +1,76 @@
+[
+  {
+    "segment": "E01-01",
+    "seconds": 15,
+    "cuts": 5,
+    "cutStarts": [
+      0,
+      3,
+      6.5,
+      10,
+      12.5
+    ],
+    "prompt": "packs/h3/E01-01/prompt.md",
+    "pictures": [
+      "packs/h3/E01-01/f1.png",
+      "packs/h3/E01-01/f2.png",
+      "packs/h3/E01-01/f3.png",
+      "packs/h3/E01-01/f4.png",
+      "packs/h3/E01-01/f5.png"
+    ],
+    "missing": []
+  },
+  {
+    "segment": "E01-02",
+    "seconds": 13.5,
+    "cuts": 3,
+    "cutStarts": [
+      0,
+      4.5,
+      9
+    ],
+    "prompt": "packs/h3/E01-02/prompt.md",
+    "pictures": [
+      "packs/h3/E01-02/f1.png",
+      "packs/h3/E01-02/f2.png",
+      "packs/h3/E01-02/f3.png"
+    ],
+    "missing": []
+  },
+  {
+    "segment": "E01-03",
+    "seconds": 8,
+    "cuts": 2,
+    "cutStarts": [
+      0,
+      3.5
+    ],
+    "prompt": "packs/h3/E01-03/prompt.md",
+    "pictures": [
+      "packs/h3/E01-03/f1.png",
+      "packs/h3/E01-03/f2.png"
+    ],
+    "missing": []
+  },
+  {
+    "segment": "E01-04",
+    "seconds": 15,
+    "cuts": 5,
+    "cutStarts": [
+      0,
+      2,
+      5.5,
+      9,
+      11
+    ],
+    "prompt": "packs/h3/E01-04/prompt.md",
+    "pictures": [
+      "packs/h3/E01-04/f1.png",
+      "packs/h3/E01-04/f2.png",
+      "packs/h3/E01-04/f3.png",
+      "packs/h3/E01-04/f4.png",
+      "packs/h3/E01-04/f5.png"
+    ],
+    "missing": []
+  }
+]
