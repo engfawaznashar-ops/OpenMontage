@@ -1,0 +1,225 @@
+{
+ "total": 53.0,
+ "cuts": [
+  {
+   "seg": "E01-01",
+   "cut": 1,
+   "start": 0,
+   "dur": 2.5,
+   "frame": "frames/E01-01/f1.png",
+   "camera": "Static Shot",
+   "size": "wide",
+   "lines": []
+  },
+  {
+   "seg": "E01-01",
+   "cut": 2,
+   "start": 2.5,
+   "dur": 4.2,
+   "frame": "frames/E01-01/f2.png",
+   "camera": "Push In",
+   "size": "close",
+   "lines": [
+    {
+     "n": 1,
+     "text": "الجوال اللي في يدك الحين، عمره قصير.",
+     "start": 2.65,
+     "speaker": "C01"
+    }
+   ]
+  },
+  {
+   "seg": "E01-01",
+   "cut": 3,
+   "start": 6.7,
+   "dur": 5,
+   "frame": "frames/E01-01/f3.png",
+   "camera": "Static Shot",
+   "size": "close",
+   "lines": [
+    {
+     "n": 2,
+     "text": "أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.",
+     "start": 6.85,
+     "speaker": "C01"
+    }
+   ]
+  },
+  {
+   "seg": "E01-02",
+   "cut": 1,
+   "start": 11.7,
+   "dur": 2.5,
+   "frame": "frames/E01-02/f1.png",
+   "camera": "Push In",
+   "size": "extreme-close",
+   "lines": []
+  },
+  {
+   "seg": "E01-02",
+   "cut": 2,
+   "start": 14.2,
+   "dur": 2.5,
+   "frame": "frames/E01-02/f2.png",
+   "camera": "Static Shot",
+   "size": "close",
+   "lines": [
+    {
+     "n": 3,
+     "text": "تبي تشوف؟ تعال معي.",
+     "start": 14.35,
+     "speaker": "C01"
+    }
+   ]
+  },
+  {
+   "seg": "E01-03",
+   "cut": 1,
+   "start": 16.7,
+   "dur": 4,
+   "frame": "frames/E01-03/f1.png",
+   "camera": "Static Shot",
+   "size": "wide",
+   "lines": [
+    {
+     "n": 4,
+     "text": "الساعة سبعة. ومحد صحاه منبه.",
+     "start": 17.4,
+     "speaker": "VO"
+    }
+   ]
+  },
+  {
+   "seg": "E01-03",
+   "cut": 2,
+   "start": 20.7,
+   "dur": 5,
+   "frame": "frames/E01-03/f2.png",
+   "camera": "Push In",
+   "size": "medium",
+   "lines": [
+    {
+     "n": 5,
+     "text": "الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.",
+     "start": 21.4,
+     "speaker": "VO"
+    }
+   ]
+  },
+  {
+   "seg": "E01-03",
+   "cut": 3,
+   "start": 25.7,
+   "dur": 4,
+   "frame": "frames/E01-03/f3.png",
+   "camera": "Static Shot",
+   "size": "close",
+   "lines": [
+    {
+     "n": 6,
+     "text": "جواله؟ صار في نظارته، وفي الجدار.",
+     "start": 26.4,
+     "speaker": "VO"
+    }
+   ]
+  },
+  {
+   "seg": "E01-04",
+   "cut": 1,
+   "start": 29.7,
+   "dur": 2.5,
+   "frame": "frames/E01-04/f1.png",
+   "camera": "Tracking Shot",
+   "size": "extreme-wide",
+   "lines": []
+  },
+  {
+   "seg": "E01-04",
+   "cut": 2,
+   "start": 32.2,
+   "dur": 4.8,
+   "frame": "frames/E01-04/f2.png",
+   "camera": "Push In",
+   "size": "medium",
+   "lines": [
+    {
+     "n": 7,
+     "text": "يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.",
+     "start": 32.35,
+     "speaker": "VO"
+    }
+   ]
+  },
+  {
+   "seg": "E01-05",
+   "cut": 1,
+   "start": 37.0,
+   "dur": 2,
+   "frame": "frames/E01-05/f1.png",
+   "camera": "Push In",
+   "size": "close",
+   "lines": []
+  },
+  {
+   "seg": "E01-05",
+   "cut": 2,
+   "start": 39.0,
+   "dur": 3.5,
+   "frame": "frames/E01-05/f2.png",
+   "camera": "Static Shot",
+   "size": "medium",
+   "lines": [
+    {
+     "n": 8,
+     "text": "اللي يكلم الذكاء الاصطناعي من اليوم،",
+     "start": 39.15,
+     "speaker": "C01"
+    }
+   ]
+  },
+  {
+   "seg": "E01-05",
+   "cut": 3,
+   "start": 42.5,
+   "dur": 4.3,
+   "frame": "frames/E01-05/f3.png",
+   "camera": "Push In",
+   "size": "extreme-close",
+   "lines": [
+    {
+     "n": 9,
+     "text": "هو اللي بيقود بكرة. والباقي بيتبعون.",
+     "start": 42.65,
+     "speaker": "C01"
+    }
+   ]
+  },
+  {
+   "seg": "E01-06",
+   "cut": 1,
+   "start": 46.8,
+   "dur": 2,
+   "frame": "frames/E01-06/f1.png",
+   "camera": "Static Shot",
+   "size": "medium",
+   "lines": []
+  },
+  {
+   "seg": "E01-06",
+   "cut": 2,
+   "start": 48.8,
+   "dur": 4.2,
+   "frame": "frames/E01-06/f2.png",
+   "camera": "Push In",
+   "size": "close",
+   "lines": [
+    {
+     "n": 10,
+     "text": "وبالمناسبة، نسختي الثانية شغالة الحين.",
+     "start": 48.95,
+     "speaker": "C01"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية) · Storyboard (Episode 1)</title>
+<style>
+:root{
+  --paper:#eceded; --panel:#f5f6f5; --side:#e4e6e3; --ink:#191d21; --ink-2:#5b636a; --ink-3:#8c9298;
+  --rule:#d2d5d0; --rule-2:#c2c6bf; --seal:#8a3324; --seal-2:#c56a4e; --seal-soft:#8a332412; --ok:#3d6b4f;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+.page{max-width:1600px;margin:0 auto;padding:24px 32px 90px}
+h1,h2,h3{margin:0;font-weight:400}
+
+.hd{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.hd h1{font:400 28px/1.1 var(--serif);letter-spacing:.06em}
+.hd .sub{font-size:13px;color:var(--ink-2)}
+.hd .right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.gatepill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--sans);border-radius:99px;padding:6px 12px}
+.gatepill.pass{color:var(--ok);border:1px solid var(--ok)}
+.gatepill.fail{color:var(--seal);border:1px solid var(--seal);background:var(--seal-soft)}
+.expo{font:500 11px/1 var(--sans);color:var(--ink-2);background:var(--panel);
+  border:1px solid var(--rule-2);border-radius:2px;padding:7px 11px;cursor:pointer;transition:.15s}
+.expo:hover{border-color:var(--seal);color:var(--seal)}
+.expo:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:18px 0 6px}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:11px 14px 9px}
+.kpi .l{font:500 10px/1 var(--sans);letter-spacing:.18em;color:var(--ink-3)}
+.kpi .v{font:400 28px/1.15 var(--serif);margin-top:5px}
+.kpi .v small{font:400 14px var(--serif);color:var(--ink-2)}
+.kpi .d{font-size:11px;color:var(--ink-2);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kpi.accent{border-top:2px solid var(--seal)}
+.galert{margin:14px 0 0;border:1px solid var(--seal);background:var(--seal-soft);border-radius:2px;
+  padding:10px 14px;font-size:13px}
+.galert b{color:var(--seal)}
+.galert span{display:block;font-size:12px;color:var(--ink-2)}
+
+section.top-sec{margin-top:34px}
+.sec-h{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule-2);padding-bottom:8px;margin-bottom:16px}
+.sec-h .no{font:500 12px/1 var(--mono);color:var(--seal)}
+.sec-h h2{font:400 20px/1.2 var(--serif);letter-spacing:.05em}
+.sec-h .note{margin-left:auto;font-size:12px;color:var(--ink-3)}
+
+/* 01 cut rhythm strip */
+.rhythm{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:16px 20px 10px}
+.rrow{display:grid;grid-template-columns:44px minmax(0,1fr) 150px;gap:12px;align-items:center;padding:5px 0}
+.rep{font:500 12px/1 var(--mono);color:var(--ink-2)}
+.rtrack{display:flex;height:22px;border:1px solid var(--rule);border-radius:2px;overflow:hidden;background:var(--paper)}
+.rseg{display:flex;border-right:2px solid var(--ink-2)}
+.rseg:last-child{border-right:0}
+.seg{display:block;border-right:1px solid var(--panel)}
+.rseg .seg:last-child{border-right:0}
+.seg:hover{outline:2px solid var(--ink);outline-offset:-2px}
+.rval{font:500 12px/1.5 var(--sans);color:var(--ink-2)}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--ink-2);margin:8px 0 2px;flex-wrap:wrap}
+.legend i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px}
+
+/* 02 segment cards */
+.ep{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:18px 22px;margin-bottom:16px}
+.ep-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--rule-2);padding-bottom:10px;margin-bottom:14px}
+.ep-n{font:400 22px/1 var(--serif);letter-spacing:.04em;color:var(--seal)}
+.ep-est{font-size:12.5px;color:var(--ink-2)}
+.shots{position:relative}
+.shots.clip{max-height:760px;overflow:hidden}
+.shots.clip::after{content:'';position:absolute;left:0;right:0;bottom:0;height:80px;
+  background:linear-gradient(180deg,transparent,var(--panel));pointer-events:none}
+.shmore{display:block;width:100%;margin-top:8px;font:500 11.5px/1 var(--sans);letter-spacing:.06em;
+  color:var(--ink-2);background:var(--paper);border:1px solid var(--rule-2);border-radius:2px;
+  padding:7px 0;cursor:pointer;transition:.15s}
+.shmore:hover{border-color:var(--seal);color:var(--seal)}
+.shmore:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.seggrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+@media(max-width:1100px){.seggrid{grid-template-columns:minmax(0,1fr)}}
+.segcard{background:var(--paper);border:1px solid var(--rule);border-radius:2px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.seg-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.seg-h b{font:500 14px/1 var(--mono);color:var(--seal)}
+.sec-badge{font:500 11px/1 var(--mono);border:1px solid var(--seal);color:var(--seal);border-radius:99px;padding:2px 8px}
+.beatsref{margin-left:auto;font-size:10.5px;color:var(--ink-3)}
+.frame{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--rule-2);border-radius:2px;
+  cursor:zoom-in;display:block;background:var(--side)}
+.frame.ph{display:flex;flex-direction:column;gap:6px;padding:10px 12px;cursor:default;overflow:hidden}
+.frame.ph b{font:500 10px/1 var(--sans);letter-spacing:.14em;color:var(--ink-3)}
+.frame.ph span{font:400 10.5px/1.55 var(--mono);color:var(--ink-2);overflow:hidden;display:-webkit-box;
+  -webkit-line-clamp:5;-webkit-box-orient:vertical}
+.subs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.fquad{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0}
+.fquad .frame.ph{aspect-ratio:auto}
+.fquad .fcell{margin:0;min-height:0}
+.fcell-h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
+.fcell-h .copy.mini{margin:0;flex:none}
+.frame.ph .fprompt{font:400 10.5px/1.4 var(--mono);color:var(--ink-2);white-space:pre-wrap;word-break:break-word;display:block;
+  -webkit-line-clamp:none;-webkit-box-orient:vertical;overflow:visible}
+.subf{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--rule-2);border-radius:2px;
+  cursor:zoom-in;display:block;background:var(--side)}
+.subf.ph{display:flex;align-items:center;justify-content:center;cursor:default;
+  font:500 10px/1 var(--sans);color:var(--ink-3);letter-spacing:.08em}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start;border-top:1px solid var(--rule);padding-top:4px}
+@media(max-width:900px){.duo{grid-template-columns:minmax(0,1fr)}}
+.ppanel{border:1px solid var(--rule);border-radius:2px;background:var(--panel);margin-top:7px}
+.pp-h{display:flex;align-items:center;gap:6px;padding:7px 10px;border-bottom:1px solid var(--rule)}
+.pp{display:none;margin:0;padding:9px 12px;font:400 12px/1.8 var(--sans);color:var(--ink);
+  white-space:pre-wrap;word-break:break-word;max-height:400px;overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:var(--rule-2) transparent}
+.pp.on{display:block}
+.pp::-webkit-scrollbar{width:6px}
+.pp::-webkit-scrollbar-thumb{background:var(--rule-2);border-radius:3px}
+.cuts{margin:0;padding:0;list-style:none}
+.cut{padding:7px 0;border-bottom:1px solid var(--rule)}
+.cut:first-child{padding-top:11px}
+.cut:last-child{border-bottom:0}
+.cut-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.cut-h b{font:500 12px/1 var(--mono);color:var(--seal)}
+.cut-t{font:500 10.5px/1.6 var(--mono);color:var(--ink-3)}
+.cut-sc{font-size:11.5px;color:var(--ink-2)}
+.cut-rc{font:400 10.5px/1.6 var(--mono);border:1px dashed var(--rule-2);border-radius:2px;padding:0 6px;color:var(--ink-2)}
+.cut-rc sup{color:var(--seal-2);font-weight:700;cursor:help;margin-left:2px}
+.cut-h .copy{margin-left:auto;opacity:0;transition:.15s}
+.cut:hover .copy{opacity:1}
+.cut p{margin:3px 0 0;font-size:12px;line-height:1.6}
+.sact{color:var(--ink-2)}
+.sline{font-family:var(--serif)}
+.sline b{font-weight:500;margin-right:6px;color:var(--seal)}
+.chip{font:400 10.5px/1.6 var(--mono);border:1px solid var(--rule-2);border-radius:2px;
+  padding:0 6px;background:var(--panel);color:var(--ink-2);text-decoration:none}
+.chip.lite{border-color:var(--seal-2);color:var(--seal-2)}
+.chip.prop{border-color:var(--seal);color:var(--seal)}
+.chip.mono{font-family:var(--mono)}
+a.chip:hover{border-color:var(--seal);color:var(--seal)}
+.prompts{display:flex;gap:6px}
+.seg-note{margin:0;font-size:11px;color:var(--ink-3)}
+.seg-block{margin:0;font-size:11.5px;line-height:1.7;color:var(--ink-2)}
+.seg-block b{font:500 10.5px/1 var(--sans);letter-spacing:.08em;color:var(--seal);margin-right:8px}
+.cut p.scomp{font:400 10.5px/1.6 var(--sans);color:var(--ink-3)}
+.ptabs{display:flex;gap:2px;margin-right:auto}
+.ptab{font:500 11px/1 var(--sans);letter-spacing:.08em;color:var(--ink-3);background:none;border:0;
+  border-bottom:1.5px solid transparent;padding:4px 6px;cursor:pointer}
+.ptab.on{color:var(--ink);border-bottom-color:var(--seal)}
+.ptab:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+/* 竖屏 9:16：分镜图位跟着画幅改竖（场景设定图 .bimg 仍是 16:9） */
+.frame,.subf{aspect-ratio:9/16}
+img.frame{width:min(100%,300px);margin:0 auto}
+
+/* 03 generation batches */
+.batches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+@media(max-width:1100px){.batches{grid-template-columns:minmax(0,1fr)}}
+.batch{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:14px 18px}
+.bimg{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--rule-2);border-radius:2px;
+  cursor:zoom-in;display:block;margin-bottom:10px}
+.batch-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.batch-h b{font:500 13px var(--serif);letter-spacing:.06em}
+.batch-shots{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.batch-need{margin:8px 0 0;font-size:12px;color:var(--ink-2)}
+
+/* 04 audio alignment */
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--rule);font-size:13px}
+th,td{padding:8px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+th{font:500 11px/1 var(--sans);letter-spacing:.1em;color:var(--ink-3);background:var(--side)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--mono);font-size:12px;white-space:nowrap}
+td a{color:var(--seal);text-decoration:none}
+td.serif{font-family:var(--serif)}
+
+.copy{flex:none;font:500 11px/1 var(--sans);color:var(--ink-2);background:var(--panel);
+  border:1px solid var(--rule-2);border-radius:2px;padding:5px 10px;cursor:pointer;transition:.15s}
+.copy:hover{border-color:var(--seal);color:var(--seal)}
+.copy:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.copy[data-done]{border-color:var(--seal);color:var(--seal)}
+.copy.mini{padding:3px 7px;font-size:10px}
+.copy.h3{border-color:var(--seal-2);color:var(--seal-2);width:100%}
+.copy.h3:hover,.copy.h3[data-done]{border-color:var(--seal);color:var(--seal)}
+
+.gate{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 28px}
+@media(max-width:900px){.gate{grid-template-columns:1fr}}
+.gate li{display:flex;gap:8px;padding:5px 0;font-size:12.5px;line-height:1.55}
+.gate .m{flex:none;font-weight:700}
+.gate li.ok .m{color:var(--ok)}
+.gate li.bad .m{color:var(--seal)}
+.gate li.bad{background:var(--seal-soft);border-radius:2px;padding-left:6px}
+.gate small{display:block;color:var(--ink-3)}
+.gsum{margin:10px 0 0;font-size:12px;color:var(--ink-2)}
+.gsum b{color:var(--seal)}
+
+.lightbox{position:fixed;inset:0;background:rgba(20,22,24,.88);display:none;align-items:center;
+  justify-content:center;z-index:9;cursor:zoom-out;padding:32px}
+.lightbox.on{display:flex}
+.lightbox img{max-width:96%;max-height:96%;border:1px solid #555;border-radius:2px}
+
+.foot{margin-top:40px;font-size:11px;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:14px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{
+  .expo,.copy,.shmore{display:none!important}
+  .pp{max-height:none;overflow:visible}
+  .duo{grid-template-columns:minmax(0,1fr)}
+  .shots.clip{max-height:none}
+  .shots.clip::after{display:none}
+  .seggrid,.batches{grid-template-columns:minmax(0,1fr)}
+  .page{max-width:none;padding:0}
+  section.top-sec,.segcard,.batch{page-break-inside:avoid}
+  body{background:#fff}
+}
+</style></head><body>
+<div class="page">
+
+<header class="hd">
+  <h1>نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية)</h1>
+  <span class="sub">Storyboard · Episode 1</span>
+  <span class="right">
+    <span class="gatepill pass">✓ Quality gates 18 / 18</span>
+    <button class="expo" data-name="نافذة-٢٠٥٠-—-العالم-مستشرف-(سلسلة-أصلية)-storyboard.json">Export JSON</button>
+  </span>
+</header>
+
+<div class="kpis">
+  <div class="kpi accent"><div class="l">Segments</div><div class="v">4 <small>seg</small></div><div class="d">one generation call each, capped at 15s</div></div>
+  <div class="kpi"><div class="l">Cuts</div><div class="v">15 <small>cuts</small></div><div class="d">3.4s per cut on average</div></div>
+  <div class="kpi"><div class="l">Estimated total</div><div class="v">0 min 52 s</div><div class="d">target 1 min 0 s</div></div>
+  <div class="kpi"><div class="l">Generation batches</div><div class="v">4</div><div class="d">same scene + lighting share one environment reference</div></div>
+  <div class="kpi"><div class="l">Dialogue segments</div><div class="v">4 <small>seg</small></div><div class="d">the rest are picture-only</div></div>
+</div>
+
+
+<section class="top-sec" id="sec-rhythm">
+  <div class="sec-h"><span class="no">01</span><h2>Cut rhythm strip</h2><span class="note">thick separators = segment boundaries · slice width = cut duration share · darker = closer shot size</span></div>
+  <div class="rhythm">
+    <div class="legend"><i><span class="sw" style="background:rgba(138,51,36,0.25)"></span>extreme wide shot</i><i><span class="sw" style="background:rgba(138,51,36,0.4)"></span>wide shot</i><i><span class="sw" style="background:rgba(138,51,36,0.58)"></span>medium shot</i><i><span class="sw" style="background:rgba(138,51,36,0.78)"></span>close-up</i><i><span class="sw" style="background:rgba(138,51,36,1)"></span>extreme close-up</i></div>
+<div class="rrow"><span class="rep">E01</span><div class="rtrack"><span class="rseg" style="width:29.1%"><a class="seg" href="#seg-E01-01" style="width:5.8%;background:rgba(138,51,36,0.4)" title="E01-01#1 · 3s · wide shot · Static Shot"></a><a class="seg" href="#seg-E01-01" style="width:6.8%;background:rgba(138,51,36,0.78)" title="E01-01#2 · 3.5s · close-up · Push In"></a><a class="seg" href="#seg-E01-01" style="width:6.8%;background:rgba(138,51,36,0.78)" title="E01-01#3 · 3.5s · close-up · Static Shot"></a><a class="seg" href="#seg-E01-01" style="width:4.9%;background:rgba(138,51,36,1)" title="E01-01#4 · 2.5s · extreme close-up · Push In"></a><a class="seg" href="#seg-E01-01" style="width:4.9%;background:rgba(138,51,36,0.78)" title="E01-01#5 · 2.5s · close-up · Static Shot"></a></span><span class="rseg" style="width:26.2%"><a class="seg" href="#seg-E01-02" style="width:8.7%;background:rgba(138,51,36,0.4)" title="E01-02#1 · 4.5s · wide shot · Static Shot"></a><a class="seg" href="#seg-E01-02" style="width:8.7%;background:rgba(138,51,36,0.58)" title="E01-02#2 · 4.5s · medium shot · Push In"></a><a class="seg" href="#seg-E01-02" style="width:8.7%;background:rgba(138,51,36,0.78)" title="E01-02#3 · 4.5s · close-up · Static Shot"></a></span><span class="rseg" style="width:15.5%"><a class="seg" href="#seg-E01-03" style="width:6.8%;background:rgba(138,51,36,0.25)" title="E01-03#1 · 3.5s · extreme wide shot · Tracking Shot"></a><a class="seg" href="#seg-E01-03" style="width:8.7%;background:rgba(138,51,36,0.58)" title="E01-03#2 · 4.5s · medium shot · Push In"></a></span><span class="rseg" style="width:29.1%"><a class="seg" href="#seg-E01-04" style="width:3.9%;background:rgba(138,51,36,0.78)" title="E01-04#1 · 2s · close-up · Push In"></a><a class="seg" href="#seg-E01-04" style="width:6.8%;background:rgba(138,51,36,0.58)" title="E01-04#2 · 3.5s · medium shot · Static Shot"></a><a class="seg" href="#seg-E01-04" style="width:6.8%;background:rgba(138,51,36,1)" title="E01-04#3 · 3.5s · extreme close-up · Push In"></a><a class="seg" href="#seg-E01-04" style="width:3.9%;background:rgba(138,51,36,0.58)" title="E01-04#4 · 2s · medium shot · Static Shot"></a><a class="seg" href="#seg-E01-04" style="width:7.8%;background:rgba(138,51,36,0.78)" title="E01-04#5 · 4s · close-up · Push In"></a></span></div><span class="rval">4 seg 15 cuts · 51.5s</span></div>
+  </div>
+</section>
+
+<section class="top-sec" id="sec-segments">
+  <div class="sec-h"><span class="no">02</span><h2>Segment cards</h2><span class="note">one segment = one generation: the master frame pins 0.00s, sub-frames pin their own cut marks</span></div>
+<section class="ep" id="ep-1">
+  <header class="ep-h">
+    <span class="ep-n">E01</span>
+    <span class="ep-est">4 segments 15 cuts · 51.5s total / 60s target</span>
+  </header>
+  <div class="shots clip">
+    <div class="seggrid">
+<article class="segcard" id="seg-E01-01">
+  <header class="seg-h">
+    <b>E01-01</b>
+    <span class="sec-badge">15s · 5 cuts</span>
+    <span class="chip">S01 معمل المستشرف</span>
+    <span class="chip lite">ليل دافئ</span>
+    <span class="beatsref">Scene 1 · beats 1–5</span>
+  </header>
+  <div class="fquad"><div class="frame ph fcell"><div class="fcell-h"><b>master frame · #1 not generated</b><button class="copy mini" data-copy="全景，竖构图。العالم مستشرف 在昏暗暖黄的实验室里，刚把一部手机扔到木书桌上，身体前倾正迈步走向镜头；身后正中是圆形铜框窗，左侧黑板写满粉笔城市草图，右侧书架，天花板垂下电缆和爱迪生灯泡。">Copy</button></div><span class="fprompt">全景，竖构图。العالم مستشرف 在昏暗暖黄的实验室里，刚把一部手机扔到木书桌上，身体前倾正迈步走向镜头；身后正中是圆形铜框窗，左侧黑板写满粉笔城市草图，右侧书架，天花板垂下电缆和爱迪生灯泡。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 2 · #2 not generated</b><button class="copy mini" data-copy="特写，竖构图。العالم مستشرف 的脸和肩膀占满画面上半部，眉头紧锁，嘴巴张开正在说话，左眼黑眼罩和额头红色缝线疤痕清晰；背景是虚化的暖黄灯泡。">Copy</button></div><span class="fprompt">特写，竖构图。العالم مستشرف 的脸和肩膀占满画面上半部，眉头紧锁，嘴巴张开正在说话，左眼黑眼罩和额头红色缝线疤痕清晰；背景是虚化的暖黄灯泡。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 3 · #3 not generated</b><button class="copy mini" data-copy="特写，竖构图，略侧四分之三角度。العالم مستشرف 抬起一侧浓眉，嘴巴张开说话，神情神秘，像在透露一个秘密；身后圆形窗的玻璃泛起淡淡蓝光。">Copy</button></div><span class="fprompt">特写，竖构图，略侧四分之三角度。العالم مستشرف 抬起一侧浓眉，嘴巴张开说话，神情神秘，像在透露一个秘密；身后圆形窗的玻璃泛起淡淡蓝光。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 4 · #4 not generated</b><button class="copy mini" data-copy="大特写，竖构图。العالم مستشرف 用手指掀起左眼的黑皮眼罩，眼罩下射出强烈的青蓝色光芒，光线照亮他的胡子和额头疤痕，暖黄背景被蓝光冲开。">Copy</button></div><span class="fprompt">大特写，竖构图。العالم مستشرف 用手指掀起左眼的黑皮眼罩，眼罩下射出强烈的青蓝色光芒，光线照亮他的胡子和额头疤痕，暖黄背景被蓝光冲开。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 5 · #5 not generated</b><button class="copy mini" data-copy="特写，竖构图。العالم مستشرف 半张脸被青蓝色光照亮，眼罩翻起，嘴角带一丝笑，嘴巴微张正在低声邀请；房间暖黄与青蓝交织，空气中有光尘。">Copy</button></div><span class="fprompt">特写，竖构图。العالم مستشرف 半张脸被青蓝色光照亮，眼罩翻起，嘴角带一丝笑，嘴巴微张正在低声邀请；房间暖黄与青蓝交织，空气中有光尘。</span></div></div>
+  
+  <p class="seg-block"><b>Blocking</b>开场：العالم مستشرف 站在画面中后景的书桌后方，面朝镜头，距镜头约四步；圆形铜框窗在他身后正中，黑板在画面左侧，书架在右侧。</p>
+  <div class="duo">
+    <ol class="cuts">
+<li class="cut">
+  <div class="cut-h">
+    <b>#1</b>
+    <span class="cut-t">from 0.00s · 3s</span>
+    <span class="cut-sc">wide shot · Static Shot</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+    <button class="copy mini" data-copy="全景，竖构图。العالم مستشرف 在昏暗暖黄的实验室里，刚把一部手机扔到木书桌上，身体前倾正迈步走向镜头；身后正中是圆形铜框窗，左侧黑板写满粉笔城市草图，右侧书架，天花板垂下电缆和爱迪生灯泡。">Frame prompt</button>
+  </div>
+  <p class="scomp">28mm 广角，中景深 · العالم مستشرف + 平视正面，略低机位 · 中心构图 · eyeline 直视镜头 · focus 锁定 العالم مستشرف 全身 · stable</p>
+  <p class="sact">المستشرف يرمي جوالاً على المكتب الخشبي ويمشي بخطوات ثقيلة نحو الكاميرا.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#2</b>
+    <span class="cut-t">from 3.00s · 3.5s</span>
+    <span class="cut-sc">close-up · Push In</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+    <button class="copy mini" data-copy="特写，竖构图。العالم مستشرف 的脸和肩膀占满画面上半部，眉头紧锁，嘴巴张开正在说话，左眼黑眼罩和额头红色缝线疤痕清晰；背景是虚化的暖黄灯泡。">Frame prompt</button>
+  </div>
+  <p class="scomp">50mm 标准，浅景深 · العالم مستشرف + 平视正面 · 中心构图 · eyeline 直视镜头 · focus 锁定 العالم مستشرف 面部 · stable</p>
+  <p class="sline"><b>العالم مستشرف</b>الجوال اللي في يدك الحين، عمره قصير.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#3</b>
+    <span class="cut-t">from 6.50s · 3.5s</span>
+    <span class="cut-sc">close-up · Static Shot</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+    <button class="copy mini" data-copy="特写，竖构图，略侧四分之三角度。العالم مستشرف 抬起一侧浓眉，嘴巴张开说话，神情神秘，像在透露一个秘密；身后圆形窗的玻璃泛起淡淡蓝光。">Frame prompt</button>
+  </div>
+  <p class="scomp">50mm 标准，浅景深 · العالم مستشرف + 平视四分之三侧 · 三分法 · eyeline 直视镜头 · focus 锁定 العالم مستشرف 面部 · stable</p>
+  <p class="sline"><b>العالم مستشرف</b>أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#4</b>
+    <span class="cut-t">from 10.00s · 2.5s</span>
+    <span class="cut-sc">extreme close-up · Push In</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+    <button class="copy mini" data-copy="大特写，竖构图。العالم مستشرف 用手指掀起左眼的黑皮眼罩，眼罩下射出强烈的青蓝色光芒，光线照亮他的胡子和额头疤痕，暖黄背景被蓝光冲开。">Frame prompt</button>
+  </div>
+  <p class="scomp">85mm 长焦，极浅景深 · العالم مستشرف + 平视正面 · 中心构图 · eyeline 直视镜头 · focus 锁定眼罩与蓝光 · slight shake</p>
+  <p class="sact">يمسك طرف الرقعة ويرفعها، فيطلع من عينه ضوء أزرق يملأ المعمل.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#5</b>
+    <span class="cut-t">from 12.50s · 2.5s</span>
+    <span class="cut-sc">close-up · Static Shot</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+    <button class="copy mini" data-copy="特写，竖构图。العالم مستشرف 半张脸被青蓝色光照亮，眼罩翻起，嘴角带一丝笑，嘴巴微张正在低声邀请；房间暖黄与青蓝交织，空气中有光尘。">Frame prompt</button>
+  </div>
+  <p class="scomp">50mm 标准，浅景深 · العالم مستشرف + 平视正面 · 中心构图 · eyeline 直视镜头 · focus 锁定 العالم مستشرف 面部 · stable</p>
+  <p class="sline"><b>العالم مستشرف</b>تبي تشوف؟ تعال معي.</p>
+</li>
+    </ol>
+    <div class="ppanel">
+      <div class="pp-h">
+        <span class="ptabs"><button class="ptab on" data-i="0">H3 prompt</button><button class="ptab" data-i="1">Seedance prompt</button></span>
+        <button class="copy" data-copy="How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 6.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 10.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 12.50-second mark of the target video.
+
+integrated_multimodal_description:
+[Shot 1] Anchored on &lt;Picture 1&gt;, a static shot in a dim warm-amber old laboratory: an elderly bald Arab scientist with a thick black horseshoe mustache and a black patch over his left eye tosses a phone onto a heavy wooden desk, then walks two heavy steps toward the camera, staring straight into the lens.
+[Shot 2] At 00:03.000, the camera cuts to &lt;Picture 2&gt;: a slow push in toward the scientist's stern face; his heavy brows knit, his lips move as he warns the viewer in a low voice. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: &lt;d&gt;[Arabic] الجوال اللي في يدك الحين، عمره قصير.&lt;/d&gt;
+[Shot 3] At 00:06.500, the camera cuts to &lt;Picture 3&gt;: a static shot as the scientist raises one bushy eyebrow and leans slightly forward, speaking like he is revealing a secret; the round window behind him glows faintly cyan. (S1) says: &lt;d&gt;[Arabic] أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.&lt;/d&gt;
+[Shot 4] At 00:10.000, the camera cuts to &lt;Picture 4&gt;: a fast push in on the eye patch as the scientist lifts it with his fingers; an intense cyan beam of light bursts out from beneath it and floods the room.
+[Shot 5] At 00:12.500, the camera cuts to &lt;Picture 5&gt;: a static shot: bathed in cyan light, the scientist gives a faint smile and whispers an invitation to the viewer. (S1) says: &lt;d&gt;[Arabic] تبي تشوف؟ تعال معي.&lt;/d&gt;
+
+overall_soundscape: A low electrical hum of an old laboratory and faint buzzing of Edison bulbs; a phone thuds onto a wooden desk, heavy leather boot steps on wooden floor, and a sharp electric whoosh with a rising hum when the eye patch is lifted.
+
+non_diegetic_music: A deep synth drone with a slow heartbeat-like timpani pulse, ending in a rising electronic swell on the reveal.">Copy</button>
+      </div>
+      <pre class="pp on">How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 6.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 10.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 12.50-second mark of the target video.
+
+integrated_multimodal_description:
+[Shot 1] Anchored on &lt;Picture 1&gt;, a static shot in a dim warm-amber old laboratory: an elderly bald Arab scientist with a thick black horseshoe mustache and a black patch over his left eye tosses a phone onto a heavy wooden desk, then walks two heavy steps toward the camera, staring straight into the lens.
+[Shot 2] At 00:03.000, the camera cuts to &lt;Picture 2&gt;: a slow push in toward the scientist's stern face; his heavy brows knit, his lips move as he warns the viewer in a low voice. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: &lt;d&gt;[Arabic] الجوال اللي في يدك الحين، عمره قصير.&lt;/d&gt;
+[Shot 3] At 00:06.500, the camera cuts to &lt;Picture 3&gt;: a static shot as the scientist raises one bushy eyebrow and leans slightly forward, speaking like he is revealing a secret; the round window behind him glows faintly cyan. (S1) says: &lt;d&gt;[Arabic] أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.&lt;/d&gt;
+[Shot 4] At 00:10.000, the camera cuts to &lt;Picture 4&gt;: a fast push in on the eye patch as the scientist lifts it with his fingers; an intense cyan beam of light bursts out from beneath it and floods the room.
+[Shot 5] At 00:12.500, the camera cuts to &lt;Picture 5&gt;: a static shot: bathed in cyan light, the scientist gives a faint smile and whispers an invitation to the viewer. (S1) says: &lt;d&gt;[Arabic] تبي تشوف؟ تعال معي.&lt;/d&gt;
+
+overall_soundscape: A low electrical hum of an old laboratory and faint buzzing of Edison bulbs; a phone thuds onto a wooden desk, heavy leather boot steps on wooden floor, and a sharp electric whoosh with a rising hum when the eye patch is lifted.
+
+non_diegetic_music: A deep synth drone with a slow heartbeat-like timpani pulse, ending in a rising electronic swell on the reveal.</pre>
+      <pre class="pp">@[图片1] = معمل المستشرف
+@[图片2] = العالم مستشرف
+@[图片3] = عدسة الاستشراف (الرقعة)
+
+【人物关系与构图逻辑】
+开场：العالم مستشرف 站在画面中后景的书桌后方，面朝镜头，距镜头约四步；圆形铜框窗在他身后正中，黑板在画面左侧，书架在右侧。
+
+【镜头1】
+焦距：28mm 广角，中景深
+机位：العالم مستشرف + 平视正面，略低机位
+构图：中心构图
+运镜：固定镜头
+景别：全景
+画面：固定镜头。一名年迈光头、蓄浓黑八字胡、左眼戴黑眼罩的阿拉伯科学家把一部手机扔到木桌上，随后迈着沉重的步子朝镜头走近两步，目光直视镜头。
+台词：{}
+视线落点：直视镜头
+焦点：锁定 العالم مستشرف 全身
+稳定性：稳定
+
+【镜头2】
+焦距：50mm 标准，浅景深
+机位：العالم مستشرف + 平视正面
+构图：中心构图
+运镜：推镜
+景别：特写
+画面：镜头小幅缓推向科学家的脸，他眉头紧锁、嘴唇开合，低沉地警告观众。
+台词：{الجوال اللي في يدك الحين، عمره قصير.}
+视线落点：直视镜头
+焦点：锁定 العالم مستشرف 面部
+稳定性：稳定
+
+【镜头3】
+焦距：50mm 标准，浅景深
+机位：العالم مستشرف + 平视四分之三侧
+构图：三分法
+运镜：固定镜头
+景别：特写
+画面：固定镜头。科学家抬起一侧眉毛，身体微微前倾，像透露秘密一样压低声音说话。
+台词：{أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.}
+视线落点：直视镜头
+焦点：锁定 العالم مستشرف 面部
+稳定性：稳定
+
+【镜头4】
+焦距：85mm 长焦，极浅景深
+机位：العالم مستشرف + 平视正面
+构图：中心构图
+运镜：推镜
+景别：大特写
+画面：镜头快速推向眼罩，科学家用手掀起黑色眼罩，一道强烈的青蓝色光芒从眼中射出，照亮整个房间。
+光影：青蓝色强光从眼罩下射出
+台词：{}
+视线落点：直视镜头
+焦点：锁定眼罩与蓝光
+稳定性：微晃
+音效：电光爆响
+
+【镜头5】
+焦距：50mm 标准，浅景深
+机位：العالم مستشرف + 平视正面
+构图：中心构图
+运镜：固定镜头
+景别：特写
+画面：固定镜头。科学家在蓝光中嘴角微扬，压低声音邀请观众跟他走。
+光影：青蓝光与暖黄光交织
+台词：{تبي تشوف؟ تعال معي.}
+视线落点：直视镜头
+焦点：锁定 العالم مستشرف 面部
+稳定性：稳定
+
+&lt;老旧实验室的低频电流嗡鸣，爱迪生灯泡轻微滋滋声，手机砸在木桌上的闷响，沉重皮靴脚步声，掀起眼罩时一声电光嗡响。&gt;
+（低沉合成器长音铺底，慢速心跳般的定音鼓，掀眼罩处一记上扬的电子音。）
+
+【约束】
+1. 保持无字幕，避免生成任何文字或字幕</pre>
+    </div>
+  </div>
+  
+</article>
+<article class="segcard" id="seg-E01-02">
+  <header class="seg-h">
+    <b>E01-02</b>
+    <span class="sec-badge">13.5s · 3 cuts</span>
+    <span class="chip">S03 بيت المستقبل</span>
+    <span class="chip lite">صباح ناعم</span>
+    <span class="beatsref">Scene 2 · beats 1–6</span>
+  </header>
+  <div class="fquad"><div class="frame ph fcell"><div class="fcell-h"><b>master frame · #1 not generated</b><button class="copy mini" data-copy="全景，竖构图。شاب الجيل 在未来客厅的地面坐垫上刚醒来坐起，伸着懒腰；柔和晨光从全景窗照进来，窗外是沙丘形状的玻璃塔楼，左下角有棕榈盆栽。">Copy</button></div><span class="fprompt">全景，竖构图。شاب الجيل 在未来客厅的地面坐垫上刚醒来坐起，伸着懒腰；柔和晨光从全景窗照进来，窗外是沙丘形状的玻璃塔楼，左下角有棕榈盆栽。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 2 · #2 not generated</b><button class="copy mini" data-copy="中景，竖构图，过肩视角。شاب الجيل 坐着望向前方白色墙面，墙面正在变成一块巨大的屏幕，浮现半透明的青色日程界面和天气图标。">Copy</button></div><span class="fprompt">中景，竖构图，过肩视角。شاب الجيل 坐着望向前方白色墙面，墙面正在变成一块巨大的屏幕，浮现半透明的青色日程界面和天气图标。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 3 · #3 not generated</b><button class="copy mini" data-copy="特写，竖构图。شاب الجيل 戴上一副纤细透明的智能眼镜，镜片上闪着小小的青色界面光点，他露出微笑。">Copy</button></div><span class="fprompt">特写，竖构图。شاب الجيل 戴上一副纤细透明的智能眼镜，镜片上闪着小小的青色界面光点，他露出微笑。</span></div></div>
+  
+  <p class="seg-block"><b>Blocking</b>开场：شاب الجيل 躺在画面下方的地面坐垫上刚坐起，面朝画面右侧的白色墙面，距墙约三步；全景窗在画面背景，棕榈盆栽在左侧角落。</p>
+  <div class="duo">
+    <ol class="cuts">
+<li class="cut">
+  <div class="cut-h">
+    <b>#1</b>
+    <span class="cut-t">from 0.00s · 4.5s</span>
+    <span class="cut-sc">wide shot · Static Shot</span>
+    
+    <span class="chip">شاب الجيل</span>
+    
+    <button class="copy mini" data-copy="全景，竖构图。شاب الجيل 在未来客厅的地面坐垫上刚醒来坐起，伸着懒腰；柔和晨光从全景窗照进来，窗外是沙丘形状的玻璃塔楼，左下角有棕榈盆栽。">Frame prompt</button>
+  </div>
+  <p class="scomp">24mm 广角，深景深 · شاب الجيل + 平视侧前方 · 三分法 · eyeline 望向窗外 · focus 锁定 شاب الجيل 上半身 · stable</p>
+  <p class="sact">شاب الجيل يصحى في بيت المستقبل ويقعد على طرف المجلس.</p><p class="sline"><b>Voice-over</b>الساعة سبعة. ومحد صحاه منبه.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#2</b>
+    <span class="cut-t">from 4.50s · 4.5s</span>
+    <span class="cut-sc">medium shot · Push In</span>
+    
+    <span class="chip">شاب الجيل</span>
+    
+    <button class="copy mini" data-copy="中景，竖构图，过肩视角。شاب الجيل 坐着望向前方白色墙面，墙面正在变成一块巨大的屏幕，浮现半透明的青色日程界面和天气图标。">Frame prompt</button>
+  </div>
+  <p class="scomp">35mm，中景深 · شاب الجيل 背后过肩 + 平视 · 对角线 · eyeline 墙面屏幕 · focus 锁定墙面屏幕 · stable</p>
+  <p class="sact">الجدار الأبيض قدامه يتحول لشاشة تعرض جدول يومه.</p><p class="sline"><b>Voice-over</b>الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#3</b>
+    <span class="cut-t">from 9.00s · 4.5s</span>
+    <span class="cut-sc">close-up · Static Shot</span>
+    
+    <span class="chip">شاب الجيل</span>
+    
+    <button class="copy mini" data-copy="特写，竖构图。شاب الجيل 戴上一副纤细透明的智能眼镜，镜片上闪着小小的青色界面光点，他露出微笑。">Frame prompt</button>
+  </div>
+  <p class="scomp">50mm 标准，浅景深 · شاب الجيل + 平视正面 · 中心构图 · eyeline 镜片中的界面 · focus 锁定 شاب الجيل 面部与眼镜 · stable</p>
+  <p class="sact">يلبس نظارة شفافة رفيعة ويبتسم.</p><p class="sline"><b>Voice-over</b>جواله؟ صار في نظارته، وفي الجدار.</p>
+</li>
+    </ol>
+    <div class="ppanel">
+      <div class="pp-h">
+        <span class="ptabs"><button class="ptab on" data-i="0">H3 prompt</button><button class="ptab" data-i="1">Seedance prompt</button></span>
+        <button class="copy" data-copy="How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 4.50-second mark of the target video; Picture 3 (from Shot 3) aligns with the 9.00-second mark of the target video.
+
+integrated_multimodal_description:
+[Shot 1] Anchored on &lt;Picture 1&gt;, a static shot of a bright futuristic living room at morning: a young Saudi man in a modern white thobe wakes up on a floor cushion, slowly sits up and stretches. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: &lt;d&gt;[Arabic] الساعة سبعة. ومحد صحاه منبه.&lt;/d&gt;
+[Shot 2] At 00:04.500, the camera cuts to &lt;Picture 2&gt;: a slow push in over the young man's shoulder as the plain white wall in front of him lights up and turns into a translucent cyan screen showing his daily schedule. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: &lt;d&gt;[Arabic] الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.&lt;/d&gt;
+[Shot 3] At 00:09.000, the camera cuts to &lt;Picture 3&gt;: a static shot: the young man puts on thin transparent smart glasses; small cyan interface glints appear on the lenses and he smiles. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: &lt;d&gt;[Arabic] جواله؟ صار في نظارته، وفي الجدار.&lt;/d&gt;
+
+overall_soundscape: A quiet futuristic morning interior with a distant soft city hum; a gentle electronic chime as the wall lights up, and a light click as the smart glasses are put on.
+
+non_diegetic_music: Bright, airy synth arpeggios at a medium tempo with a sense of wonder.">Copy</button>
+      </div>
+      <pre class="pp on">How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 4.50-second mark of the target video; Picture 3 (from Shot 3) aligns with the 9.00-second mark of the target video.
+
+integrated_multimodal_description:
+[Shot 1] Anchored on &lt;Picture 1&gt;, a static shot of a bright futuristic living room at morning: a young Saudi man in a modern white thobe wakes up on a floor cushion, slowly sits up and stretches. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: &lt;d&gt;[Arabic] الساعة سبعة. ومحد صحاه منبه.&lt;/d&gt;
+[Shot 2] At 00:04.500, the camera cuts to &lt;Picture 2&gt;: a slow push in over the young man's shoulder as the plain white wall in front of him lights up and turns into a translucent cyan screen showing his daily schedule. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: &lt;d&gt;[Arabic] الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.&lt;/d&gt;
+[Shot 3] At 00:09.000, the camera cuts to &lt;Picture 3&gt;: a static shot: the young man puts on thin transparent smart glasses; small cyan interface glints appear on the lenses and he smiles. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: &lt;d&gt;[Arabic] جواله؟ صار في نظارته، وفي الجدار.&lt;/d&gt;
+
+overall_soundscape: A quiet futuristic morning interior with a distant soft city hum; a gentle electronic chime as the wall lights up, and a light click as the smart glasses are put on.
+
+non_diegetic_music: Bright, airy synth arpeggios at a medium tempo with a sense of wonder.</pre>
+      <pre class="pp">@[图片1] = بيت المستقبل
+@[图片2] = شاب الجيل
+
+【人物关系与构图逻辑】
+开场：شاب الجيل 躺在画面下方的地面坐垫上刚坐起，面朝画面右侧的白色墙面，距墙约三步；全景窗在画面背景，棕榈盆栽在左侧角落。
+
+【镜头1】
+焦距：24mm 广角，深景深
+机位：شاب الجيل + 平视侧前方
+构图：三分法
+运镜：固定镜头
+景别：全景
+画面：固定镜头。一名穿白色现代长袍的年轻沙特男子在客厅的地面坐垫上醒来，缓慢坐起并伸了个懒腰。
+台词：以画外音说{الساعة سبعة. ومحد صحاه منبه.}
+视线落点：望向窗外
+焦点：锁定 شاب الجيل 上半身
+稳定性：稳定
+
+【镜头2】
+焦距：35mm，中景深
+机位：شاب الجيل 背后过肩 + 平视
+构图：对角线
+运镜：推镜
+景别：中景
+画面：镜头小幅缓推越过年轻男子的肩膀，他面前的白墙逐渐亮起，变成显示他一天日程的半透明青色屏幕。
+台词：以画外音说{الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.}
+视线落点：墙面屏幕
+焦点：锁定墙面屏幕
+稳定性：稳定
+
+【镜头3】
+焦距：50mm 标准，浅景深
+机位：شاب الجيل + 平视正面
+构图：中心构图
+运镜：固定镜头
+景别：特写
+画面：固定镜头。年轻男子戴上一副纤细透明的智能眼镜，镜片闪起青色光点，他满意地微笑。
+台词：以画外音说{جواله؟ صار في نظارته، وفي الجدار.}
+视线落点：镜片中的界面
+焦点：锁定 شاب الجيل 面部与眼镜
+稳定性：稳定
+
+&lt;清晨安静的室内，远处城市低鸣，墙面亮起时柔和的电子提示音，眼镜戴上时轻微的咔嗒声。&gt;
+（明亮轻快的合成器琶音，中速，带一点好奇感。）
+
+【约束】
+1. 保持无字幕，避免生成任何文字或字幕</pre>
+    </div>
+  </div>
+  
+</article>
+<article class="segcard" id="seg-E01-03">
+  <header class="seg-h">
+    <b>E01-03</b>
+    <span class="sec-badge">8s · 2 cuts</span>
+    <span class="chip">S02 مدينة ٢٠٥٠</span>
+    <span class="chip lite">ساعة ذهبية</span>
+    <span class="beatsref">Scene 3 · beats 1–2</span>
+  </header>
+  <div class="fquad"><div class="frame ph fcell"><div class="fcell-h"><b>master frame · #1 not generated</b><button class="copy mini" data-copy="大远景，竖构图，低机位。شاب الجيل 走在2050年未来沙特城市的宽阔街道上，两侧是沙丘形的金色玻璃塔楼和垂直花园，一辆白色飞行出租舱从他头顶的蓝色光道掠过，黄金时刻阳光。">Copy</button></div><span class="fprompt">大远景，竖构图，低机位。شاب الجيل 走在2050年未来沙特城市的宽阔街道上，两侧是沙丘形的金色玻璃塔楼和垂直花园，一辆白色飞行出租舱从他头顶的蓝色光道掠过，黄金时刻阳光。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 2 · #2 not generated</b><button class="copy mini" data-copy="中景，竖构图。شاب الجيل 站在一块半透明的全息招牌前，眼镜闪着青光，他只是看了招牌一眼，招牌就亮起绿色的确认光环；背景一辆白色飞行出租舱正在降落。">Copy</button></div><span class="fprompt">中景，竖构图。شاب الجيل 站在一块半透明的全息招牌前，眼镜闪着青光，他只是看了招牌一眼，招牌就亮起绿色的确认光环；背景一辆白色飞行出租舱正在降落。</span></div></div>
+  
+  <p class="seg-block"><b>Blocking</b>开场：شاب الجيل 走在画面中下方的人行道中央，朝镜头方向行走；沙丘形塔楼排列在两侧，空中光道在画面上方。</p>
+  <div class="duo">
+    <ol class="cuts">
+<li class="cut">
+  <div class="cut-h">
+    <b>#1</b>
+    <span class="cut-t">from 0.00s · 3.5s</span>
+    <span class="cut-sc">extreme wide shot · Tracking Shot</span>
+    
+    <span class="chip">شاب الجيل</span>
+    
+    <button class="copy mini" data-copy="大远景，竖构图，低机位。شاب الجيل 走在2050年未来沙特城市的宽阔街道上，两侧是沙丘形的金色玻璃塔楼和垂直花园，一辆白色飞行出租舱从他头顶的蓝色光道掠过，黄金时刻阳光。">Frame prompt</button>
+  </div>
+  <p class="scomp">24mm 广角，深景深 · شاب الجيل + 低机位仰视 · 对称 · eyeline 抬头看飞行舱 · focus 锁定 شاب الجيل 全身 · stable</p>
+  <p class="sact">شاب الجيل يمشي في شارع مدينة ٢٠٥٠، وتاكسي طائر يمر فوق راسه.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#2</b>
+    <span class="cut-t">from 3.50s · 4.5s</span>
+    <span class="cut-sc">medium shot · Push In</span>
+    
+    <span class="chip">شاب الجيل</span>
+    
+    <button class="copy mini" data-copy="中景，竖构图。شاب الجيل 站在一块半透明的全息招牌前，眼镜闪着青光，他只是看了招牌一眼，招牌就亮起绿色的确认光环；背景一辆白色飞行出租舱正在降落。">Frame prompt</button>
+  </div>
+  <p class="scomp">35mm，中景深 · شاب الجيل + 平视侧前方 · 三分法 · eyeline 全息招牌 · focus 锁定 شاب الجيل 与招牌 · stable</p>
+  <p class="sline"><b>Voice-over</b>يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.</p>
+</li>
+    </ol>
+    <div class="ppanel">
+      <div class="pp-h">
+        <span class="ptabs"><button class="ptab on" data-i="0">H3 prompt</button><button class="ptab" data-i="1">Seedance prompt</button></span>
+        <button class="copy" data-copy="How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.50-second mark of the target video.
+
+integrated_multimodal_description:
+[Shot 1] Anchored on &lt;Picture 1&gt;, a tracking shot moving backward as the young man in a white thobe walks down a golden-hour futuristic Saudi street of dune-shaped towers; a white flying taxi pod sweeps overhead along a glowing sky-lane.
+[Shot 2] At 00:03.500, the camera cuts to &lt;Picture 2&gt;: a slow push in as the young man glances at a translucent holographic sign; it instantly glows with a confirmation ring, while a white flying taxi pod gently lands behind him. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: &lt;d&gt;[Arabic] يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.&lt;/d&gt;
+
+overall_soundscape: Ambient sounds of a futuristic street; a flying taxi pod whooshes overhead, a crisp confirmation chime from a holographic sign, light footsteps.
+
+non_diegetic_music: Synth arpeggios joined by light percussion, building momentum and wonder.">Copy</button>
+      </div>
+      <pre class="pp on">How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.50-second mark of the target video.
+
+integrated_multimodal_description:
+[Shot 1] Anchored on &lt;Picture 1&gt;, a tracking shot moving backward as the young man in a white thobe walks down a golden-hour futuristic Saudi street of dune-shaped towers; a white flying taxi pod sweeps overhead along a glowing sky-lane.
+[Shot 2] At 00:03.500, the camera cuts to &lt;Picture 2&gt;: a slow push in as the young man glances at a translucent holographic sign; it instantly glows with a confirmation ring, while a white flying taxi pod gently lands behind him. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: &lt;d&gt;[Arabic] يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.&lt;/d&gt;
+
+overall_soundscape: Ambient sounds of a futuristic street; a flying taxi pod whooshes overhead, a crisp confirmation chime from a holographic sign, light footsteps.
+
+non_diegetic_music: Synth arpeggios joined by light percussion, building momentum and wonder.</pre>
+      <pre class="pp">@[图片1] = مدينة ٢٠٥٠
+@[图片2] = شاب الجيل
+
+【人物关系与构图逻辑】
+开场：شاب الجيل 走在画面中下方的人行道中央，朝镜头方向行走；沙丘形塔楼排列在两侧，空中光道在画面上方。
+
+【镜头1】
+焦距：24mm 广角，深景深
+机位：شاب الجيل + 低机位仰视
+构图：对称
+运镜：跟拍
+景别：大远景
+画面：跟拍镜头向后移动，穿白色长袍的年轻男子沿着未来城市的街道走来，一辆白色飞行出租舱从他头顶掠过。
+台词：{}
+视线落点：抬头看飞行舱
+焦点：锁定 شاب الجيل 全身
+稳定性：稳定
+
+【镜头2】
+焦距：35mm，中景深
+机位：شاب الجيل + 平视侧前方
+构图：三分法
+运镜：推镜
+景别：中景
+画面：镜头小幅缓推，年轻男子看向全息招牌，招牌随即亮起确认光环，他身后一辆白色飞行出租舱缓缓降落。
+台词：以画外音说{يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.}
+视线落点：全息招牌
+焦点：锁定 شاب الجيل 与招牌
+稳定性：稳定
+
+&lt;未来街道的环境声，飞行出租舱从头顶掠过的呼啸，全息招牌确认时清脆的提示音，轻快脚步声。&gt;
+（合成器琶音加入轻打击乐，节奏推进，充满惊奇感。）
+
+【约束】
+1. 保持无字幕，避免生成任何文字或字幕</pre>
+    </div>
+  </div>
+  
+</article>
+<article class="segcard" id="seg-E01-04">
+  <header class="seg-h">
+    <b>E01-04</b>
+    <span class="sec-badge">15s · 5 cuts</span>
+    <span class="chip">S01 معمل المستشرف</span>
+    <span class="chip lite">النافذة مفتوحة</span>
+    <span class="beatsref">Scene 4 · beats 1–5</span>
+  </header>
+  <div class="fquad"><div class="frame ph fcell"><div class="fcell-h"><b>master frame · #1 not generated</b><button class="copy mini" data-copy="特写，竖构图。العالم مستشرف 把黑眼罩放回左眼上，青蓝光正在熄灭，暖黄灯光重新照亮他的脸，他向镜头迈近一步。">Copy</button></div><span class="fprompt">特写，竖构图。العالم مستشرف 把黑眼罩放回左眼上，青蓝光正在熄灭，暖黄灯光重新照亮他的脸，他向镜头迈近一步。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 2 · #2 not generated</b><button class="copy mini" data-copy="中景，竖构图。العالم مستشرف 神情严肃，一只手伸出食指指向镜头，嘴巴张开说话；身后圆形铜框窗与黑板在暖黄灯光中。">Copy</button></div><span class="fprompt">中景，竖构图。العالم مستشرف 神情严肃，一只手伸出食指指向镜头，嘴巴张开说话；身后圆形铜框窗与黑板在暖黄灯光中。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 3 · #3 not generated</b><button class="copy mini" data-copy="大特写，竖构图。العالم مستشرف 的脸部占满画面，黑眼罩、浓眉、额头红色缝线疤痕、浓黑八字胡清晰，独眼坚定地盯着镜头，嘴巴张开说话。">Copy</button></div><span class="fprompt">大特写，竖构图。العالم مستشرف 的脸部占满画面，黑眼罩、浓眉、额头红色缝线疤痕、浓黑八字胡清晰，独眼坚定地盯着镜头，嘴巴张开说话。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 4 · #4 not generated</b><button class="copy mini" data-copy="中景，竖构图，过肩视角。العالم مستشرف 转头看向身后的圆形铜框窗，窗玻璃短暂闪起青蓝光。">Copy</button></div><span class="fprompt">中景，竖构图，过肩视角。العالم مستشرف 转头看向身后的圆形铜框窗，窗玻璃短暂闪起青蓝光。</span></div>
+<div class="frame ph fcell"><div class="fcell-h"><b>sub-frame 5 · #5 not generated</b><button class="copy mini" data-copy="特写，竖构图。العالم مستشرف 回头看向镜头，嘴角挂着半个神秘的微笑，嘴巴微张低声说话；背后圆形窗残留一点蓝光。">Copy</button></div><span class="fprompt">特写，竖构图。العالم مستشرف 回头看向镜头，嘴角挂着半个神秘的微笑，嘴巴微张低声说话；背后圆形窗残留一点蓝光。</span></div></div>
+  
+  <p class="seg-block"><b>Blocking</b>开场：العالم مستشرف 站在画面中央，圆形窗在他身后发着青蓝光，他面朝镜头，距镜头约两步，随后靠近到一步。</p>
+  <div class="duo">
+    <ol class="cuts">
+<li class="cut">
+  <div class="cut-h">
+    <b>#1</b>
+    <span class="cut-t">from 0.00s · 2s</span>
+    <span class="cut-sc">close-up · Push In</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+    <button class="copy mini" data-copy="特写，竖构图。العالم مستشرف 把黑眼罩放回左眼上，青蓝光正在熄灭，暖黄灯光重新照亮他的脸，他向镜头迈近一步。">Frame prompt</button>
+  </div>
+  <p class="scomp">50mm 标准，浅景深 · العالم مستشرف + 平视正面 · 中心构图 · eyeline 直视镜头 · focus 锁定 العالم مستشرف 面部 · stable</p>
+  <p class="sact">المستشرف ينزل الرقعة على عينه، والضوء الأزرق يطفى، ويقرب من الكاميرا.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#2</b>
+    <span class="cut-t">from 2.00s · 3.5s</span>
+    <span class="cut-sc">medium shot · Static Shot</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+    <button class="copy mini" data-copy="中景，竖构图。العالم مستشرف 神情严肃，一只手伸出食指指向镜头，嘴巴张开说话；身后圆形铜框窗与黑板在暖黄灯光中。">Frame prompt</button>
+  </div>
+  <p class="scomp">35mm，中景深 · العالم مستشرف + 平视正面 · 中心构图 · eyeline 直视镜头 · focus 锁定 العالم مستشرف 上半身与手指 · stable</p>
+  <p class="sline"><b>العالم مستشرف</b>اللي يكلم الذكاء الاصطناعي من اليوم،</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#3</b>
+    <span class="cut-t">from 5.50s · 3.5s</span>
+    <span class="cut-sc">extreme close-up · Push In</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+    <button class="copy mini" data-copy="大特写，竖构图。العالم مستشرف 的脸部占满画面，黑眼罩、浓眉、额头红色缝线疤痕、浓黑八字胡清晰，独眼坚定地盯着镜头，嘴巴张开说话。">Frame prompt</button>
+  </div>
+  <p class="scomp">85mm 长焦，极浅景深 · العالم مستشرف + 平视正面 · 中心构图 · eyeline 直视镜头 · focus 锁定 العالم مستشرف 眼睛 · stable</p>
+  <p class="sline"><b>العالم مستشرف</b>هو اللي بيقود بكرة. والباقي بيتبعون.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#4</b>
+    <span class="cut-t">from 9.00s · 2s</span>
+    <span class="cut-sc">medium shot · Static Shot</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    
+    <button class="copy mini" data-copy="中景，竖构图，过肩视角。العالم مستشرف 转头看向身后的圆形铜框窗，窗玻璃短暂闪起青蓝光。">Frame prompt</button>
+  </div>
+  <p class="scomp">35mm，中景深 · العالم مستشرف 背后过肩 + 平视 · 三分法 · eyeline 圆形窗 · focus 锁定圆形窗 · stable</p>
+  <p class="sact">يلتفت للنافذة الدائرية اللي تومض بالأزرق لحظة.</p>
+</li>
+<li class="cut">
+  <div class="cut-h">
+    <b>#5</b>
+    <span class="cut-t">from 11.00s · 4s</span>
+    <span class="cut-sc">close-up · Push In</span>
+    
+    <span class="chip">العالم مستشرف</span>
+    <span class="chip prop">عدسة الاستشراف (الرقعة)</span>
+    <button class="copy mini" data-copy="特写，竖构图。العالم مستشرف 回头看向镜头，嘴角挂着半个神秘的微笑，嘴巴微张低声说话；背后圆形窗残留一点蓝光。">Frame prompt</button>
+  </div>
+  <p class="scomp">50mm 标准，浅景深 · العالم مستشرف + 平视四分之三侧 · 三分法 · eyeline 直视镜头 · focus 锁定 العالم مستشرف 面部 · stable</p>
+  <p class="sline"><b>العالم مستشرف</b>وبالمناسبة، نسختي الثانية شغالة الحين.</p>
+</li>
+    </ol>
+    <div class="ppanel">
+      <div class="pp-h">
+        <span class="ptabs"><button class="ptab on" data-i="0">H3 prompt</button><button class="ptab" data-i="1">Seedance prompt</button></span>
+        <button class="copy" data-copy="How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 5.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 9.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 11.00-second mark of the target video.
+
+integrated_multimodal_description:
+[Shot 1] Anchored on &lt;Picture 1&gt;, a slow push in as the scientist lowers the eye patch back over his eye; the cyan glow fades and he steps closer to the camera.
+[Shot 2] At 00:02.000, the camera cuts to &lt;Picture 2&gt;: a static shot: the scientist, very serious, points his index finger straight at the camera as he speaks. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: &lt;d&gt;[Arabic] اللي يكلم الذكاء الاصطناعي من اليوم،&lt;/d&gt;
+[Shot 3] At 00:05.500, the camera cuts to &lt;Picture 3&gt;: a very slow push in to an extreme close-up of the scientist's face; his single eye locks onto the viewer as he speaks slowly and with weight. (S1) says: &lt;d&gt;[Arabic] هو اللي بيقود بكرة. والباقي بيتبعون.&lt;/d&gt;
+[Shot 4] At 00:09.000, the camera cuts to &lt;Picture 4&gt;: a static shot over his shoulder: the scientist turns his head toward the round brass window behind him as its glass briefly flashes cyan.
+[Shot 5] At 00:11.000, the camera cuts to &lt;Picture 5&gt;: a slow push in as the scientist turns back to the camera with a mysterious half smile, lowering his voice as if leaking a secret. (S1) says: &lt;d&gt;[Arabic] وبالمناسبة، نسختي الثانية شغالة الحين.&lt;/d&gt;
+
+overall_soundscape: An electric power-down hum as the cyan light fades, the laboratory hum returns, one boot step forward, and a short electronic flicker buzz from the round window.
+
+non_diegetic_music: The deep synth drone returns, with a mysterious low pizzicato on the final line, then a beat of silence.">Copy</button>
+      </div>
+      <pre class="pp on">How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 5.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 9.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 11.00-second mark of the target video.
+
+integrated_multimodal_description:
+[Shot 1] Anchored on &lt;Picture 1&gt;, a slow push in as the scientist lowers the eye patch back over his eye; the cyan glow fades and he steps closer to the camera.
+[Shot 2] At 00:02.000, the camera cuts to &lt;Picture 2&gt;: a static shot: the scientist, very serious, points his index finger straight at the camera as he speaks. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: &lt;d&gt;[Arabic] اللي يكلم الذكاء الاصطناعي من اليوم،&lt;/d&gt;
+[Shot 3] At 00:05.500, the camera cuts to &lt;Picture 3&gt;: a very slow push in to an extreme close-up of the scientist's face; his single eye locks onto the viewer as he speaks slowly and with weight. (S1) says: &lt;d&gt;[Arabic] هو اللي بيقود بكرة. والباقي بيتبعون.&lt;/d&gt;
+[Shot 4] At 00:09.000, the camera cuts to &lt;Picture 4&gt;: a static shot over his shoulder: the scientist turns his head toward the round brass window behind him as its glass briefly flashes cyan.
+[Shot 5] At 00:11.000, the camera cuts to &lt;Picture 5&gt;: a slow push in as the scientist turns back to the camera with a mysterious half smile, lowering his voice as if leaking a secret. (S1) says: &lt;d&gt;[Arabic] وبالمناسبة، نسختي الثانية شغالة الحين.&lt;/d&gt;
+
+overall_soundscape: An electric power-down hum as the cyan light fades, the laboratory hum returns, one boot step forward, and a short electronic flicker buzz from the round window.
+
+non_diegetic_music: The deep synth drone returns, with a mysterious low pizzicato on the final line, then a beat of silence.</pre>
+      <pre class="pp">@[图片1] = معمل المستشرف
+@[图片2] = العالم مستشرف
+@[图片3] = عدسة الاستشراف (الرقعة)
+
+【人物关系与构图逻辑】
+开场：العالم مستشرف 站在画面中央，圆形窗在他身后发着青蓝光，他面朝镜头，距镜头约两步，随后靠近到一步。
+
+【镜头1】
+焦距：50mm 标准，浅景深
+机位：العالم مستشرف + 平视正面
+构图：中心构图
+运镜：推镜
+景别：特写
+画面：镜头缓推，科学家把眼罩放回眼睛上，蓝光熄灭，他向镜头靠近一步。
+台词：{}
+视线落点：直视镜头
+焦点：锁定 العالم مستشرف 面部
+稳定性：稳定
+
+【镜头2】
+焦距：35mm，中景深
+机位：العالم مستشرف + 平视正面
+构图：中心构图
+运镜：固定镜头
+景别：中景
+画面：固定镜头。科学家神情严肃，伸出食指指向镜头，郑重地说话。
+台词：{اللي يكلم الذكاء الاصطناعي من اليوم،}
+视线落点：直视镜头
+焦点：锁定 العالم مستشرف 上半身与手指
+稳定性：稳定
+
+【镜头3】
+焦距：85mm 长焦，极浅景深
+机位：العالم مستشرف + 平视正面
+构图：中心构图
+运镜：推镜
+景别：大特写
+画面：镜头极缓推向科学家的脸，他独眼坚定地盯着观众，缓慢而有分量地说话。
+台词：{هو اللي بيقود بكرة. والباقي بيتبعون.}
+视线落点：直视镜头
+焦点：锁定 العالم مستشرف 眼睛
+稳定性：稳定
+
+【镜头4】
+焦距：35mm，中景深
+机位：العالم مستشرف 背后过肩 + 平视
+构图：三分法
+运镜：固定镜头
+景别：中景
+画面：固定镜头。科学家转头看向身后的圆形窗，窗玻璃短暂闪起青蓝色光。
+光影：窗玻璃短暂闪起青蓝光
+台词：{}
+视线落点：圆形窗
+焦点：锁定圆形窗
+稳定性：稳定
+
+【镜头5】
+焦距：50mm 标准，浅景深
+机位：العالم مستشرف + 平视四分之三侧
+构图：三分法
+运镜：推镜
+景别：特写
+画面：镜头缓推，科学家回头望向镜头，嘴角挂起半个神秘的微笑，压低声音像在泄露秘密。
+台词：{وبالمناسبة، نسختي الثانية شغالة الحين.}
+视线落点：直视镜头
+焦点：锁定 العالم مستشرف 面部
+稳定性：稳定
+
+&lt;蓝光熄灭时的电流衰减声，实验室嗡鸣回归，皮靴向前一步，圆形窗短促闪烁的电子嗡声。&gt;
+（低沉合成器长音回归，台词结尾处一记神秘的低音提琴拨弦，最后留白。）
+
+【约束】
+1. 保持无字幕，避免生成任何文字或字幕</pre>
+    </div>
+  </div>
+  
+</article>
+    </div>
+  </div>
+  <button class="shmore">▾ Show all segments</button>
+</section>
+</section>
+
+<section class="top-sec" id="sec-batches">
+  <div class="sec-h"><span class="no">03</span><h2>Generation batches</h2><span class="note">auto-computed · segments in a batch share one environment reference image</span></div>
+  <div class="batches">
+<article class="batch">
+  
+  <header class="batch-h"><b>Batch 01</b><span class="chip">S01 معمل المستشرف</span><span class="chip lite">ليل دافئ</span></header>
+  <div class="batch-shots"><a class="chip mono" href="#seg-E01-01">E01-01</a></div>
+  <p class="batch-need">Needs: character sheets for العالم مستشرف · عدسة الاستشراف (الرقعة)</p>
+</article>
+<article class="batch">
+  
+  <header class="batch-h"><b>Batch 02</b><span class="chip">S03 بيت المستقبل</span><span class="chip lite">صباح ناعم</span></header>
+  <div class="batch-shots"><a class="chip mono" href="#seg-E01-02">E01-02</a></div>
+  <p class="batch-need">Needs: character sheets for شاب الجيل</p>
+</article>
+<article class="batch">
+  
+  <header class="batch-h"><b>Batch 03</b><span class="chip">S02 مدينة ٢٠٥٠</span><span class="chip lite">ساعة ذهبية</span></header>
+  <div class="batch-shots"><a class="chip mono" href="#seg-E01-03">E01-03</a></div>
+  <p class="batch-need">Needs: character sheets for شاب الجيل</p>
+</article>
+<article class="batch">
+  
+  <header class="batch-h"><b>Batch 04</b><span class="chip">S01 معمل المستشرف</span><span class="chip lite">النافذة مفتوحة</span></header>
+  <div class="batch-shots"><a class="chip mono" href="#seg-E01-04">E01-04</a></div>
+  <p class="batch-need">Needs: character sheets for العالم مستشرف · عدسة الاستشراف (الرقعة)</p>
+</article>
+  </div>
+</section>
+
+<section class="top-sec" id="sec-dialogue">
+  <div class="sec-h"><span class="no">04</span><h2>Audio alignment</h2><span class="note">auto-computed · which segment and cut each TTS clip lands on</span></div>
+  <table><thead><tr><th>Segment · cut</th><th>Speaker</th><th>Line</th><th>Seconds</th></tr></thead>
+  <tbody>
+<tr><td><a href="#seg-E01-01">E01-01</a> #2</td><td>العالم مستشرف</td><td class="serif">الجوال اللي في يدك الحين، عمره قصير.</td><td>3.3</td></tr>
+<tr><td><a href="#seg-E01-01">E01-01</a> #3</td><td>العالم مستشرف</td><td class="serif">أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.</td><td>3.2</td></tr>
+<tr><td><a href="#seg-E01-01">E01-01</a> #5</td><td>العالم مستشرف</td><td class="serif">تبي تشوف؟ تعال معي.</td><td>1.8</td></tr>
+<tr><td><a href="#seg-E01-02">E01-02</a> #1</td><td>Voice-over</td><td class="serif">الساعة سبعة. ومحد صحاه منبه.</td><td>2.7</td></tr>
+<tr><td><a href="#seg-E01-02">E01-02</a> #2</td><td>Voice-over</td><td class="serif">الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.</td><td>3.9</td></tr>
+<tr><td><a href="#seg-E01-02">E01-02</a> #3</td><td>Voice-over</td><td class="serif">جواله؟ صار في نظارته، وفي الجدار.</td><td>3.1</td></tr>
+<tr><td><a href="#seg-E01-03">E01-03</a> #2</td><td>Voice-over</td><td class="serif">يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.</td><td>3.9</td></tr>
+<tr><td><a href="#seg-E01-04">E01-04</a> #2</td><td>العالم مستشرف</td><td class="serif">اللي يكلم الذكاء الاصطناعي من اليوم،</td><td>3.4</td></tr>
+<tr><td><a href="#seg-E01-04">E01-04</a> #3</td><td>العالم مستشرف</td><td class="serif">هو اللي بيقود بكرة. والباقي بيتبعون.</td><td>3.4</td></tr>
+<tr><td><a href="#seg-E01-04">E01-04</a> #5</td><td>العالم مستشرف</td><td class="serif">وبالمناسبة، نسختي الثانية شغالة الحين.</td><td>3.8</td></tr>
+  </tbody></table>
+</section>
+
+<section class="top-sec" id="sec-gates">
+  <div class="sec-h"><span class="no">05</span><h2>Quality gates</h2></div>
+  <ul class="gate">
+  <li class="ok"><span class="m">✓</span><span>Every script beat claimed exactly once, in order, contiguous (cut level)</span></li>
+  <li class="ok"><span class="m">✓</span><span>Each segment 0 &lt; total ≤ 15s (the single-generation cap)</span></li>
+  <li class="ok"><span class="m">✓</span><span>Every cut 2–5s — the short-drama attention rhythm</span></li>
+  <li class="ok"><span class="m">✓</span><span>Dialogue of the claimed beats fits within the cut duration</span></li>
+  <li class="ok"><span class="m">✓</span><span>Episode total within ±15% of the script's target</span></li>
+  <li class="ok"><span class="m">✓</span><span>At most 3 characters on screen per cut; more requires a breakdown note</span></li>
+  <li class="ok"><span class="m">✓</span><span>Segment IDs in E01-01 format, sequential</span></li>
+  <li class="ok"><span class="m">✓</span><span>Chinese shot-size word present in the frame prompt</span></li>
+  <li class="ok"><span class="m">✓</span><span>Camera move from the official H3 vocabulary, inside its own [Shot k] passage</span></li>
+  <li class="ok"><span class="m">✓</span><span>H3 alignment line derived from the cut structure, audited verbatim; cut times match</span></li>
+  <li class="ok"><span class="m">✓</span><span>Claimed dialogue appears verbatim inside the H3 &lt;d&gt; blocks</span></li>
+  <li class="ok"><span class="m">✓</span><span>Prompt language matches the promptLang setting</span></li>
+  <li class="ok"><span class="m">✓</span><span>Frame prompts are Chinese and non-empty</span></li>
+  <li class="ok"><span class="m">✓</span><span>Video prompts carry no character names (H3 body and Seedance shot text; frame prompts name characters on purpose)</span></li>
+  <li class="ok"><span class="m">✓</span><span>Composition fields complete (blocking per segment; lens / camera position / composition / eyeline / focus / stability per cut)</span></li>
+  <li class="ok"><span class="m">✓</span><span>Seedance shot text is Chinese and non-empty, with no timings, shot numbers, image references or protocol symbols</span></li>
+  <li class="ok"><span class="m">✓</span><span>Scenes / characters / props audited against the script</span></li>
+  <li class="ok"><span class="m">✓</span><span>Referenced recipes exist, their must-phrases are in the frame prompt, multi-cut recipes run long enough<small>no recipe card library mounted (--shots &lt;cards dir&gt;) — gate skipped (treated as passing)</small></span></li>
+</ul>
+  <p class="gsum">All passed</p>
+</section>
+
+<p class="foot">Cut by the model from the script: a segment = one generation call (≤15s), a cut = a 2–5s edit inside it, one keyframe per cut. Alignment lines, cut marks, dialogue and prompt discipline are all audited deterministically by the script. Frames are generated through codex with the scene and character sheets as references.</p>
+</div>
+
+<div class="lightbox" id="lightbox"><img alt=""></div>
+
+<script type="application/json" id="storyboard-data">{"source":"نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية)","aspectRatio":"9:16","episodes":[{"ep":1,"segments":[{"id":"E01-01","sceneIndex":1,"blocking":"开场：العالم مستشرف 站在画面中后景的书桌后方，面朝镜头，距镜头约四步；圆形铜框窗在他身后正中，黑板在画面左侧，书架在右侧。","soundscape":"老旧实验室的低频电流嗡鸣，爱迪生灯泡轻微滋滋声，手机砸在木桌上的闷响，沉重皮靴脚步声，掀起眼罩时一声电光嗡响。","music":"低沉合成器长音铺底，慢速心跳般的定音鼓，掀眼罩处一记上扬的电子音。","cuts":[{"beats":[1,1],"seconds":3,"size":"wide","camera":"Static Shot","characters":["C01"],"props":["P01"],"frame":"全景，竖构图。العالم مستشرف 在昏暗暖黄的实验室里，刚把一部手机扔到木书桌上，身体前倾正迈步走向镜头；身后正中是圆形铜框窗，左侧黑板写满粉笔城市草图，右侧书架，天花板垂下电缆和爱迪生灯泡。","shot":"固定镜头。一名年迈光头、蓄浓黑八字胡、左眼戴黑眼罩的阿拉伯科学家把一部手机扔到木桌上，随后迈着沉重的步子朝镜头走近两步，目光直视镜头。","lens":"28mm 广角，中景深","cameraPosition":"العالم مستشرف + 平视正面，略低机位","composition":"中心构图","eyeline":"直视镜头","focus":"锁定 العالم مستشرف 全身","stability":"stable"},{"beats":[2,2],"seconds":3.5,"size":"close","camera":"Push In","characters":["C01"],"props":["P01"],"frame":"特写，竖构图。العالم مستشرف 的脸和肩膀占满画面上半部，眉头紧锁，嘴巴张开正在说话，左眼黑眼罩和额头红色缝线疤痕清晰；背景是虚化的暖黄灯泡。","shot":"镜头小幅缓推向科学家的脸，他眉头紧锁、嘴唇开合，低沉地警告观众。","lens":"50mm 标准，浅景深","cameraPosition":"العالم مستشرف + 平视正面","composition":"中心构图","eyeline":"直视镜头","focus":"锁定 العالم مستشرف 面部","stability":"stable"},{"beats":[3,3],"seconds":3.5,"size":"close","camera":"Static Shot","characters":["C01"],"props":["P01"],"frame":"特写，竖构图，略侧四分之三角度。العالم مستشرف 抬起一侧浓眉，嘴巴张开说话，神情神秘，像在透露一个秘密；身后圆形窗的玻璃泛起淡淡蓝光。","shot":"固定镜头。科学家抬起一侧眉毛，身体微微前倾，像透露秘密一样压低声音说话。","lens":"50mm 标准，浅景深","cameraPosition":"العالم مستشرف + 平视四分之三侧","composition":"三分法","eyeline":"直视镜头","focus":"锁定 العالم مستشرف 面部","stability":"stable"},{"beats":[4,4],"seconds":2.5,"size":"extreme-close","camera":"Push In","characters":["C01"],"props":["P01"],"frame":"大特写，竖构图。العالم مستشرف 用手指掀起左眼的黑皮眼罩，眼罩下射出强烈的青蓝色光芒，光线照亮他的胡子和额头疤痕，暖黄背景被蓝光冲开。","shot":"镜头快速推向眼罩，科学家用手掀起黑色眼罩，一道强烈的青蓝色光芒从眼中射出，照亮整个房间。","lens":"85mm 长焦，极浅景深","cameraPosition":"العالم مستشرف + 平视正面","composition":"中心构图","eyeline":"直视镜头","focus":"锁定眼罩与蓝光","stability":"slight-shake","sfx":"电光爆响","lighting":"青蓝色强光从眼罩下射出"},{"beats":[5,5],"seconds":2.5,"size":"close","camera":"Static Shot","characters":["C01"],"props":["P01"],"frame":"特写，竖构图。العالم مستشرف 半张脸被青蓝色光照亮，眼罩翻起，嘴角带一丝笑，嘴巴微张正在低声邀请；房间暖黄与青蓝交织，空气中有光尘。","shot":"固定镜头。科学家在蓝光中嘴角微扬，压低声音邀请观众跟他走。","lens":"50mm 标准，浅景深","cameraPosition":"العالم مستشرف + 平视正面","composition":"中心构图","eyeline":"直视镜头","focus":"锁定 العالم مستشرف 面部","stability":"stable","lighting":"青蓝光与暖黄光交织"}],"h3Prompt":"How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 6.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 10.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 12.50-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on \u003cPicture 1>, a static shot in a dim warm-amber old laboratory: an elderly bald Arab scientist with a thick black horseshoe mustache and a black patch over his left eye tosses a phone onto a heavy wooden desk, then walks two heavy steps toward the camera, staring straight into the lens.\n[Shot 2] At 00:03.000, the camera cuts to \u003cPicture 2>: a slow push in toward the scientist's stern face; his heavy brows knit, his lips move as he warns the viewer in a low voice. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: \u003cd>[Arabic] الجوال اللي في يدك الحين، عمره قصير.\u003c/d>\n[Shot 3] At 00:06.500, the camera cuts to \u003cPicture 3>: a static shot as the scientist raises one bushy eyebrow and leans slightly forward, speaking like he is revealing a secret; the round window behind him glows faintly cyan. (S1) says: \u003cd>[Arabic] أنا شفت ٢٠٥٠. وما فيه أحد ماسك جوال.\u003c/d>\n[Shot 4] At 00:10.000, the camera cuts to \u003cPicture 4>: a fast push in on the eye patch as the scientist lifts it with his fingers; an intense cyan beam of light bursts out from beneath it and floods the room.\n[Shot 5] At 00:12.500, the camera cuts to \u003cPicture 5>: a static shot: bathed in cyan light, the scientist gives a faint smile and whispers an invitation to the viewer. (S1) says: \u003cd>[Arabic] تبي تشوف؟ تعال معي.\u003c/d>\n\noverall_soundscape: A low electrical hum of an old laboratory and faint buzzing of Edison bulbs; a phone thuds onto a wooden desk, heavy leather boot steps on wooden floor, and a sharp electric whoosh with a rising hum when the eye patch is lifted.\n\nnon_diegetic_music: A deep synth drone with a slow heartbeat-like timpani pulse, ending in a rising electronic swell on the reveal."},{"id":"E01-02","sceneIndex":2,"blocking":"开场：شاب الجيل 躺在画面下方的地面坐垫上刚坐起，面朝画面右侧的白色墙面，距墙约三步；全景窗在画面背景，棕榈盆栽在左侧角落。","soundscape":"清晨安静的室内，远处城市低鸣，墙面亮起时柔和的电子提示音，眼镜戴上时轻微的咔嗒声。","music":"明亮轻快的合成器琶音，中速，带一点好奇感。","cuts":[{"beats":[1,2],"seconds":4.5,"size":"wide","camera":"Static Shot","characters":["C02"],"frame":"全景，竖构图。شاب الجيل 在未来客厅的地面坐垫上刚醒来坐起，伸着懒腰；柔和晨光从全景窗照进来，窗外是沙丘形状的玻璃塔楼，左下角有棕榈盆栽。","shot":"固定镜头。一名穿白色现代长袍的年轻沙特男子在客厅的地面坐垫上醒来，缓慢坐起并伸了个懒腰。","lens":"24mm 广角，深景深","cameraPosition":"شاب الجيل + 平视侧前方","composition":"三分法","eyeline":"望向窗外","focus":"锁定 شاب الجيل 上半身","stability":"stable"},{"beats":[3,4],"seconds":4.5,"size":"medium","camera":"Push In","characters":["C02"],"frame":"中景，竖构图，过肩视角。شاب الجيل 坐着望向前方白色墙面，墙面正在变成一块巨大的屏幕，浮现半透明的青色日程界面和天气图标。","shot":"镜头小幅缓推越过年轻男子的肩膀，他面前的白墙逐渐亮起，变成显示他一天日程的半透明青色屏幕。","lens":"35mm，中景深","cameraPosition":"شاب الجيل 背后过肩 + 平视","composition":"对角线","eyeline":"墙面屏幕","focus":"锁定墙面屏幕","stability":"stable"},{"beats":[5,6],"seconds":4.5,"size":"close","camera":"Static Shot","characters":["C02"],"frame":"特写，竖构图。شاب الجيل 戴上一副纤细透明的智能眼镜，镜片上闪着小小的青色界面光点，他露出微笑。","shot":"固定镜头。年轻男子戴上一副纤细透明的智能眼镜，镜片闪起青色光点，他满意地微笑。","lens":"50mm 标准，浅景深","cameraPosition":"شاب الجيل + 平视正面","composition":"中心构图","eyeline":"镜片中的界面","focus":"锁定 شاب الجيل 面部与眼镜","stability":"stable"}],"h3Prompt":"How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 4.50-second mark of the target video; Picture 3 (from Shot 3) aligns with the 9.00-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on \u003cPicture 1>, a static shot of a bright futuristic living room at morning: a young Saudi man in a modern white thobe wakes up on a floor cushion, slowly sits up and stretches. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: \u003cd>[Arabic] الساعة سبعة. ومحد صحاه منبه.\u003c/d>\n[Shot 2] At 00:04.500, the camera cuts to \u003cPicture 2>: a slow push in over the young man's shoulder as the plain white wall in front of him lights up and turns into a translucent cyan screen showing his daily schedule. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: \u003cd>[Arabic] الجدار يكلمه، يعرف مواعيده، ويعرف مزاجه.\u003c/d>\n[Shot 3] At 00:09.000, the camera cuts to \u003cPicture 3>: a static shot: the young man puts on thin transparent smart glasses; small cyan interface glints appear on the lenses and he smiles. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: \u003cd>[Arabic] جواله؟ صار في نظارته، وفي الجدار.\u003c/d>\n\noverall_soundscape: A quiet futuristic morning interior with a distant soft city hum; a gentle electronic chime as the wall lights up, and a light click as the smart glasses are put on.\n\nnon_diegetic_music: Bright, airy synth arpeggios at a medium tempo with a sense of wonder."},{"id":"E01-03","sceneIndex":3,"blocking":"开场：شاب الجيل 走在画面中下方的人行道中央，朝镜头方向行走；沙丘形塔楼排列在两侧，空中光道在画面上方。","soundscape":"未来街道的环境声，飞行出租舱从头顶掠过的呼啸，全息招牌确认时清脆的提示音，轻快脚步声。","music":"合成器琶音加入轻打击乐，节奏推进，充满惊奇感。","cuts":[{"beats":[1,1],"seconds":3.5,"size":"extreme-wide","camera":"Tracking Shot","characters":["C02"],"frame":"大远景，竖构图，低机位。شاب الجيل 走在2050年未来沙特城市的宽阔街道上，两侧是沙丘形的金色玻璃塔楼和垂直花园，一辆白色飞行出租舱从他头顶的蓝色光道掠过，黄金时刻阳光。","shot":"跟拍镜头向后移动，穿白色长袍的年轻男子沿着未来城市的街道走来，一辆白色飞行出租舱从他头顶掠过。","lens":"24mm 广角，深景深","cameraPosition":"شاب الجيل + 低机位仰视","composition":"对称","eyeline":"抬头看飞行舱","focus":"锁定 شاب الجيل 全身","stability":"stable"},{"beats":[2,2],"seconds":4.5,"size":"medium","camera":"Push In","characters":["C02"],"frame":"中景，竖构图。شاب الجيل 站在一块半透明的全息招牌前，眼镜闪着青光，他只是看了招牌一眼，招牌就亮起绿色的确认光环；背景一辆白色飞行出租舱正在降落。","shot":"镜头小幅缓推，年轻男子看向全息招牌，招牌随即亮起确认光环，他身后一辆白色飞行出租舱缓缓降落。","lens":"35mm，中景深","cameraPosition":"شاب الجيل + 平视侧前方","composition":"三分法","eyeline":"全息招牌","focus":"锁定 شاب الجيل 与招牌","stability":"stable"}],"h3Prompt":"How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 3.50-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on \u003cPicture 1>, a tracking shot moving backward as the young man in a white thobe walks down a golden-hour futuristic Saudi street of dune-shaped towers; a white flying taxi pod sweeps overhead along a glowing sky-lane.\n[Shot 2] At 00:03.500, the camera cuts to \u003cPicture 2>: a slow push in as the young man glances at a translucent holographic sign; it instantly glows with a confirmation ring, while a white flying taxi pod gently lands behind him. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache says in an off-screen voiceover, while their lips remain completely closed: \u003cd>[Arabic] يدفع بنظرة. يترجم بكلمة. يطلب تاكسي يطير.\u003c/d>\n\noverall_soundscape: Ambient sounds of a futuristic street; a flying taxi pod whooshes overhead, a crisp confirmation chime from a holographic sign, light footsteps.\n\nnon_diegetic_music: Synth arpeggios joined by light percussion, building momentum and wonder."},{"id":"E01-04","sceneIndex":4,"blocking":"开场：العالم مستشرف 站在画面中央，圆形窗在他身后发着青蓝光，他面朝镜头，距镜头约两步，随后靠近到一步。","soundscape":"蓝光熄灭时的电流衰减声，实验室嗡鸣回归，皮靴向前一步，圆形窗短促闪烁的电子嗡声。","music":"低沉合成器长音回归，台词结尾处一记神秘的低音提琴拨弦，最后留白。","cuts":[{"beats":[1,1],"seconds":2,"size":"close","camera":"Push In","characters":["C01"],"props":["P01"],"frame":"特写，竖构图。العالم مستشرف 把黑眼罩放回左眼上，青蓝光正在熄灭，暖黄灯光重新照亮他的脸，他向镜头迈近一步。","shot":"镜头缓推，科学家把眼罩放回眼睛上，蓝光熄灭，他向镜头靠近一步。","lens":"50mm 标准，浅景深","cameraPosition":"العالم مستشرف + 平视正面","composition":"中心构图","eyeline":"直视镜头","focus":"锁定 العالم مستشرف 面部","stability":"stable"},{"beats":[2,2],"seconds":3.5,"size":"medium","camera":"Static Shot","characters":["C01"],"props":["P01"],"frame":"中景，竖构图。العالم مستشرف 神情严肃，一只手伸出食指指向镜头，嘴巴张开说话；身后圆形铜框窗与黑板在暖黄灯光中。","shot":"固定镜头。科学家神情严肃，伸出食指指向镜头，郑重地说话。","lens":"35mm，中景深","cameraPosition":"العالم مستشرف + 平视正面","composition":"中心构图","eyeline":"直视镜头","focus":"锁定 العالم مستشرف 上半身与手指","stability":"stable"},{"beats":[3,3],"seconds":3.5,"size":"extreme-close","camera":"Push In","characters":["C01"],"props":["P01"],"frame":"大特写，竖构图。العالم مستشرف 的脸部占满画面，黑眼罩、浓眉、额头红色缝线疤痕、浓黑八字胡清晰，独眼坚定地盯着镜头，嘴巴张开说话。","shot":"镜头极缓推向科学家的脸，他独眼坚定地盯着观众，缓慢而有分量地说话。","lens":"85mm 长焦，极浅景深","cameraPosition":"العالم مستشرف + 平视正面","composition":"中心构图","eyeline":"直视镜头","focus":"锁定 العالم مستشرف 眼睛","stability":"stable"},{"beats":[4,4],"seconds":2,"size":"medium","camera":"Static Shot","characters":["C01"],"frame":"中景，竖构图，过肩视角。العالم مستشرف 转头看向身后的圆形铜框窗，窗玻璃短暂闪起青蓝光。","shot":"固定镜头。科学家转头看向身后的圆形窗，窗玻璃短暂闪起青蓝色光。","lens":"35mm，中景深","cameraPosition":"العالم مستشرف 背后过肩 + 平视","composition":"三分法","eyeline":"圆形窗","focus":"锁定圆形窗","stability":"stable","lighting":"窗玻璃短暂闪起青蓝光"},{"beats":[5,5],"seconds":4,"size":"close","camera":"Push In","characters":["C01"],"props":["P01"],"frame":"特写，竖构图。العالم مستشرف 回头看向镜头，嘴角挂着半个神秘的微笑，嘴巴微张低声说话；背后圆形窗残留一点蓝光。","shot":"镜头缓推，科学家回头望向镜头，嘴角挂起半个神秘的微笑，压低声音像在泄露秘密。","lens":"50mm 标准，浅景深","cameraPosition":"العالم مستشرف + 平视四分之三侧","composition":"三分法","eyeline":"直视镜头","focus":"锁定 العالم مستشرف 面部","stability":"stable"}],"h3Prompt":"How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 2) aligns with the 2.00-second mark of the target video; Picture 3 (from Shot 3) aligns with the 5.50-second mark of the target video; Picture 4 (from Shot 4) aligns with the 9.00-second mark of the target video; Picture 5 (from Shot 5) aligns with the 11.00-second mark of the target video.\n\nintegrated_multimodal_description:\n[Shot 1] Anchored on \u003cPicture 1>, a slow push in as the scientist lowers the eye patch back over his eye; the cyan glow fades and he steps closer to the camera.\n[Shot 2] At 00:02.000, the camera cuts to \u003cPicture 2>: a static shot: the scientist, very serious, points his index finger straight at the camera as he speaks. (S1) an elderly bald Arab scientist around seventy with a thick black horseshoe mustache, a black eye patch over his left eye and a black sweater, deep gravelly booming old voice, slow and wise says: \u003cd>[Arabic] اللي يكلم الذكاء الاصطناعي من اليوم،\u003c/d>\n[Shot 3] At 00:05.500, the camera cuts to \u003cPicture 3>: a very slow push in to an extreme close-up of the scientist's face; his single eye locks onto the viewer as he speaks slowly and with weight. (S1) says: \u003cd>[Arabic] هو اللي بيقود بكرة. والباقي بيتبعون.\u003c/d>\n[Shot 4] At 00:09.000, the camera cuts to \u003cPicture 4>: a static shot over his shoulder: the scientist turns his head toward the round brass window behind him as its glass briefly flashes cyan.\n[Shot 5] At 00:11.000, the camera cuts to \u003cPicture 5>: a slow push in as the scientist turns back to the camera with a mysterious half smile, lowering his voice as if leaking a secret. (S1) says: \u003cd>[Arabic] وبالمناسبة، نسختي الثانية شغالة الحين.\u003c/d>\n\noverall_soundscape: An electric power-down hum as the cyan light fades, the laboratory hum returns, one boot step forward, and a short electronic flicker buzz from the round window.\n\nnon_diegetic_music: The deep synth drone returns, with a mysterious low pizzicato on the final line, then a beat of silence."}]}],"promptLang":"en","lang":"en","params":{"maxSegmentSeconds":15,"minCutSeconds":2,"maxCutSeconds":5,"maxOnScreen":3,"tolerance":0.15}}</script>
+<script>
+const L = {"copied":"Copied","failed":"Copy failed","show":"▾ Show all segments","hide":"▴ Collapse"};
+
+// 分集分镜表：段卡区默认最多 760px。不超高的集直接放开；超高的集点开/收起
+document.querySelectorAll('.shmore').forEach((btn) => {
+  const zone = btn.previousElementSibling;
+  if (zone.scrollHeight <= 780) {
+    zone.classList.remove('clip');
+    btn.remove();
+    return;
+  }
+  btn.addEventListener('click', () => {
+    const clipped = zone.classList.toggle('clip');
+    btn.textContent = clipped ? L.show : L.hide;
+    if (clipped) zone.closest('.ep').scrollIntoView({ block: 'nearest' });
+  });
+});
+
+// 点图放大（主分镜图 / 子分镜图 / 批次场景图）
+const lb = document.getElementById('lightbox');
+document.addEventListener('click', (e) => {
+  const img = e.target.closest('img.frame, img.subf, img.bimg');
+  if (img) {
+    lb.querySelector('img').src = img.src;
+    lb.classList.add('on');
+    return;
+  }
+  if (e.target.closest('#lightbox')) lb.classList.remove('on');
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') lb.classList.remove('on');
+});
+
+// 提示词面板：H3 / Seedance 页签，复制键复制当前激活的那一份
+document.addEventListener('click', (e) => {
+  const tab = e.target.closest('.ptab');
+  if (!tab) return;
+  const panel = tab.closest('.ppanel');
+  const i = Number(tab.dataset.i);
+  panel.querySelectorAll('.ptab').forEach((b, k) => b.classList.toggle('on', k === i));
+  panel.querySelectorAll('.pp').forEach((pre, k) => pre.classList.toggle('on', k === i));
+  panel.querySelector('.pp-h .copy').dataset.copy = panel.querySelectorAll('.pp')[i].textContent;
+});
+
+// 复制提示词
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('.copy');
+  if (!btn) return;
+  e.preventDefault();
+  const label = btn.textContent;
+  try {
+    await navigator.clipboard.writeText(btn.dataset.copy);
+    btn.textContent = L.copied;
+    btn.dataset.done = '1';
+  } catch {
+    btn.textContent = L.failed;
+  }
+  setTimeout(() => { btn.textContent = label; delete btn.dataset.done; }, 1600);
+});
+
+// 导出：报告自己带着完整的 storyboard.json，下载的是它原样
+document.querySelector('.expo').addEventListener('click', (e) => {
+  const btn = e.currentTarget;
+  const url = URL.createObjectURL(
+    new Blob([document.getElementById('storyboard-data').textContent], { type: 'application/json' }),
+  );
+  const a = Object.assign(document.createElement('a'), { href: url, download: btn.dataset.name });
+  a.click();
+  // 别立刻回收——Safari 会抢在下载读完之前撤掉 blob
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+});
+</script>
+</body></html>

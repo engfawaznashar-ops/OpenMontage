@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نافذة ٢٠٥٠ — العالم مستشرف · Character Bible</title>
+<style>
+/* 冷灰印张 + 铁锈红印记。红色只用在与原文有关的地方和当前选中态。 */
+:root{
+  --paper:#eceded; --panel:#f5f6f5; --side:#e4e6e3; --ink:#191d21; --ink-2:#5b636a; --ink-3:#8c9298;
+  --rule:#d2d5d0; --rule-2:#c2c6bf; --seal:#8a3324; --seal-soft:#8a332412;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif CJK SC",Georgia,"Iowan Old Style",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --top:60px; --side-w:400px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.7 var(--sans);
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-weight:400}
+button{font-family:inherit}
+
+/* ---------- 顶栏 ---------- */
+.top{position:sticky;top:0;z-index:20;height:var(--top);display:flex;align-items:center;gap:24px;
+  padding:0 20px;background:var(--panel);border-bottom:1px solid var(--rule-2)}
+.brand{display:flex;align-items:baseline;gap:10px;flex:none}
+.brand h1{font:400 22px/1 var(--serif);letter-spacing:.04em}
+.brand em{font:italic 12px/1 var(--serif);color:var(--ink-3)}
+.search{flex:1;max-width:720px;position:relative}
+.search input{width:100%;height:34px;padding:0 12px 0 32px;border:1px solid var(--rule-2);
+  border-radius:3px;background:var(--paper);color:var(--ink);font:14px/1 var(--sans);outline:none}
+.search input:focus{border-color:var(--seal)}
+.search svg{position:absolute;left:10px;top:9px;width:14px;height:14px;stroke:var(--ink-3);fill:none}
+.topmeta{margin-left:auto;font-size:12px;color:var(--ink-3);display:flex;align-items:center;
+  gap:10px;flex:none}
+.topmeta i{font-style:normal;color:var(--rule-2)}
+/* 导出：下载的就是内嵌的那份 cast.json，编辑完能直接喂回 render */
+.expo{margin-left:4px;font:500 11px/1 var(--sans);color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-2);border-radius:2px;padding:6px 10px;cursor:pointer;transition:.15s}
+.expo:hover{border-color:var(--seal);color:var(--seal)}
+.expo:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+
+/* ---------- 骨架 ---------- */
+.shell{display:grid;grid-template-columns:var(--side-w) minmax(0,1fr);align-items:start}
+@media(max-width:1080px){:root{--side-w:100%}.shell{grid-template-columns:1fr}}
+
+/* ---------- 左栏 ---------- */
+.side{position:sticky;top:var(--top);height:calc(100vh - var(--top));overflow-y:auto;
+  background:var(--side);border-right:1px solid var(--rule-2)}
+@media(max-width:1080px){.side{position:static;height:auto}}
+.synopsis{padding:18px 20px;border-bottom:1px solid var(--rule)}
+.lbl{font:500 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3)}
+.synopsis p{margin:10px 0 0;font:400 14px/1.95 var(--serif)}
+/* 摘要默认三行，底部渐隐——左栏第一屏要留给角色列表。点一下展开，之后不再收起 */
+.syn-clamp{cursor:pointer}
+.syn-clamp p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,#000 58%,transparent);
+  mask-image:linear-gradient(180deg,#000 58%,transparent)}
+.syn-more{display:none;margin-top:7px;padding:0;background:none;border:0;cursor:pointer;
+  font:500 11px/1 var(--sans);letter-spacing:.06em;color:var(--seal)}
+.syn-clamp .syn-more{display:block}
+.syn-more:hover{text-decoration:underline}
+.syn-more:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.roster-h{padding:14px 20px 8px}
+.roster{display:block}
+.rost{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;width:100%;text-align:left;
+  padding:12px 20px;background:none;border:0;border-bottom:1px solid var(--rule);
+  border-left:2px solid transparent;cursor:pointer;color:inherit}
+.rost:hover{background:#00000006}
+.rost.on{background:var(--panel);border-left-color:var(--seal)}
+.rost:focus-visible{outline:2px solid var(--seal);outline-offset:-2px}
+/* 缩略图 = 设定图的左栏切片。设定图固定 16:9、左栏占约 34%，
+   所以把整图按 1/0.34 ≈ 294% 放大再左上对齐，裁出来正好是半身像。
+   比 <img> + object-position 可控：不依赖浏览器怎么 cover。 */
+.rost-thumb{display:block;width:76px;height:76px;border:1px solid var(--rule-2);border-radius:6px;
+  background:#fff no-repeat left top;background-size:294% auto}
+.rost-body{min-width:0}
+.rost-top{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.rost-n{font:500 10px/1 var(--mono);color:var(--ink-3);font-style:normal}
+.rost-name{font:400 17px/1.2 var(--serif);letter-spacing:.03em}
+.rost-meta{font-size:11px;color:var(--ink-3)}
+.rost-one{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink-2)}
+.rost-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+.rost-chips i{font-style:normal;font-size:11px;padding:1px 6px;border:1px solid var(--rule-2);
+  border-radius:2px;color:var(--ink-2);background:var(--paper)}
+.side-foot{padding:14px 20px 28px;font-size:11px;line-height:1.7;color:var(--ink-3)}
+.badge{font-size:11px;padding:1px 7px;border:1px solid var(--rule-2);border-radius:2px;color:var(--ink-2)}
+.rost.on .badge,.char-h .badge{border-color:var(--seal);color:var(--seal)}
+
+/* ---------- 主区 ---------- */
+.main{padding:26px 28px 72px;min-width:0;max-width:1500px}
+.char{display:none}
+.char.on{display:block}
+.char-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding-bottom:14px;border-bottom:1px solid var(--rule-2)}
+.char-n{font:500 13px/1 var(--mono);color:var(--seal)}
+.char-h h2{font:400 clamp(24px,2.4vw,30px)/1.1 var(--serif);letter-spacing:.05em}
+.aka{font-size:12px;color:var(--ink-3)}
+.char-one{margin-left:auto;font:400 14px/1.7 var(--serif);color:var(--ink-2);text-align:right;max-width:44ch}
+@media(max-width:900px){.char-one{margin-left:0;text-align:left}}
+
+.upper{display:grid;grid-template-columns:minmax(0,1fr) 500px;gap:26px;align-items:start;margin-top:20px}
+@media(max-width:1240px){.upper{grid-template-columns:1fr}}
+
+/* 设定图是白底印张 */
+.plate-wrap{position:relative;margin:0}
+.plate{display:block;width:100%;padding:0;background:#fff;border:1px solid var(--rule-2);
+  border-radius:2px;overflow:hidden;cursor:zoom-in}
+.plate img{display:block;width:100%;height:auto}
+.plate:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+/* 右下角浮在图上，hover 才明显——别挡住画面 */
+.copy-img{position:absolute;right:10px;bottom:10px;font:500 11px/1 var(--sans);color:var(--ink-2);
+  background:var(--paper);border:1px solid var(--rule-2);border-radius:3px;padding:6px 10px;
+  cursor:pointer;opacity:.55;transition:.15s}
+.plate-wrap:hover .copy-img{opacity:1}
+.copy-img:hover{border-color:var(--seal);color:var(--seal)}
+.copy-img:focus-visible{opacity:1;outline:2px solid var(--seal);outline-offset:2px}
+.copy-img[data-done]{border-color:var(--seal);color:var(--seal);opacity:1}
+
+/* 弹层 */
+.lightbox{position:fixed;inset:0;z-index:50;display:none;place-items:center;
+  background:#191d21e6;padding:32px;cursor:zoom-out}
+.lightbox.on{display:grid}
+.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:2px;
+  box-shadow:0 8px 40px #0006}
+.lightbox-x{position:absolute;top:18px;right:22px;font:500 13px/1 var(--sans);color:#fff;
+  background:none;border:1px solid #fff6;border-radius:3px;padding:8px 12px;cursor:pointer}
+.lightbox-x:hover{border-color:#fff}
+.plate-empty{display:grid;place-items:center;min-height:220px;text-align:center;
+  border:1px dashed var(--rule-2);background:var(--panel);color:var(--ink-3);font-size:13px}
+.plate-empty em{font-style:normal;font-size:12px;opacity:.8}
+.plate-c{margin:7px 0 0;font-size:11px;letter-spacing:.1em;color:var(--ink-3)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:24px}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.blk{margin-bottom:20px}
+.blk h3{font:500 11px/1 var(--sans);letter-spacing:.2em;color:var(--seal);margin-bottom:7px}
+.blk p{margin:0;font-size:13.5px;line-height:1.85}
+
+/* 原文：衬线体，铁锈红边栏。这里是书自己在说话 */
+.source .quotes{display:grid;grid-template-columns:1fr 1fr;gap:10px 30px}
+@media(max-width:700px){.source .quotes{grid-template-columns:1fr}}
+.source blockquote{margin:0;padding-left:13px;border-left:2px solid var(--seal);
+  font:400 13.5px/1.85 var(--serif)}
+
+/* ---------- 右侧信息卡 ---------- */
+.side-cards{display:flex;flex-direction:column;gap:14px}
+.card{border:1px solid var(--rule);border-radius:2px;background:var(--panel);padding:14px 16px}
+.card h4{font:500 11px/1 var(--sans);letter-spacing:.2em;color:var(--ink-3);margin-bottom:10px;
+  display:flex;align-items:center;gap:8px}
+.tag-en{font:500 9px/1 var(--mono);letter-spacing:.22em;color:var(--rule-2);font-style:normal}
+.card dl{margin:0}
+.kv{display:flex;gap:12px;padding:2.5px 0;font-size:13px}
+.kv dt{color:var(--ink-3);flex:none;width:46px}
+.kv dd{margin:0;min-width:0}
+.rel-n{color:var(--ink)!important;width:auto!important;min-width:46px}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0;padding:0;list-style:none}
+.tags li{font:400 11px/1.5 var(--mono);color:var(--ink-2);border:1px solid var(--rule-2);
+  background:var(--paper);border-radius:2px;padding:1px 6px}
+
+/* ---------- 提示词 ---------- */
+.prompts{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+@media(max-width:900px){.prompts{grid-template-columns:1fr}}
+.pgroup{border:1px solid var(--rule);border-radius:2px;background:var(--panel);padding:6px 14px 10px}
+.pr{border-bottom:1px solid var(--rule)}
+.pgroup .pr:last-of-type{border-bottom:0}
+.pr summary{display:flex;align-items:center;gap:10px;padding:11px 0;cursor:pointer;list-style:none;
+  font:500 12px/1 var(--sans);letter-spacing:.04em}
+.pr summary::-webkit-details-marker{display:none}
+.pr summary::before{content:"▸";color:var(--seal);font-size:11px;transition:transform .15s}
+.pr[open] summary::before{transform:rotate(90deg)}
+.pr summary span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pr p{margin:0 0 12px;padding:11px 12px;background:var(--paper);border:1px solid var(--rule);
+  border-radius:2px;font:400 12px/1.75 var(--mono);white-space:pre-wrap;word-break:break-word}
+.pgroup-f{padding:12px 0 4px}
+
+.copy{flex:none;font:500 11px/1 var(--sans);color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-2);border-radius:2px;padding:4px 10px;cursor:pointer;transition:.15s}
+.copy:hover{border-color:var(--seal);color:var(--seal)}
+.copy:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.copy[data-done]{border-color:var(--seal);color:var(--seal)}
+.copy.wide{width:100%;padding:9px}
+
+/* ---------- 关系图谱 ---------- */
+/* 布局在 Node 里算好写进 SVG，这里只管高亮。红色仍然只给选中态 */
+.gtoggle{display:flex;align-items:center;gap:9px;width:100%;padding:13px 20px;text-align:left;
+  background:none;border:0;border-bottom:1px solid var(--rule);border-left:2px solid transparent;
+  cursor:pointer;color:var(--ink-2);font:500 12px/1 var(--sans);letter-spacing:.1em}
+.gtoggle:hover{background:#00000006}
+.gtoggle.on{background:var(--panel);border-left-color:var(--seal);color:var(--seal)}
+.gtoggle:focus-visible{outline:2px solid var(--seal);outline-offset:-2px}
+.gtoggle svg{width:15px;height:15px;flex:none;stroke:currentColor;fill:none;stroke-width:1.3}
+.graph{display:none}
+.graph.on{display:block}
+.main.gmode .char{display:none}
+.graph-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding-bottom:14px;border-bottom:1px solid var(--rule-2)}
+.graph-h h2{font:400 clamp(22px,2.2vw,28px)/1.1 var(--serif);letter-spacing:.05em}
+.graph-h .hint{margin-left:auto;font-size:12px;color:var(--ink-3)}
+.graph-body{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:26px;
+  align-items:start;margin-top:20px}
+@media(max-width:1100px){.graph-body{grid-template-columns:1fr}}
+.graph-canvas{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:10px}
+.graph-canvas svg{display:block;width:100%;height:auto}
+.graph-empty{margin:0 0 8px;text-align:center;font-size:12.5px;color:var(--ink-3)}
+.gedge{fill:none;stroke:var(--rule-2);stroke-width:1.1;transition:.15s}
+.gedge.hot{stroke:var(--seal);stroke-width:2}
+.gedge.dim{opacity:.15}
+.gnode{cursor:pointer;transition:.15s}
+.gnode .gdot{fill:var(--paper);stroke:var(--ink-2);stroke-width:1.5}
+/* 看不见的命中区：节点本身才十来个像素，光标很难压准。
+   单独一个类，免得被下面 .lead / .hot 的规则一起染色 */
+.gnode .ghit{fill:none;stroke:none;pointer-events:all}
+.gnode text{font:400 13px var(--serif);fill:var(--ink)}
+.gnode.lead .gdot{fill:var(--seal);stroke:var(--seal)}
+.gnode.hot .gdot{stroke:var(--seal);stroke-width:2.5}
+.gnode.hot text{fill:var(--seal)}
+.gnode.dim{opacity:.22}
+.gnode:focus-visible{outline:2px solid var(--seal)}
+/* 弦上的关系文字。默认按边数决定开不开，悬停的那条永远显示。
+   paint-order + 同色描边 = 给字加一圈底衬，压在弦上也读得清 */
+.glabel{display:none;font:400 9px var(--sans);fill:var(--ink-3);pointer-events:none;
+  paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+.graph.labels .glabel{display:block}
+.glabel.dim{opacity:.15}
+.glabel.hot{display:block;fill:var(--seal);font-weight:500}
+.glabtoggle{font:500 11px/1 var(--sans);color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-2);border-radius:2px;padding:4px 10px;cursor:pointer;transition:.15s}
+.glabtoggle:hover{border-color:var(--seal);color:var(--seal)}
+.glabtoggle.on{border-color:var(--seal);color:var(--seal);background:var(--seal-soft)}
+.glabtoggle:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.grel{border:1px solid var(--rule);border-radius:2px;background:var(--panel)}
+.grel h4{font:500 11px/1 var(--sans);letter-spacing:.2em;color:var(--ink-3);padding:14px 16px 11px}
+.grel-list{max-height:56vh;overflow-y:auto;border-top:1px solid var(--rule)}
+.grow{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:0;
+  border-bottom:1px solid var(--rule);cursor:pointer;color:inherit;transition:.15s}
+.grow:last-child{border-bottom:0}
+.grow:hover,.grow.hot{background:var(--seal-soft)}
+.grow.dim{opacity:.3}
+.grow:focus-visible{outline:2px solid var(--seal);outline-offset:-2px}
+.grow b{font:400 14px/1.4 var(--serif);letter-spacing:.03em}
+.grow i{font-style:normal;color:var(--ink-3);padding:0 6px}
+.grow span{display:block;margin-top:4px;font-size:12.5px;line-height:1.65;color:var(--ink-2)}
+.grow em{font-style:normal;color:var(--ink-3)}
+.grel-foot{margin:0;padding:11px 16px;border-top:1px solid var(--rule);
+  font-size:11px;line-height:1.6;color:var(--ink-3)}
+
+/* 签名：推断标记 */
+.inf{color:var(--ink-3);font-size:.88em;background:var(--seal-soft);padding:0 3px;border-radius:2px}
+
+.nomatch{display:none;padding:20px;font-size:13px;color:var(--ink-3)}
+.nomatch.on{display:block}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* 屏幕上一次一个角色，纸上要完整 */
+@media print{
+  .top,.side,.copy{display:none!important}
+  .shell{display:block}
+  .main{padding:0}
+  .graph{display:block!important;page-break-after:always}
+  .char{display:block!important;page-break-after:always}
+  .pr p{display:block!important}
+  .pr summary::before{content:""}
+  body{background:#fff}
+}
+</style></head><body>
+
+<header class="top">
+  <div class="brand"><h1>نافذة ٢٠٥٠ — العالم مستشرف</h1></div>
+  <div class="search">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke-width="1.5"/><path d="M11 11l4 4" stroke-width="1.5"/></svg>
+    <input id="q" type="search" placeholder="Search characters, traits, roles" aria-label="Search characters, traits, roles" autocomplete="off">
+  </div>
+  <div class="topmeta">
+    <span>CHARACTER BIBLE</span><i>·</i>
+    <span>2 characters · ordered by prominence</span>
+    <button class="expo" data-name="نافذة-٢٠٥٠-—-العالم-مستشرف-cast.json">Export JSON</button>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="side">
+    <section class="synopsis syn-clamp"><div class="lbl">Synopsis</div><p>عالم عجوز غامض يعيش في معمل قديم مليء بالكتب والنحاس، ورقعة عينه في الحقيقة عدسة تشوف عام ٢٠٥٠. كل حلقة يرفع الرقعة ويفتح نافذة على المستقبل: بيوت تتكلم، مدارس بلا فصول، مدن تطير فيها التاكسيات. وبعد كل تخيل يرجع ويكلم الجيل مباشرة: هذا جاي، وأنت لازم تستعد له من اليوم.</p><button class="syn-more">Expand all</button></section>
+    <button class="gtoggle" aria-controls="graph">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="3.2" cy="4" r="1.9"/><circle cx="12.8" cy="6.2" r="1.9"/><circle cx="7.2" cy="13" r="1.9"/><path d="M5 4.6l6 1.2M4 5.9l2.5 5.4M11.7 7.9l-3.3 3.7"/></svg>
+      <span>Relationship map</span>
+    </button>
+    <div class="roster-h lbl">Cast · by prominence</div>
+    <nav class="roster" aria-label="Cast index">
+      <button class="rost on" data-target="p-العالم-مستشرف" data-hay="العالم مستشرف المستشرف عالم ومستشرف للمستقبل يعيش في معمله ذكر حوالي ٧٠ سنة (من وصف صاحب العمل: نبرة كبير في السن) حكيم غامض صارم حنون من تحت فضولي عالم عجوز أجش برقعة عين تشوف المستقبل، يخوّفك من ٢٠٥٠ عشان تستعد لها.">
+  <span class="rost-thumb"></span>
+  <span class="rost-body">
+    <span class="rost-top">
+      <em class="rost-n">01</em>
+      <b class="rost-name">العالم مستشرف</b>
+      <span class="badge">Lead</span>
+      <span class="rost-meta">ذكر · حوالي ٧٠ سنة (من وصف صاحب العمل: نبرة كبير في السن)</span>
+    </span>
+    <span class="rost-one">عالم عجوز أجش برقعة عين تشوف المستقبل، يخوّفك من ٢٠٥٠ عشان تستعد لها.</span>
+    <span class="rost-chips"><i>حكيم</i><i>غامض</i><i>صارم</i><i>حنون من تحت</i><i>فضولي</i></span>
+  </span>
+</button>
+<button class="rost" data-target="p-شاب-الجيل" data-hay="شاب الجيل مواطن سعودي في ٢٠٥٠ ذكر حوالي ٣٠ سنة في ٢٠٥٠ (استنتاج) فضولي متفائل هادي شاب سعودي صامت في الثلاثينات، يمثل المشاهد بعد ٢٥ سنة داخل تخيلات ٢٠٥٠.">
+  <span class="rost-thumb"></span>
+  <span class="rost-body">
+    <span class="rost-top">
+      <em class="rost-n">02</em>
+      <b class="rost-name">شاب الجيل</b>
+      <span class="badge">Minor</span>
+      <span class="rost-meta">ذكر · حوالي ٣٠ سنة في ٢٠٥٠ (استنتاج)</span>
+    </span>
+    <span class="rost-one">شاب سعودي صامت في الثلاثينات، يمثل المشاهد بعد ٢٥ سنة داخل تخيلات ٢٠٥٠.</span>
+    <span class="rost-chips"><i>فضولي</i><i>متفائل</i><i>هادي</i></span>
+  </span>
+</button>
+    </nav>
+    <p class="nomatch">No matching character</p>
+    <p class="side-foot">Anything marked (inferred) is not stated in the text and was reasoned from it.</p>
+  </aside>
+
+  <main class="main">
+    <section class="graph labels" id="graph">
+  <header class="graph-h">
+    <h2>Relationship map</h2>
+    <span class="badge">2 characters · 1 link</span>
+    <button class="glabtoggle on" aria-pressed="true">Link labels</button>
+    <span class="hint">Hover to trace, click to open</span>
+  </header>
+  <div class="graph-body">
+    <div class="graph-canvas">
+      <svg viewBox="0 0 480 480" role="img" aria-label="Relationship map">
+        <g class="gedges"><path class="gedge" data-a="العالم مستشرف" data-b="شاب الجيل" d="M240 110 Q240 240 240 370"></path></g>
+        <g class="gnodes"><g class="gnode lead" data-node="العالم مستشرف" data-target="p-العالم-مستشرف" tabindex="0" role="button" aria-label="العالم مستشرف">
+  <circle class="ghit" cx="240" cy="110" r="24"></circle>
+  <circle class="gdot" cx="240" cy="110" r="11"></circle>
+  <text x="240" y="89" text-anchor="middle">العالم مستشرف</text>
+</g><g class="gnode" data-node="شاب الجيل" data-target="p-شاب-الجيل" tabindex="0" role="button" aria-label="شاب الجيل">
+  <circle class="ghit" cx="240" cy="370" r="24"></circle>
+  <circle class="gdot" cx="240" cy="370" r="5.5"></circle>
+  <text x="240" y="399" text-anchor="middle">شاب الجيل</text>
+</g></g>
+        <g class="glabels"><text class="glabel" data-a="العالم مستشرف" data-b="شاب الجيل" x="240" y="203.6" text-anchor="middle" dominant-baseline="middle">يظهر د…<title>العالم مستشرف · المشاهد نفسه بعد ٢٥ سنة، يظهر داخل تخيلاته
+شاب الجيل · يظهر داخل تخيلاته</title></text></g>
+      </svg>
+      
+    </div>
+    <aside class="grel">
+      <h4>All links</h4>
+      <div class="grel-list"><button class="grow" data-a="العالم مستشرف" data-b="شاب الجيل" data-target="p-العالم-مستشرف">
+  <b>العالم مستشرف</b><i>—</i><b>شاب الجيل</b>
+  <span><em>العالم مستشرف</em> المشاهد نفسه بعد ٢٥ سنة، يظهر داخل تخيلاته</span><span><em>شاب الجيل</em> يظهر داخل تخيلاته</span>
+</button></div>
+      
+    </aside>
+  </div>
+</section>
+    <article class="char on" id="p-العالم-مستشرف">
+  <header class="char-h">
+    <span class="char-n">01</span>
+    <h2>العالم مستشرف</h2>
+    <span class="badge">Lead</span>
+    <span class="aka">a.k.a.　المستشرف</span>
+    <span class="char-one">عالم عجوز أجش برقعة عين تشوف المستقبل، يخوّفك من ٢٠٥٠ عشان تستعد لها.</span>
+  </header>
+
+  <div class="upper">
+    <div class="stage">
+      <div class="plate plate-empty">
+         <span>العالم مستشرف · Not generated yet<br><em>use the prompts below</em></span>
+       </div>
+
+      <div class="grid2">
+        <section class="blk"><h3>Appearance</h3><p>أصلع بأطراف شعر أسود كثيف خلف الأذنين، حواجب سوداء كثيفة معقودة، شنب أسود كث على شكل حدوة. رقعة جلد سوداء على عينه اليسرى بحزام رفيع، وندبة مخيطة بغرز حمراء أعلى الجبهة يسار الرأس. فك عريض وذقن مربع وتجاعيد خفيفة حول العين. جسم عريض الكتفين. يلبس كنزة سوداء طويلة الأكمام برقبة دائرية، بنطلون أسود واسع، وبوت أسود جلد.</p></section>
+        <section class="blk"><h3>Temperament</h3><p>يتكلم ببطء وثقل، كل جملة كأنها سر. يرفع حاجبه قبل الصدمة، ويبتسم نص ابتسامة لما يشوف الجيل فهم.</p></section>
+        <section class="blk"><h3>Motivation</h3><p>يجهّز الجيل لمستقبل شافه بعينه قبل ما يوصل.</p></section>
+        <section class="blk"><h3>Arc</h3><p>من حارس أسرار يصدم الجيل، إلى مرشد يسلّمهم العدسة: المستقبل ما يُشاف، يُصنع.</p></section>
+      </div>
+
+      <section class="blk source"><h3>From the text</h3>
+               <div class="quotes"><blockquote>نخلي اسم العالم يسموه العالم مستشرف</blockquote><blockquote>أجش وحكيم وفي نبرة إنه كبير في السن</blockquote></div>
+             </section>
+    </div>
+
+    <aside class="side-cards">
+      <div class="card">
+        <dl><div class="kv"><dt>Gender</dt><dd>ذكر</dd></div><div class="kv"><dt>Age</dt><dd>حوالي ٧٠ سنة (من وصف صاحب العمل: نبرة كبير في السن)</dd></div><div class="kv"><dt>Standing</dt><dd>عالم ومستشرف للمستقبل يعيش في معمله</dd></div></dl>
+      </div>
+
+      <div class="card"><h4>Relationships</h4>
+               <dl><div class="kv"><dt class="rel-n">شاب الجيل</dt><dd>المشاهد نفسه بعد ٢٥ سنة، يظهر داخل تخيلاته</dd></div></dl>
+             </div>
+
+      <div class="card">
+        <h4>Voice<i class="tag-en">VOICE</i></h4>
+        <dl><div class="kv"><dt>Timbre</dt><dd>جهوري أجش، فيه خشونة وبحة رجل كبير، رنين صدر عميق</dd></div><div class="kv"><dt>Pitch</dt><dd>منخفض جداً</dd></div><div class="kv"><dt>Pace</dt><dd>بطيء وثقيل، يوقف قبل الكلمة المهمة</dd></div><div class="kv"><dt>Accent</dt><dd>عربي خليجي سعودي بنطق واضح</dd></div><div class="kv"><dt>Emotion</dt><dd>حكمة وغموض، وحماس مكتوم لما يكشف التخيل</dd></div><div class="kv"><dt>Sounds like</dt><dd>زي جد حكيم يحكي لأحفاده عن شي شافه بعينه ومحد مصدقه</dd></div></dl>
+      </div>
+
+      <div class="card"><h4>Design</h4>
+               <ul class="tags"><li>character sheet</li><li>elderly Arab man</li><li>eye patch</li><li>black outfit</li><li>near future</li><li>Saudi Arabia</li></ul>
+             </div>
+    </aside>
+  </div>
+
+  <div class="prompts">
+    <div class="pgroup">
+      <details class="pr">
+  <summary><span>Image prompt · feed this to the image model</span><button class="copy" data-copy="Elderly Arab man around seventy from present-day Saudi Arabia, bald crown with thick black hair tufts at the sides, heavy black eyebrows, thick black horseshoe mustache, a black leather patch over his left eye with a thin strap, a stitched scar with red stitches on the upper left forehead, broad jaw and square chin, broad-shouldered heavy build, black crew-neck long-sleeve sweater, loose black trousers, black leather boots, stern but wise expression, neutral background">Copy</button></summary>
+  <p>Elderly Arab man around seventy from present-day Saudi Arabia, bald crown with thick black hair tufts at the sides, heavy black eyebrows, thick black horseshoe mustache, a black leather patch over his left eye with a thin strap, a stitched scar with red stitches on the upper left forehead, broad jaw and square chin, broad-shouldered heavy build, black crew-neck long-sleeve sweater, loose black trousers, black leather boots, stern but wise expression, neutral background</p>
+</details>
+      <details class="pr">
+  <summary><span>Model sheet prompt</span><button class="copy" data-copy="Single character model sheet on ONE 16:9 landscape canvas of an elderly Arab man around seventy from present-day Saudi Arabia, divided by thin lines. LEFT ZONE (about 34% width): one large bust portrait as the face reference: bald crown, thick black side hair tufts, heavy black eyebrows, thick black horseshoe mustache, black leather patch over the LEFT eye, stitched scar with red stitches on the upper left forehead. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) of the same man in a black crew-neck long-sleeve sweater, loose black trousers and black leather boots; PROPORTIONS ARE CRITICAL, never squash the figure. RIGHT-BOTTOM ZONE: four to five small isolated close-up studies: the eye patch and strap, the stitched scar, the mustache, the boots. ONE PERSON ONLY, the same face in every panel; details give way, the figure never does.">Copy</button></summary>
+  <p>Single character model sheet on ONE 16:9 landscape canvas of an elderly Arab man around seventy from present-day Saudi Arabia, divided by thin lines. LEFT ZONE (about 34% width): one large bust portrait as the face reference: bald crown, thick black side hair tufts, heavy black eyebrows, thick black horseshoe mustache, black leather patch over the LEFT eye, stitched scar with red stitches on the upper left forehead. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) of the same man in a black crew-neck long-sleeve sweater, loose black trousers and black leather boots; PROPORTIONS ARE CRITICAL, never squash the figure. RIGHT-BOTTOM ZONE: four to five small isolated close-up studies: the eye patch and strap, the stitched scar, the mustache, the boots. ONE PERSON ONLY, the same face in every panel; details give way, the figure never does.</p>
+</details>
+      <details class="pr">
+  <summary><span>Negative prompt</span><button class="copy" data-copy="young face, beard, glasses, patch on the right eye, missing scar, colorful clothes, thobe, extra fingers, deformed hands, two faces, text, watermark">Copy</button></summary>
+  <p>young face, beard, glasses, patch on the right eye, missing scar, colorful clothes, thobe, extra fingers, deformed hands, two faces, text, watermark</p>
+</details>
+      
+    </div>
+    <div class="pgroup">
+      <details class="pr">
+  <summary><span>Voice prompt · feed this to the TTS engine</span><button class="copy" data-copy="An elderly Arab man around seventy speaking Gulf Saudi Arabic. Deep, booming, gravelly bass voice with a rough raspy texture and strong chest resonance, the weathered voice of an old wise scientist. Slow, deliberate pacing with weighty pauses before key words, mysterious and wise, with restrained excitement when revealing the future. Clear articulation, close-mic studio quality.">Copy</button></summary>
+  <p>An elderly Arab man around seventy speaking Gulf Saudi Arabic. Deep, booming, gravelly bass voice with a rough raspy texture and strong chest resonance, the weathered voice of an old wise scientist. Slow, deliberate pacing with weighty pauses before key words, mysterious and wise, with restrained excitement when revealing the future. Clear articulation, close-mic studio quality.</p>
+</details>
+      <div class="pgroup-f">
+        <button class="copy wide" data-copy="{
+  &quot;name&quot;: &quot;العالم مستشرف&quot;,
+  &quot;aliases&quot;: [
+    &quot;المستشرف&quot;
+  ],
+  &quot;importance&quot;: &quot;protagonist&quot;,
+  &quot;oneLiner&quot;: &quot;عالم عجوز أجش برقعة عين تشوف المستقبل، يخوّفك من ٢٠٥٠ عشان تستعد لها.&quot;,
+  &quot;persona&quot;: {
+    &quot;gender&quot;: &quot;ذكر&quot;,
+    &quot;ageRange&quot;: &quot;حوالي ٧٠ سنة (من وصف صاحب العمل: نبرة كبير في السن)&quot;,
+    &quot;identity&quot;: &quot;عالم ومستشرف للمستقبل يعيش في معمله&quot;,
+    &quot;appearance&quot;: &quot;أصلع بأطراف شعر أسود كثيف خلف الأذنين، حواجب سوداء كثيفة معقودة، شنب أسود كث على شكل حدوة. رقعة جلد سوداء على عينه اليسرى بحزام رفيع، وندبة مخيطة بغرز حمراء أعلى الجبهة يسار الرأس. فك عريض وذقن مربع وتجاعيد خفيفة حول العين. جسم عريض الكتفين. يلبس كنزة سوداء طويلة الأكمام برقبة دائرية، بنطلون أسود واسع، وبوت أسود جلد.&quot;,
+    &quot;personality&quot;: [
+      &quot;حكيم&quot;,
+      &quot;غامض&quot;,
+      &quot;صارم&quot;,
+      &quot;حنون من تحت&quot;,
+      &quot;فضولي&quot;
+    ],
+    &quot;temperament&quot;: &quot;يتكلم ببطء وثقل، كل جملة كأنها سر. يرفع حاجبه قبل الصدمة، ويبتسم نص ابتسامة لما يشوف الجيل فهم.&quot;,
+    &quot;motivation&quot;: &quot;يجهّز الجيل لمستقبل شافه بعينه قبل ما يوصل.&quot;,
+    &quot;arc&quot;: &quot;من حارس أسرار يصدم الجيل، إلى مرشد يسلّمهم العدسة: المستقبل ما يُشاف، يُصنع.&quot;,
+    &quot;relationships&quot;: [
+      {
+        &quot;name&quot;: &quot;شاب الجيل&quot;,
+        &quot;relation&quot;: &quot;المشاهد نفسه بعد ٢٥ سنة، يظهر داخل تخيلاته&quot;
+      }
+    ],
+    &quot;evidence&quot;: [
+      &quot;نخلي اسم العالم يسموه العالم مستشرف&quot;,
+      &quot;أجش وحكيم وفي نبرة إنه كبير في السن&quot;
+    ]
+  },
+  &quot;image&quot;: {
+    &quot;prompt&quot;: &quot;Elderly Arab man around seventy from present-day Saudi Arabia, bald crown with thick black hair tufts at the sides, heavy black eyebrows, thick black horseshoe mustache, a black leather patch over his left eye with a thin strap, a stitched scar with red stitches on the upper left forehead, broad jaw and square chin, broad-shouldered heavy build, black crew-neck long-sleeve sweater, loose black trousers, black leather boots, stern but wise expression, neutral background&quot;,
+    &quot;negativePrompt&quot;: &quot;young face, beard, glasses, patch on the right eye, missing scar, colorful clothes, thobe, extra fingers, deformed hands, two faces, text, watermark&quot;,
+    &quot;tags&quot;: [
+      &quot;character sheet&quot;,
+      &quot;elderly Arab man&quot;,
+      &quot;eye patch&quot;,
+      &quot;black outfit&quot;,
+      &quot;near future&quot;,
+      &quot;Saudi Arabia&quot;
+    ],
+    &quot;sheet&quot;: &quot;Single character model sheet on ONE 16:9 landscape canvas of an elderly Arab man around seventy from present-day Saudi Arabia, divided by thin lines. LEFT ZONE (about 34% width): one large bust portrait as the face reference: bald crown, thick black side hair tufts, heavy black eyebrows, thick black horseshoe mustache, black leather patch over the LEFT eye, stitched scar with red stitches on the upper left forehead. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) of the same man in a black crew-neck long-sleeve sweater, loose black trousers and black leather boots; PROPORTIONS ARE CRITICAL, never squash the figure. RIGHT-BOTTOM ZONE: four to five small isolated close-up studies: the eye patch and strap, the stitched scar, the mustache, the boots. ONE PERSON ONLY, the same face in every panel; details give way, the figure never does.&quot;
+  },
+  &quot;voice&quot;: {
+    &quot;timbre&quot;: &quot;جهوري أجش، فيه خشونة وبحة رجل كبير، رنين صدر عميق&quot;,
+    &quot;pitch&quot;: &quot;منخفض جداً&quot;,
+    &quot;pace&quot;: &quot;بطيء وثقيل، يوقف قبل الكلمة المهمة&quot;,
+    &quot;accent&quot;: &quot;عربي خليجي سعودي بنطق واضح&quot;,
+    &quot;emotion&quot;: &quot;حكمة وغموض، وحماس مكتوم لما يكشف التخيل&quot;,
+    &quot;referenceHint&quot;: &quot;زي جد حكيم يحكي لأحفاده عن شي شافه بعينه ومحد مصدقه&quot;,
+    &quot;prompt&quot;: &quot;An elderly Arab man around seventy speaking Gulf Saudi Arabic. Deep, booming, gravelly bass voice with a rough raspy texture and strong chest resonance, the weathered voice of an old wise scientist. Slow, deliberate pacing with weighty pauses before key words, mysterious and wise, with restrained excitement when revealing the future. Clear articulation, close-mic studio quality.&quot;
+  }
+}">Copy full JSON</button>
+      </div>
+    </div>
+  </div>
+</article>
+<article class="char" id="p-شاب-الجيل">
+  <header class="char-h">
+    <span class="char-n">02</span>
+    <h2>شاب الجيل</h2>
+    <span class="badge">Minor</span>
+    
+    <span class="char-one">شاب سعودي صامت في الثلاثينات، يمثل المشاهد بعد ٢٥ سنة داخل تخيلات ٢٠٥٠.</span>
+  </header>
+
+  <div class="upper">
+    <div class="stage">
+      <div class="plate plate-empty">
+         <span>شاب الجيل · Not generated yet<br><em>use the prompts below</em></span>
+       </div>
+
+      <div class="grid2">
+        <section class="blk"><h3>Appearance</h3><p>شاب نحيف بشعر أسود قصير مرتب ولحية خفيفة، يلبس ثوب أبيض عصري بقصة ضيقة، ونظارة شفافة رفيعة تعرض واجهات سماوية.</p></section>
+        <section class="blk"><h3>Temperament</h3><p>ما يتكلم؛ يعبر بوجهه: دهشة، ابتسامة، تفكير.</p></section>
+        <section class="blk"><h3>Motivation</h3><p>يعيش المستقبل اللي يوصفه المستشرف.</p></section>
+        <section class="blk"><h3>Arc</h3><p>ثابت؛ هو مرآة المشاهد.</p></section>
+      </div>
+
+      
+    </div>
+
+    <aside class="side-cards">
+      <div class="card">
+        <dl><div class="kv"><dt>Gender</dt><dd>ذكر</dd></div><div class="kv"><dt>Age</dt><dd>حوالي ٣٠ سنة في ٢٠٥٠ (استنتاج)</dd></div><div class="kv"><dt>Standing</dt><dd>مواطن سعودي في ٢٠٥٠</dd></div></dl>
+      </div>
+
+      <div class="card"><h4>Relationships</h4>
+               <dl><div class="kv"><dt class="rel-n">العالم مستشرف</dt><dd>يظهر داخل تخيلاته</dd></div></dl>
+             </div>
+
+      <div class="card">
+        <h4>Voice<i class="tag-en">VOICE</i></h4>
+        <dl><div class="kv"><dt>Timbre</dt><dd>صامت (ما يتكلم في السلسلة)</dd></div><div class="kv"><dt>Pitch</dt><dd>—</dd></div><div class="kv"><dt>Pace</dt><dd>—</dd></div><div class="kv"><dt>Accent</dt><dd>—</dd></div><div class="kv"><dt>Emotion</dt><dd>دهشة وفضول</dd></div><div class="kv"><dt>Sounds like</dt><dd>شخصية صامتة؛ لو احتجنا ردة فعل صوتية: ضحكة قصيرة أو شهقة</dd></div></dl>
+      </div>
+
+      <div class="card"><h4>Design</h4>
+               <ul class="tags"><li>character sheet</li><li>young Saudi man</li><li>white thobe</li><li>smart glasses</li><li>2050</li></ul>
+             </div>
+    </aside>
+  </div>
+
+  <div class="prompts">
+    <div class="pgroup">
+      <details class="pr">
+  <summary><span>Image prompt · feed this to the image model</span><button class="copy" data-copy="Slim young Saudi man around thirty in the year 2050, short neat black hair, light beard, modern slim-cut white thobe, thin transparent smart glasses showing small cyan interface glints, curious friendly expression, neutral background">Copy</button></summary>
+  <p>Slim young Saudi man around thirty in the year 2050, short neat black hair, light beard, modern slim-cut white thobe, thin transparent smart glasses showing small cyan interface glints, curious friendly expression, neutral background</p>
+</details>
+      <details class="pr">
+  <summary><span>Model sheet prompt</span><button class="copy" data-copy="Single character model sheet on ONE 16:9 landscape canvas of a slim young Saudi man around thirty in the year 2050, divided by thin lines. LEFT ZONE (about 34%): large bust portrait as the face reference. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) in a modern slim-cut white thobe and white sneakers; PROPORTIONS ARE CRITICAL. RIGHT-BOTTOM ZONE: close-ups of the smart glasses, the thobe collar, the sneakers. ONE PERSON ONLY.">Copy</button></summary>
+  <p>Single character model sheet on ONE 16:9 landscape canvas of a slim young Saudi man around thirty in the year 2050, divided by thin lines. LEFT ZONE (about 34%): large bust portrait as the face reference. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) in a modern slim-cut white thobe and white sneakers; PROPORTIONS ARE CRITICAL. RIGHT-BOTTOM ZONE: close-ups of the smart glasses, the thobe collar, the sneakers. ONE PERSON ONLY.</p>
+</details>
+      <details class="pr">
+  <summary><span>Negative prompt</span><button class="copy" data-copy="old face, eye patch, mustache only, black clothes, ghutra, extra fingers, two faces, text, watermark">Copy</button></summary>
+  <p>old face, eye patch, mustache only, black clothes, ghutra, extra fingers, two faces, text, watermark</p>
+</details>
+      
+    </div>
+    <div class="pgroup">
+      <details class="pr">
+  <summary><span>Voice prompt · feed this to the TTS engine</span><button class="copy" data-copy="Silent character. If a non-verbal reaction is needed: a young Saudi man around thirty, light warm baritone, a short amazed gasp or soft laugh.">Copy</button></summary>
+  <p>Silent character. If a non-verbal reaction is needed: a young Saudi man around thirty, light warm baritone, a short amazed gasp or soft laugh.</p>
+</details>
+      <div class="pgroup-f">
+        <button class="copy wide" data-copy="{
+  &quot;name&quot;: &quot;شاب الجيل&quot;,
+  &quot;aliases&quot;: [],
+  &quot;importance&quot;: &quot;minor&quot;,
+  &quot;oneLiner&quot;: &quot;شاب سعودي صامت في الثلاثينات، يمثل المشاهد بعد ٢٥ سنة داخل تخيلات ٢٠٥٠.&quot;,
+  &quot;persona&quot;: {
+    &quot;gender&quot;: &quot;ذكر&quot;,
+    &quot;ageRange&quot;: &quot;حوالي ٣٠ سنة في ٢٠٥٠ (استنتاج)&quot;,
+    &quot;identity&quot;: &quot;مواطن سعودي في ٢٠٥٠&quot;,
+    &quot;appearance&quot;: &quot;شاب نحيف بشعر أسود قصير مرتب ولحية خفيفة، يلبس ثوب أبيض عصري بقصة ضيقة، ونظارة شفافة رفيعة تعرض واجهات سماوية.&quot;,
+    &quot;personality&quot;: [
+      &quot;فضولي&quot;,
+      &quot;متفائل&quot;,
+      &quot;هادي&quot;
+    ],
+    &quot;temperament&quot;: &quot;ما يتكلم؛ يعبر بوجهه: دهشة، ابتسامة، تفكير.&quot;,
+    &quot;motivation&quot;: &quot;يعيش المستقبل اللي يوصفه المستشرف.&quot;,
+    &quot;arc&quot;: &quot;ثابت؛ هو مرآة المشاهد.&quot;,
+    &quot;relationships&quot;: [
+      {
+        &quot;name&quot;: &quot;العالم مستشرف&quot;,
+        &quot;relation&quot;: &quot;يظهر داخل تخيلاته&quot;
+      }
+    ],
+    &quot;evidence&quot;: []
+  },
+  &quot;image&quot;: {
+    &quot;prompt&quot;: &quot;Slim young Saudi man around thirty in the year 2050, short neat black hair, light beard, modern slim-cut white thobe, thin transparent smart glasses showing small cyan interface glints, curious friendly expression, neutral background&quot;,
+    &quot;negativePrompt&quot;: &quot;old face, eye patch, mustache only, black clothes, ghutra, extra fingers, two faces, text, watermark&quot;,
+    &quot;tags&quot;: [
+      &quot;character sheet&quot;,
+      &quot;young Saudi man&quot;,
+      &quot;white thobe&quot;,
+      &quot;smart glasses&quot;,
+      &quot;2050&quot;
+    ],
+    &quot;sheet&quot;: &quot;Single character model sheet on ONE 16:9 landscape canvas of a slim young Saudi man around thirty in the year 2050, divided by thin lines. LEFT ZONE (about 34%): large bust portrait as the face reference. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) in a modern slim-cut white thobe and white sneakers; PROPORTIONS ARE CRITICAL. RIGHT-BOTTOM ZONE: close-ups of the smart glasses, the thobe collar, the sneakers. ONE PERSON ONLY.&quot;
+  },
+  &quot;voice&quot;: {
+    &quot;timbre&quot;: &quot;صامت (ما يتكلم في السلسلة)&quot;,
+    &quot;pitch&quot;: &quot;—&quot;,
+    &quot;pace&quot;: &quot;—&quot;,
+    &quot;accent&quot;: &quot;—&quot;,
+    &quot;emotion&quot;: &quot;دهشة وفضول&quot;,
+    &quot;referenceHint&quot;: &quot;شخصية صامتة؛ لو احتجنا ردة فعل صوتية: ضحكة قصيرة أو شهقة&quot;,
+    &quot;prompt&quot;: &quot;Silent character. If a non-verbal reaction is needed: a young Saudi man around thirty, light warm baritone, a short amazed gasp or soft laugh.&quot;
+  }
+}">Copy full JSON</button>
+      </div>
+    </div>
+  </div>
+</article>
+  </main>
+</div>
+
+<div class="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-x" aria-label="Close">Close</button>
+  <img alt="">
+</div>
+
+<script type="application/json" id="cast-data">{"source":"نافذة ٢٠٥٠ — العالم مستشرف","lang":"en","summary":"عالم عجوز غامض يعيش في معمل قديم مليء بالكتب والنحاس، ورقعة عينه في الحقيقة عدسة تشوف عام ٢٠٥٠. كل حلقة يرفع الرقعة ويفتح نافذة على المستقبل: بيوت تتكلم، مدارس بلا فصول، مدن تطير فيها التاكسيات. وبعد كل تخيل يرجع ويكلم الجيل مباشرة: هذا جاي، وأنت لازم تستعد له من اليوم.","characters":[{"name":"العالم مستشرف","aliases":["المستشرف"],"importance":"protagonist","oneLiner":"عالم عجوز أجش برقعة عين تشوف المستقبل، يخوّفك من ٢٠٥٠ عشان تستعد لها.","persona":{"gender":"ذكر","ageRange":"حوالي ٧٠ سنة (من وصف صاحب العمل: نبرة كبير في السن)","identity":"عالم ومستشرف للمستقبل يعيش في معمله","appearance":"أصلع بأطراف شعر أسود كثيف خلف الأذنين، حواجب سوداء كثيفة معقودة، شنب أسود كث على شكل حدوة. رقعة جلد سوداء على عينه اليسرى بحزام رفيع، وندبة مخيطة بغرز حمراء أعلى الجبهة يسار الرأس. فك عريض وذقن مربع وتجاعيد خفيفة حول العين. جسم عريض الكتفين. يلبس كنزة سوداء طويلة الأكمام برقبة دائرية، بنطلون أسود واسع، وبوت أسود جلد.","personality":["حكيم","غامض","صارم","حنون من تحت","فضولي"],"temperament":"يتكلم ببطء وثقل، كل جملة كأنها سر. يرفع حاجبه قبل الصدمة، ويبتسم نص ابتسامة لما يشوف الجيل فهم.","motivation":"يجهّز الجيل لمستقبل شافه بعينه قبل ما يوصل.","arc":"من حارس أسرار يصدم الجيل، إلى مرشد يسلّمهم العدسة: المستقبل ما يُشاف، يُصنع.","relationships":[{"name":"شاب الجيل","relation":"المشاهد نفسه بعد ٢٥ سنة، يظهر داخل تخيلاته"}],"evidence":["نخلي اسم العالم يسموه العالم مستشرف","أجش وحكيم وفي نبرة إنه كبير في السن"]},"image":{"prompt":"Elderly Arab man around seventy from present-day Saudi Arabia, bald crown with thick black hair tufts at the sides, heavy black eyebrows, thick black horseshoe mustache, a black leather patch over his left eye with a thin strap, a stitched scar with red stitches on the upper left forehead, broad jaw and square chin, broad-shouldered heavy build, black crew-neck long-sleeve sweater, loose black trousers, black leather boots, stern but wise expression, neutral background","negativePrompt":"young face, beard, glasses, patch on the right eye, missing scar, colorful clothes, thobe, extra fingers, deformed hands, two faces, text, watermark","tags":["character sheet","elderly Arab man","eye patch","black outfit","near future","Saudi Arabia"],"sheet":"Single character model sheet on ONE 16:9 landscape canvas of an elderly Arab man around seventy from present-day Saudi Arabia, divided by thin lines. LEFT ZONE (about 34% width): one large bust portrait as the face reference: bald crown, thick black side hair tufts, heavy black eyebrows, thick black horseshoe mustache, black leather patch over the LEFT eye, stitched scar with red stitches on the upper left forehead. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) of the same man in a black crew-neck long-sleeve sweater, loose black trousers and black leather boots; PROPORTIONS ARE CRITICAL, never squash the figure. RIGHT-BOTTOM ZONE: four to five small isolated close-up studies: the eye patch and strap, the stitched scar, the mustache, the boots. ONE PERSON ONLY, the same face in every panel; details give way, the figure never does."},"voice":{"timbre":"جهوري أجش، فيه خشونة وبحة رجل كبير، رنين صدر عميق","pitch":"منخفض جداً","pace":"بطيء وثقيل، يوقف قبل الكلمة المهمة","accent":"عربي خليجي سعودي بنطق واضح","emotion":"حكمة وغموض، وحماس مكتوم لما يكشف التخيل","referenceHint":"زي جد حكيم يحكي لأحفاده عن شي شافه بعينه ومحد مصدقه","prompt":"An elderly Arab man around seventy speaking Gulf Saudi Arabic. Deep, booming, gravelly bass voice with a rough raspy texture and strong chest resonance, the weathered voice of an old wise scientist. Slow, deliberate pacing with weighty pauses before key words, mysterious and wise, with restrained excitement when revealing the future. Clear articulation, close-mic studio quality."}},{"name":"شاب الجيل","aliases":[],"importance":"minor","oneLiner":"شاب سعودي صامت في الثلاثينات، يمثل المشاهد بعد ٢٥ سنة داخل تخيلات ٢٠٥٠.","persona":{"gender":"ذكر","ageRange":"حوالي ٣٠ سنة في ٢٠٥٠ (استنتاج)","identity":"مواطن سعودي في ٢٠٥٠","appearance":"شاب نحيف بشعر أسود قصير مرتب ولحية خفيفة، يلبس ثوب أبيض عصري بقصة ضيقة، ونظارة شفافة رفيعة تعرض واجهات سماوية.","personality":["فضولي","متفائل","هادي"],"temperament":"ما يتكلم؛ يعبر بوجهه: دهشة، ابتسامة، تفكير.","motivation":"يعيش المستقبل اللي يوصفه المستشرف.","arc":"ثابت؛ هو مرآة المشاهد.","relationships":[{"name":"العالم مستشرف","relation":"يظهر داخل تخيلاته"}],"evidence":[]},"image":{"prompt":"Slim young Saudi man around thirty in the year 2050, short neat black hair, light beard, modern slim-cut white thobe, thin transparent smart glasses showing small cyan interface glints, curious friendly expression, neutral background","negativePrompt":"old face, eye patch, mustache only, black clothes, ghutra, extra fingers, two faces, text, watermark","tags":["character sheet","young Saudi man","white thobe","smart glasses","2050"],"sheet":"Single character model sheet on ONE 16:9 landscape canvas of a slim young Saudi man around thirty in the year 2050, divided by thin lines. LEFT ZONE (about 34%): large bust portrait as the face reference. RIGHT-TOP ZONE: three FULL-BODY views (front, side, back) in a modern slim-cut white thobe and white sneakers; PROPORTIONS ARE CRITICAL. RIGHT-BOTTOM ZONE: close-ups of the smart glasses, the thobe collar, the sneakers. ONE PERSON ONLY."},"voice":{"timbre":"صامت (ما يتكلم في السلسلة)","pitch":"—","pace":"—","accent":"—","emotion":"دهشة وفضول","referenceHint":"شخصية صامتة؛ لو احتجنا ردة فعل صوتية: ضحكة قصيرة أو شهقة","prompt":"Silent character. If a non-verbal reaction is needed: a young Saudi man around thirty, light warm baritone, a short amazed gasp or soft laugh."}}]}</script>
+
+<script>
+const L = {"copied":"Copied","failed":"Failed"};
+
+// 导出：报告自己就带着完整的 cast.json，下载的是它原样
+document.querySelector('.expo').addEventListener('click', (e) => {
+  const btn = e.currentTarget;
+  const url = URL.createObjectURL(
+    new Blob([document.getElementById('cast-data').textContent], { type: 'application/json' }),
+  );
+  const a = Object.assign(document.createElement('a'), { href: url, download: btn.dataset.name });
+  a.click();
+  // 别在 click 之后立刻回收——Safari 上会抢在下载读完之前把 blob 撤掉，存出来是空文件
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+});
+
+// 左栏切换：一次只显示一个角色
+document.querySelector('.roster').addEventListener('click', (e) => {
+  const btn = e.target.closest('.rost');
+  if (!btn) return;
+  document.querySelectorAll('.rost').forEach((b) => b.classList.toggle('on', b === btn));
+  document.querySelectorAll('.char').forEach((a) => a.classList.toggle('on', a.id === btn.dataset.target));
+  showGraph(false);
+  document.querySelector('.main').scrollIntoView({ block: 'start', behavior: 'smooth' });
+});
+
+// 关系图谱：一张全景视图，跟角色详情互斥
+const gv = document.querySelector('.graph');
+const gbtn = document.querySelector('.gtoggle');
+function showGraph(on) {
+  gv.classList.toggle('on', on);
+  gbtn.classList.toggle('on', on);
+  document.querySelector('.main').classList.toggle('gmode', on);
+}
+gbtn.addEventListener('click', () => {
+  showGraph(true);
+  document.querySelector('.main').scrollIntoView({ block: 'start', behavior: 'smooth' });
+});
+{
+  // 弦和弦上的文字共用 data-a/data-b，高亮逻辑完全一样，放一个数组里
+  const edges = [...gv.querySelectorAll('.gedge, .glabel')];
+  const nodes = [...gv.querySelectorAll('.gnode')];
+  const rows = [...gv.querySelectorAll('.grow')];
+  const clear = () => [...edges, ...nodes, ...rows].forEach((el) => el.classList.remove('hot', 'dim'));
+
+  // 悬停一个人：他的关系线亮起来，没关系的压到背景里
+  const byNode = (name) => {
+    const near = new Set([name]);
+    for (const e of edges) {
+      if (e.dataset.a === name) near.add(e.dataset.b);
+      if (e.dataset.b === name) near.add(e.dataset.a);
+    }
+    for (const e of edges) {
+      const hot = e.dataset.a === name || e.dataset.b === name;
+      e.classList.toggle('hot', hot);
+      e.classList.toggle('dim', !hot);
+    }
+    for (const nd of nodes) {
+      nd.classList.toggle('hot', nd.dataset.node === name);
+      nd.classList.toggle('dim', !near.has(nd.dataset.node));
+    }
+    for (const r of rows) {
+      const hot = r.dataset.a === name || r.dataset.b === name;
+      r.classList.toggle('hot', hot);
+      r.classList.toggle('dim', !hot);
+    }
+  };
+
+  // 悬停关系表的一行：只亮那一条弦
+  const byEdge = (a, b) => {
+    for (const e of edges) {
+      const hot = e.dataset.a === a && e.dataset.b === b;
+      e.classList.toggle('hot', hot);
+      e.classList.toggle('dim', !hot);
+    }
+    for (const nd of nodes) {
+      const hot = nd.dataset.node === a || nd.dataset.node === b;
+      nd.classList.toggle('hot', hot);
+      nd.classList.toggle('dim', !hot);
+    }
+    for (const r of rows) {
+      const hot = r.dataset.a === a && r.dataset.b === b;
+      r.classList.toggle('hot', hot);
+      r.classList.toggle('dim', !hot);
+    }
+  };
+
+  const jump = (el) => {
+    const item = document.querySelector('.rost[data-target="' + el.dataset.target + '"]');
+    if (item) item.click();
+  };
+
+  // 关系文字的总开关：人多的时候标签会盖住图，一键收起
+  const glab = gv.querySelector('.glabtoggle');
+  glab.addEventListener('click', () => {
+    const on = !gv.classList.contains('labels');
+    gv.classList.toggle('labels', on);
+    glab.classList.toggle('on', on);
+    glab.setAttribute('aria-pressed', String(on));
+  });
+
+  gv.addEventListener('mouseover', (e) => {
+    const nd = e.target.closest('.gnode');
+    const row = e.target.closest('.grow');
+    if (nd) byNode(nd.dataset.node);
+    else if (row) byEdge(row.dataset.a, row.dataset.b);
+    else clear();
+  });
+  gv.addEventListener('mouseleave', clear);
+  gv.addEventListener('focusin', (e) => {
+    const nd = e.target.closest('.gnode');
+    if (nd) byNode(nd.dataset.node);
+  });
+  gv.addEventListener('click', (e) => {
+    const hit = e.target.closest('.gnode, .grow');
+    if (hit) jump(hit);
+  });
+  // SVG 的 <g> 不是原生按钮，回车/空格要自己接
+  gv.addEventListener('keydown', (e) => {
+    const nd = e.target.closest('.gnode');
+    if (!nd || (e.key !== 'Enter' && e.key !== ' ')) return;
+    e.preventDefault();
+    jump(nd);
+  });
+}
+
+// 搜索：过滤左栏；结果只剩一个就直接切过去
+document.getElementById('q').addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  let hits = [];
+  document.querySelectorAll('.rost').forEach((b) => {
+    const hit = !q || b.dataset.hay.toLowerCase().includes(q);
+    b.style.display = hit ? '' : 'none';
+    if (hit) hits.push(b);
+  });
+  document.querySelector('.nomatch').classList.toggle('on', hits.length === 0);
+  if (q && hits.length === 1) hits[0].click();
+});
+
+// 摘要默认三行，点一下展开全部；短到不需要折叠的就直接去掉折叠态
+const syn = document.querySelector('.synopsis');
+if (syn) {
+  const body = syn.querySelector('p');
+  if (body.scrollHeight <= body.clientHeight + 1) syn.classList.remove('syn-clamp');
+  syn.addEventListener('click', () => syn.classList.remove('syn-clamp'));
+}
+
+// 图片弹层
+const lb = document.querySelector('.lightbox');
+const lbImg = lb.querySelector('img');
+function closeLb() { lb.classList.remove('on'); lbImg.removeAttribute('src'); }
+document.addEventListener('click', (e) => {
+  const z = e.target.closest('.zoom');
+  if (z) { lbImg.src = z.dataset.src; lb.classList.add('on'); return; }
+  if (e.target.closest('.lightbox')) closeLb();
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+// 复制图片本身到剪贴板（不是路径）
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('.copy-img');
+  if (!btn) return;
+  e.preventDefault();
+  e.stopPropagation();
+  const label = btn.textContent;
+  try {
+    const blob = await (await fetch(btn.dataset.img)).blob();
+    // Safari 只认 image/png，其它格式先过一遍 canvas
+    let png = blob;
+    if (blob.type !== 'image/png') {
+      const bmp = await createImageBitmap(blob);
+      const cv = Object.assign(document.createElement('canvas'), { width: bmp.width, height: bmp.height });
+      cv.getContext('2d').drawImage(bmp, 0, 0);
+      png = await new Promise((r) => cv.toBlob(r, 'image/png'));
+    }
+    await navigator.clipboard.write([new ClipboardItem({ 'image/png': png })]);
+    btn.textContent = L.copied;
+    btn.dataset.done = '1';
+  } catch {
+    btn.textContent = L.failed;
+  }
+  setTimeout(() => { btn.textContent = label; delete btn.dataset.done; }, 1600);
+});
+
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('.copy');
+  if (!btn) return;
+  e.preventDefault();
+  const label = btn.textContent;
+  try {
+    await navigator.clipboard.writeText(btn.dataset.copy);
+    btn.textContent = L.copied;
+    btn.dataset.done = '1';
+  } catch {
+    btn.textContent = L.failed;
+  }
+  setTimeout(() => { btn.textContent = label; delete btn.dataset.done; }, 1600);
+});
+</script>
+</body></html>

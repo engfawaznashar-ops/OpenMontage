@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية) · Short-Drama Adaptation Outline</title>
+<style>
+:root{
+  --paper:#eceded; --panel:#f5f6f5; --side:#e4e6e3; --ink:#191d21; --ink-2:#5b636a; --ink-3:#8c9298;
+  --rule:#d2d5d0; --rule-2:#c2c6bf; --seal:#8a3324; --seal-2:#c56a4e; --seal-3:#e0a98c; --seal-soft:#8a332412; --ok:#3d6b4f;
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+.page{max-width:1600px;margin:0 auto;padding:24px 32px 90px}
+h1,h2,h3{margin:0;font-weight:400}
+
+.hd{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.hd h1{font:400 28px/1.1 var(--serif);letter-spacing:.06em}
+.hd .sub{font-size:13px;color:var(--ink-2)}
+.hd .right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.gatepill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--sans);border-radius:99px;padding:6px 12px}
+.gatepill.pass{color:var(--ok);border:1px solid var(--ok)}
+.gatepill.fail{color:var(--seal);border:1px solid var(--seal);background:var(--seal-soft)}
+.expo{font:500 11px/1 var(--sans);color:var(--ink-2);background:var(--panel);
+  border:1px solid var(--rule-2);border-radius:2px;padding:7px 11px;cursor:pointer;transition:.15s}
+.expo:hover{border-color:var(--seal);color:var(--seal)}
+.expo:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:18px 0 6px}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:11px 14px 9px}
+.kpi .l{font:500 10px/1 var(--sans);letter-spacing:.18em;color:var(--ink-3)}
+.kpi .v{font:400 28px/1.15 var(--serif);margin-top:5px}
+.kpi .v small{font:400 14px var(--serif);color:var(--ink-2)}
+.kpi .v.mode{font-size:21px;padding-top:5px}
+.kpi .d{font-size:11px;color:var(--ink-2);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kpi.accent{border-top:2px solid var(--seal)}
+
+.galert{margin:14px 0 0;border:1px solid var(--seal);background:var(--seal-soft);border-radius:2px;
+  padding:10px 14px;font-size:13px}
+.galert b{color:var(--seal)}
+.galert span{display:block;font-size:12px;color:var(--ink-2)}
+
+section{margin-top:34px}
+.sec-h{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule-2);padding-bottom:8px;margin-bottom:16px}
+.sec-h .no{font:500 12px/1 var(--mono);color:var(--seal)}
+.sec-h h2{font:400 20px/1.2 var(--serif);letter-spacing:.05em}
+.sec-h .note{margin-left:auto;font-size:12px;color:var(--ink-3)}
+
+/* beat-rhythm chart/table tabs */
+.tabs{display:flex;width:max-content;margin-bottom:12px;border:1px solid var(--rule-2);
+  border-radius:2px;overflow:hidden}
+.tab{font:500 12px/1 var(--sans);letter-spacing:.06em;padding:7px 16px;background:var(--panel);
+  border:0;cursor:pointer;color:var(--ink-2);transition:.15s}
+.tab + .tab{border-left:1px solid var(--rule-2)}
+.tab.on{background:var(--seal);color:#fff}
+.tab:focus-visible{outline:2px solid var(--seal);outline-offset:-2px}
+.tabpane{display:none}
+.tabpane.on{display:block}
+
+/* episode overview: first three cards, fade-out + expand */
+.epswrap{position:relative}
+.eps{position:relative}
+.epswrap.clip .eps .ep:nth-child(n+4){display:none}
+.epswrap.clip .eps::after{content:'';position:absolute;left:0;right:0;bottom:0;height:90px;
+  background:linear-gradient(180deg,transparent,var(--paper));pointer-events:none}
+.epsmore{display:block;margin:10px auto 0;font:500 12px/1 var(--sans);letter-spacing:.06em;
+  color:var(--ink-2);background:var(--panel);border:1px solid var(--rule-2);border-radius:2px;
+  padding:8px 18px;cursor:pointer;transition:.15s}
+.epsmore:hover{border-color:var(--seal);color:var(--seal)}
+.epsmore:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+
+/* key decisions: the three sign-off items */
+.dec3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;align-items:start}
+@media(max-width:1080px){.dec3{grid-template-columns:1fr}}
+.dcol{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:4px 18px 14px}
+.dhead{margin:8px 0 0;font-size:12.5px;color:var(--ink-2)}
+.dlist{list-style:none;margin:8px 0 0;padding:0}
+.dlist li{padding:7px 0;border-top:1px solid var(--rule)}
+.dlist li:first-child{border-top:0}
+.dlist b{display:block;font:400 13.5px/1.6 var(--serif)}
+.dlist small{display:block;font-size:11.5px;color:var(--ink-2);line-height:1.6}
+.dnote{margin:10px 0 0;font-size:12px;color:var(--ink-2);line-height:1.7}
+.dnote.seal{color:var(--seal);background:var(--seal-soft);padding:7px 10px;border-radius:2px}
+.dmaj{list-style:none;margin:8px 0 0;padding:0}
+.dmaj li{display:flex;gap:9px;align-items:baseline;padding:5.5px 0;border-top:1px solid var(--rule);font-size:12.5px}
+.dmaj li:first-child{border-top:0}
+.dmaj i{flex:none;font:500 11px/1 var(--mono);color:var(--seal);font-style:normal;min-width:38px}
+.dmaj b{font:400 12.5px var(--serif)}
+.dmaj span{min-width:0}
+.dmaj em{flex:none;margin-left:auto;font:500 10px/1 var(--sans);letter-spacing:.1em;font-style:normal;
+  color:var(--seal);border:1px solid var(--seal);border-radius:99px;padding:2px 7px}
+
+/* beat-rhythm timeline */
+.chart{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:16px 20px 10px}
+.chart .legend{display:flex;gap:18px;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.chart .legend i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.dotk{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--seal-2)}
+.dotk.major{width:12px;height:12px;background:var(--seal)}
+.rhythm svg{display:block;width:100%;height:auto}
+.rhythm .axis{stroke:var(--rule-2);stroke-width:1.5}
+.rhythm .tick{font:400 10.5px var(--mono);fill:var(--ink-3);paint-order:stroke;stroke:var(--panel);stroke-width:3px}
+.rhythm .stem{stroke:var(--seal-2);stroke-width:1.5}
+.rhythm .stem.major{stroke:var(--seal)}
+.rhythm .bdot{fill:var(--seal-2);stroke:var(--panel);stroke-width:2}
+.rhythm .bdot.major{fill:var(--seal)}
+.rhythm .blabel{font:500 12px var(--sans);fill:var(--ink)}
+.rhythm .bsub{font:400 10.5px var(--sans);fill:var(--ink-2)}
+.rhythm .gapnote{font:400 10.5px var(--sans);fill:var(--ink-3)}
+.rhythm .gapnote.bad{fill:var(--seal);font-weight:500}
+
+/* beat detail table + generic tables */
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--rule);font-size:13px}
+th,td{padding:8px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+th{font:500 11px/1 var(--sans);letter-spacing:.1em;color:var(--ink-3);background:var(--side)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+q{quotes:"「" "」";font-family:var(--serif);border-left:2px solid var(--seal);padding-left:8px;display:inline-block}
+
+/* episode cards */
+.eps{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:13px}
+.ep{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:14px 16px 12px;position:relative}
+.ep .num{position:absolute;top:10px;right:14px;font:400 30px/1 var(--serif);color:var(--rule-2)}
+.ep header{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding-right:44px;flex-wrap:wrap}
+.ep header b{font:500 15px var(--serif);letter-spacing:.04em}
+.bt{font-style:normal;font-size:11px;padding:2px 8px;border:1px solid var(--seal);border-radius:99px;color:var(--seal)}
+.bt.major{background:var(--seal);color:#fff}
+.ep .syn{margin:0 0 8px;font-size:13px;line-height:1.75}
+.hk{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px;font-size:12.5px;padding:6px 0;border-top:1px solid var(--rule)}
+.hk b{font:500 11px/1.8 var(--sans);letter-spacing:.14em;color:var(--seal);white-space:nowrap}
+:root[lang="en"] .hk b,html[lang="en"] .hk b{letter-spacing:.06em}
+.ep .meta{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.ep .meta i{font-style:normal;font:400 10.5px/1.5 var(--mono);border:1px solid var(--rule-2);
+  border-radius:2px;padding:0 5px;background:var(--paper);color:var(--ink-2)}
+.ep .meta .warn{border-color:var(--seal);color:var(--seal);background:var(--seal-soft)}
+
+/* dispatch matrix */
+.matrix{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:16px 18px;overflow-x:auto}
+.matrix table{border-collapse:separate;border-spacing:3px;font-size:12px;background:none;border:0;width:auto}
+.matrix th,.matrix td{border:0;padding:0}
+.matrix th{font:500 10px/1 var(--sans);letter-spacing:.1em;color:var(--ink-3);background:none;
+  text-align:left;padding:0 8px 5px 0;white-space:nowrap}
+.matrix th.ep-h{text-align:center;padding:0 0 5px;font-family:var(--mono)}
+.matrix td.name{padding-right:10px;white-space:nowrap;font-family:var(--serif);font-size:13px}
+.matrix td.tier{padding-right:10px;color:var(--ink-3);font-size:11px;white-space:nowrap}
+.matrix td.mc{width:var(--cw,26px);min-width:var(--cw,26px);height:22px;border-radius:2px;
+  background:var(--paper);border:1px solid var(--rule)}
+.matrix td.mc.on{background:var(--seal);border-color:var(--seal)}
+.matrix td.mc.on.sc{background:var(--seal-2);border-color:var(--seal-2)}
+.matrix td.mc.on.pp{background:var(--seal-3);border-color:var(--seal-3)}
+.matrix td.n{padding-left:10px;font-family:var(--mono);font-size:11px;color:var(--ink-2);white-space:nowrap}
+.matrix tr.div td{padding:8px 0 3px;font:500 10px/1 var(--sans);letter-spacing:.18em;color:var(--ink-3)}
+.matrix .mnote{font-size:11px;color:var(--ink-3);margin:10px 0 0}
+
+/* scene overview cards: full-width multi-column grid */
+.scenes{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:13px;align-items:start}
+.scard{position:relative;background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:14px 16px}
+.snum{position:absolute;top:10px;right:16px;font:400 26px/1 var(--serif);color:var(--rule-2);letter-spacing:.04em}
+.scard h3{font:400 16px/1.3 var(--serif);letter-spacing:.03em;display:flex;align-items:center;gap:8px;
+  padding-right:90px;flex-wrap:wrap}
+.scard h3 .id{font:400 10.5px var(--mono);color:var(--ink-3)}
+.badge{font:500 10.5px/1 var(--sans);padding:2px 8px;border-radius:99px;border:1px solid var(--seal);color:var(--seal)}
+.badge.once{border-color:var(--seal-2);color:var(--seal-2)}
+.strip{display:flex;flex-wrap:wrap;gap:3px;margin:7px 0 6px}
+.strip i{width:16px;height:10px;border-radius:2px;background:var(--paper);border:1px solid var(--rule)}
+.strip i.on{background:var(--seal);border-color:var(--seal)}
+.strip i.on.lt{background:var(--seal-2);border-color:var(--seal-2)}
+.srow{font-size:11.5px;color:var(--ink-2);display:flex;gap:6px;flex-wrap:wrap;align-items:baseline;margin-top:3px}
+.srow b{font:500 10px/1.8 var(--sans);letter-spacing:.12em;color:var(--ink-3);flex:none}
+.srow i{font-style:normal;font:400 10.5px/1.5 var(--mono);border:1px solid var(--rule-2);
+  border-radius:2px;padding:0 5px;background:var(--paper)}
+.srow .reuse{color:var(--seal)}
+
+/* asset conversion */
+.plan{background:var(--panel);border:1px solid var(--rule);border-radius:2px;padding:16px 18px}
+.plan table{background:none;border:0}
+.plan th{background:none;padding-left:0}
+.plan td{padding-left:0;border-top:1px solid var(--rule);border-bottom:0}
+.plan tr:first-child td{border-top:0}
+.plan td:first-child{font-family:var(--serif);font-size:13px;color:var(--ink)}
+
+/* adaptation notes */
+.core{font:400 17px/1.9 var(--serif);margin:0 0 6px}
+h3.sub{font:500 12px/1 var(--sans);letter-spacing:.18em;color:var(--seal);margin:20px 0 8px}
+
+/* quality gates */
+.gate{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 28px}
+@media(max-width:900px){.gate{grid-template-columns:1fr}}
+.gate li{display:flex;gap:8px;padding:5px 0;font-size:12.5px;line-height:1.55}
+.gate .m{flex:none;font-weight:700}
+.gate .ok .m,.gate li.ok .m{color:var(--ok)}
+.gate li.bad .m{color:var(--seal)}
+.gate li.bad{background:var(--seal-soft);border-radius:2px;padding-left:6px}
+.gate small{display:block;color:var(--ink-3)}
+.gsum{margin:10px 0 0;font-size:12px;color:var(--ink-2)}
+.gsum b{color:var(--seal)}
+
+.foot{margin-top:40px;font-size:11px;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:14px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* print: expand everything — both tab panes, all episode cards */
+@media print{
+  .expo,.tabs,.epsmore{display:none!important}
+  .tabpane{display:block!important;margin-bottom:14px}
+  .epswrap.clip .eps .ep{display:block!important}
+  .epswrap.clip .eps::after{display:none}
+  .page{max-width:none;padding:0}
+  section,.ep,.scard{page-break-inside:avoid}
+  body{background:#fff}
+}
+</style></head><body>
+<div class="page">
+
+<header class="hd">
+  <h1>نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية)</h1>
+  <span class="sub">Short-drama adaptation outline · 10 eps × 1 min · استشراف المستقبل · خيال علمي تحفيزي للجيل · 忠实 adaptation</span>
+  <span class="right">
+    <span class="gatepill pass">✓ Gates 14 / 14</span>
+    <button class="expo" data-name="نافذة-٢٠٥٠-—-العالم-مستشرف-(سلسلة-أصلية)-outline.json">Export JSON</button>
+  </span>
+</header>
+
+<div class="kpis">
+  <div class="kpi accent"><div class="l">Episodes</div><div class="v">10 <small>× 1 min</small></div><div class="d">about 10 min of footage</div></div>
+  <div class="kpi"><div class="l">Beats</div><div class="v">10</div><div class="d">5 major · max gap 1 eps</div></div>
+  <div class="kpi"><div class="l">Cast</div><div class="v">2</div><div class="d">leads 1 · support 0 · functional 1</div></div>
+  <div class="kpi"><div class="l">Primary scenes</div><div class="v">4 <small>+3</small></div><div class="d">3 one-off, reuse plan required</div></div>
+  <div class="kpi"><div class="l">Production risks</div><div class="v">2</div><div class="d">手部特写 ×2 (ep 1, 10)</div></div>
+  <div class="kpi"><div class="l">Adaptation mode</div><div class="v mode">忠实</div><div class="d">0 line(s) cut · 0 merge(s)</div></div>
+</div>
+
+
+<section id="sec-rhythm">
+  <div class="sec-h"><span class="no">01</span><h2>Beat rhythm</h2></div>
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-pane="pane-timeline">Timeline</button>
+    <button class="tab" data-pane="pane-table">Table</button>
+  </div>
+  <div class="tabpane on" id="pane-timeline"><div class="chart rhythm">
+  <div class="legend">
+    <i><span class="dotk major"></span>Major beat</i>
+    <i><span class="dotk"></span>Minor beat</i>
+  </div>
+  <svg viewBox="0 0 1520 176" role="img" aria-label="Beat rhythm">
+    <line class="axis" x1="30" y1="92" x2="1490" y2="92"/>
+    <line class="axis" x1="103" y1="88" x2="103" y2="96"/>
+    <line class="axis" x1="249" y1="88" x2="249" y2="96"/>
+    <line class="axis" x1="395" y1="88" x2="395" y2="96"/>
+    <line class="axis" x1="541" y1="88" x2="541" y2="96"/>
+    <line class="axis" x1="687" y1="88" x2="687" y2="96"/>
+    <line class="axis" x1="833" y1="88" x2="833" y2="96"/>
+    <line class="axis" x1="979" y1="88" x2="979" y2="96"/>
+    <line class="axis" x1="1125" y1="88" x2="1125" y2="96"/>
+    <line class="axis" x1="1271" y1="88" x2="1271" y2="96"/>
+    <line class="axis" x1="1417" y1="88" x2="1417" y2="96"/>
+    <line class="stem major" x1="103" y1="92" x2="103" y2="57"/>
+    <circle class="bdot major" cx="103" cy="48" r="9"><title>B01 صدمة الافتتاح | المستشرف يقول إن جوالك بيختفي → نشوف يوم كامل في ٢٠٥٠ بدون جوال؛ كل شيء في النظارة والجدار</title></circle>
+    <text class="blabel" x="103" y="26" text-anchor="middle">صدمة ا…</text>
+    <text class="bsub" x="103" y="12" text-anchor="middle">المستشرف يقول …</text>
+    <line class="stem" x1="249" y1="92" x2="249" y2="122"/>
+    <circle class="bdot" cx="249" cy="128" r="6"><title>B02 لفّة | نسختك الرقمية تحضر الاجتماع بدالك → النسخة تطلع أشطر منك، والسؤال: وش يبقى لك؟</title></circle>
+    <text class="blabel" x="249" y="150" text-anchor="middle">لفّة</text>
+    <text class="bsub" x="249" y="164" text-anchor="middle">نسختك الرقمية …</text>
+    <line class="stem" x1="395" y1="92" x2="395" y2="62"/>
+    <circle class="bdot" cx="395" cy="56" r="6"><title>B03 صدمة | مدرسة بلا فصول → كل طفل عنده معلم ذكي يعرف كيف يفكر هو بالذات</title></circle>
+    <text class="blabel" x="395" y="34" text-anchor="middle">صدمة</text>
+    <text class="bsub" x="395" y="20" text-anchor="middle">مدرسة بلا فصول</text>
+    <line class="stem major" x1="541" y1="92" x2="541" y2="127"/>
+    <circle class="bdot major" cx="541" cy="136" r="9"><title>B04 صدمة كبرى | جسمك له نسخة رقمية → النسخة تكشف المرض قبل ما يجيك بسنة</title></circle>
+    <text class="blabel" x="541" y="158" text-anchor="middle">صدمة ك…</text>
+    <text class="bsub" x="541" y="172" text-anchor="middle">جسمك له نسخة ر…</text>
+    <line class="stem" x1="687" y1="92" x2="687" y2="62"/>
+    <circle class="bdot" cx="687" cy="56" r="6"><title>B05 إبهار | مدن تفكر → تاكسي طائر وشوارع تشحن السيارة وهي ماشية</title></circle>
+    <text class="blabel" x="687" y="34" text-anchor="middle">إبهار</text>
+    <text class="bsub" x="687" y="20" text-anchor="middle">مدن تفكر</text>
+    <line class="stem major" x1="833" y1="92" x2="833" y2="127"/>
+    <circle class="bdot major" cx="833" cy="136" r="9"><title>B06 رسالة | وظائف ما لها اسم اليوم → المستشرف يعطي الجيل ثلاث مهارات يبدؤون فيها من الليلة</title></circle>
+    <text class="blabel" x="833" y="158" text-anchor="middle">رسالة</text>
+    <text class="bsub" x="833" y="172" text-anchor="middle">وظائف ما لها ا…</text>
+    <line class="stem" x1="979" y1="92" x2="979" y2="62"/>
+    <circle class="bdot" cx="979" cy="56" r="6"><title>B07 دهشة | مترجم يفهم الحيوانات → أول جملة يقولها جمل للبشر</title></circle>
+    <text class="blabel" x="979" y="34" text-anchor="middle">دهشة</text>
+    <text class="bsub" x="979" y="20" text-anchor="middle">مترجم يفهم الح…</text>
+    <line class="stem" x1="1125" y1="92" x2="1125" y2="122"/>
+    <circle class="bdot" cx="1125" cy="128" r="6"><title>B08 سؤال أخلاقي | ذكرياتك محفوظة وتقدر تعيدها → المستشرف يرفض يشوف ذكرى معينة؛ ليش؟</title></circle>
+    <text class="blabel" x="1125" y="150" text-anchor="middle">سؤال أ…</text>
+    <text class="bsub" x="1125" y="164" text-anchor="middle">ذكرياتك محفوظة…</text>
+    <line class="stem major" x1="1271" y1="92" x2="1271" y2="57"/>
+    <circle class="bdot major" cx="1271" cy="48" r="9"><title>B09 إبهار كبير | أول جيل يعيش على القمر → شاب الجيل يطالع الأرض من قاعدة القمر</title></circle>
+    <text class="blabel" x="1271" y="26" text-anchor="middle">إبهار …</text>
+    <text class="bsub" x="1271" y="12" text-anchor="middle">أول جيل يعيش ع…</text>
+    <line class="stem major" x1="1417" y1="92" x2="1417" y2="127"/>
+    <circle class="bdot major" cx="1417" cy="136" r="9"><title>B10 الكشف الأخير | المستشرف يقول ما يقدر يشوف أبعد من ٢٠٥٠ → يقلع الرقعة ويعطيها للمشاهد: المستقبل ما يُشاف، يُصنع</title></circle>
+    <text class="blabel" x="1417" y="158" text-anchor="middle">الكشف …</text>
+    <text class="bsub" x="1417" y="172" text-anchor="middle">المستشرف يقول …</text>
+    <text class="tick" x="103" y="112" text-anchor="middle">1</text>
+    <text class="tick" x="249" y="112" text-anchor="middle">2</text>
+    <text class="tick" x="395" y="112" text-anchor="middle">3</text>
+    <text class="tick" x="541" y="112" text-anchor="middle">4</text>
+    <text class="tick" x="687" y="112" text-anchor="middle">5</text>
+    <text class="tick" x="833" y="112" text-anchor="middle">6</text>
+    <text class="tick" x="979" y="112" text-anchor="middle">7</text>
+    <text class="tick" x="1125" y="112" text-anchor="middle">8</text>
+    <text class="tick" x="1271" y="112" text-anchor="middle">9</text>
+    <text class="tick" x="1417" y="112" text-anchor="middle">10</text>
+  </svg>
+</div></div>
+  <div class="tabpane" id="pane-table">
+  <table><thead><tr><th>ID</th><th>Type</th><th>Weight</th><th>Ep</th><th>Setup</th><th>Payoff</th></tr></thead>
+<tbody><tr><td>B01</td><td>صدمة الافتتاح</td><td>Major</td><td>1</td><td>المستشرف يقول إن جوالك بيختفي</td><td>نشوف يوم كامل في ٢٠٥٠ بدون جوال؛ كل شيء في النظارة والجدار</td></tr>
+<tr><td>B02</td><td>لفّة</td><td>Minor</td><td>2</td><td>نسختك الرقمية تحضر الاجتماع بدالك</td><td>النسخة تطلع أشطر منك، والسؤال: وش يبقى لك؟</td></tr>
+<tr><td>B03</td><td>صدمة</td><td>Minor</td><td>3</td><td>مدرسة بلا فصول</td><td>كل طفل عنده معلم ذكي يعرف كيف يفكر هو بالذات</td></tr>
+<tr><td>B04</td><td>صدمة كبرى</td><td>Major</td><td>4</td><td>جسمك له نسخة رقمية</td><td>النسخة تكشف المرض قبل ما يجيك بسنة</td></tr>
+<tr><td>B05</td><td>إبهار</td><td>Minor</td><td>5</td><td>مدن تفكر</td><td>تاكسي طائر وشوارع تشحن السيارة وهي ماشية</td></tr>
+<tr><td>B06</td><td>رسالة</td><td>Major</td><td>6</td><td>وظائف ما لها اسم اليوم</td><td>المستشرف يعطي الجيل ثلاث مهارات يبدؤون فيها من الليلة</td></tr>
+<tr><td>B07</td><td>دهشة</td><td>Minor</td><td>7</td><td>مترجم يفهم الحيوانات</td><td>أول جملة يقولها جمل للبشر</td></tr>
+<tr><td>B08</td><td>سؤال أخلاقي</td><td>Minor</td><td>8</td><td>ذكرياتك محفوظة وتقدر تعيدها</td><td>المستشرف يرفض يشوف ذكرى معينة؛ ليش؟</td></tr>
+<tr><td>B09</td><td>إبهار كبير</td><td>Major</td><td>9</td><td>أول جيل يعيش على القمر</td><td>شاب الجيل يطالع الأرض من قاعدة القمر</td></tr>
+<tr><td>B10</td><td>الكشف الأخير</td><td>Major</td><td>10</td><td>المستشرف يقول ما يقدر يشوف أبعد من ٢٠٥٠</td><td>يقلع الرقعة ويعطيها للمشاهد: المستقبل ما يُشاف، يُصنع</td></tr></tbody></table>
+  </div>
+</section>
+
+<section id="sec-episodes">
+  <div class="sec-h"><span class="no">02</span><h2>Episode overview</h2><span class="note">Core deliverable · three fields per episode</span></div>
+  <div class="epswrap clip">
+    <div class="eps">
+<article class="ep" id="ep-1">
+  <span class="num">1</span>
+  <header><b>Episode 1</b><i class="bt major">صدمة الافتتاح</i></header>
+  <p class="syn">المستشرف في معمله المظلم يواجه الكاميرا ويعلن إن الجوال اللي في يدك له عمر قصير. يرفع الرقعة فيطلع ضوء أزرق ونعبر لبيت المستقبل ثم مدينة ٢٠٥٠: شاب الجيل يصحى، يكلم الجدار، يدفع بنظرة، ويمشي في شارع كل لوحاته هولوغرام. يرجع المستشرف ويقول للجيل إن اللي يتعلم يكلم الذكاء الاصطناعي من الحين هو اللي بيقود.</p>
+  <div class="hk"><b>Hook</b><span>إذا الجوال بيختفي، وش اللي بيصير في يدك بداله؟</span></div>
+  <div class="hk"><b>Suspense</b><span>المستشرف يلمّح إن عنده نسخة ثانية منه تشتغل الحين في مكان ثاني</span></div>
+  <div class="meta"><i>S01</i><i>S03</i><i>S02</i><i>C01</i><i>C02</i><i class="warn">手部特写</i></div>
+</article>
+<article class="ep" id="ep-2">
+  <span class="num">2</span>
+  <header><b>Episode 2</b><i class="bt">لفّة</i></header>
+  <p class="syn">المستشرف يكشف إن نسخته الرقمية تحضر عنه اجتماعاً الحين. نشوف شاب الجيل في ٢٠٥٠ ونسخته الهولوغرامية تتفاوض وتتعلم بدال عنه. اللفة: النسخة صارت أشطر منه. يرجع المستشرف ويقول إن الشي الوحيد اللي ما ينسخ هو قرارك وقيمك.</p>
+  <div class="hk"><b>Hook</b><span>لو نسختك الرقمية أشطر منك، مين فيكم الأصل؟</span></div>
+  <div class="hk"><b>Suspense</b><span>المستشرف يقول إن المدرسة نفسها بتختفي</span></div>
+  <div class="meta"><i>S01</i><i>S03</i><i>S02</i><i>C01</i><i>C02</i></div>
+</article>
+<article class="ep" id="ep-3">
+  <span class="num">3</span>
+  <header><b>Episode 3</b><i class="bt">صدمة</i></header>
+  <p class="syn">المستشرف يطرق على السبورة ويعلن نهاية الفصل التقليدي. ننتقل لفصل المستقبل: كل طالب حوله معلم ذكي على شكل ضوء يشرح بطريقته، ودرس التاريخ يصير رحلة تمشي فيها. يختم المستشرف بأن المهارة الأهم هي إنك تعرف تسأل سؤال صح.</p>
+  <div class="hk"><b>Hook</b><span>وش لو المعلم يعرف كيف تفكر أنت بالذات؟</span></div>
+  <div class="hk"><b>Suspense</b><span>المستشرف يقول إن جسمك بيصير له توأم رقمي يعرف عنك أكثر منك</span></div>
+  <div class="meta"><i>S01</i><i>S04</i><i>C01</i><i>C02</i></div>
+</article>
+<article class="ep" id="ep-4">
+  <span class="num">4</span>
+  <header><b>Episode 4</b><i class="bt major">صدمة كبرى</i></header>
+  <p class="syn">المستشرف يضع يده على صدره ويقول إن قلبك له نسخة رقمية. في مستشفى الجسد الرقمي يشوف شاب الجيل توأمه الهولوغرامي ونظام ينبهه لمرض قبل سنة من ظهوره. يرجع المستشرف بنبرة جادة: صحتك بيانات، اهتم فيها من اليوم.</p>
+  <div class="hk"><b>Hook</b><span>لو عرفت مرضك قبل ما يجيك بسنة، وش بتغير؟</span></div>
+  <div class="hk"><b>Suspense</b><span>المستشرف يرفع عينه للسماء: المدن نفسها بتفكر</span></div>
+  <div class="meta"><i>S01</i><i>S05</i><i>C01</i><i>C02</i></div>
+</article>
+<article class="ep" id="ep-5">
+  <span class="num">5</span>
+  <header><b>Episode 5</b><i class="bt">إبهار</i></header>
+  <p class="syn">المستشرف يفتح النافذة على مدينة ٢٠٥٠ من فوق: تاكسي طائر، شوارع تشحن السيارة وهي ماشية، إشارات تعرف زحمتك قبل ما تطلع. شاب الجيل يركب التاكسي الطائر. المستشرف يسأل الجيل: مين بيصمم هالمدن؟ أنتم.</p>
+  <div class="hk"><b>Hook</b><span>وش لو الشارع نفسه يعرف وين رايح؟</span></div>
+  <div class="hk"><b>Suspense</b><span>المستشرف يقول إن نص الوظائف اللي تعرفها ما بتكون موجودة</span></div>
+  <div class="meta"><i>S01</i><i>S02</i><i>C01</i><i>C02</i></div>
+</article>
+<article class="ep" id="ep-6">
+  <span class="num">6</span>
+  <header><b>Episode 6</b><i class="bt major">رسالة</i></header>
+  <p class="syn">المستشرف يعرض لوحة وظائف ٢٠٥٠ بأسماء غريبة: مصمم ذكريات، مدرب روبوتات، مهندس مدن طائرة. شاب الجيل يشتغل في فصل المستقبل كمدرب ذكاء اصطناعي. يختم المستشرف بثلاث مهارات يبدأ فيها الجيل من الليلة: الفضول، التعلم السريع، والعمل مع الآلة.</p>
+  <div class="hk"><b>Hook</b><span>الوظيفة اللي بتشتغلها بعد ٢٠ سنة ما لها اسم اليوم</span></div>
+  <div class="hk"><b>Suspense</b><span>المستشرف يسمع صوت جمل ويبتسم: الحيوانات بتتكلم</span></div>
+  <div class="meta"><i>S01</i><i>S04</i><i>S02</i><i>C01</i><i>C02</i></div>
+</article>
+<article class="ep" id="ep-7">
+  <span class="num">7</span>
+  <header><b>Episode 7</b><i class="bt">دهشة</i></header>
+  <p class="syn">في واحة الحيوانات وقت الغروب، شاب الجيل يلبس سماعة تترجم أصوات الحيوانات، والجمل يرد عليه بجملة تضحك. المستشرف يرجع ويقول إن الذكاء الاصطناعي ممكن يفتح لنا لغات ما فهمناها أبداً، والفضول هو المفتاح.</p>
+  <div class="hk"><b>Hook</b><span>وش أول شي بيقوله جمل لو فهمناه؟</span></div>
+  <div class="hk"><b>Suspense</b><span>المستشرف يمسك صورة قديمة: ذكرياتك بتصير محفوظة</span></div>
+  <div class="meta"><i>S01</i><i>S06</i><i>C01</i><i>C02</i></div>
+</article>
+<article class="ep" id="ep-8">
+  <span class="num">8</span>
+  <header><b>Episode 8</b><i class="bt">سؤال أخلاقي</i></header>
+  <p class="syn">المستشرف يشرح إن ذكرياتك بتنحفظ وتقدر تعيدها كأنك فيها. في بيت المستقبل يعيش شاب الجيل يوم طفولته من جديد. اللفة: المستشرف يرفض يعيد ذكرى خاصة فيه. الرسالة: التقنية قوية، والحكمة هي إنك تعرف متى توقف.</p>
+  <div class="hk"><b>Hook</b><span>لو تقدر تعيش أي ذكرى من جديد، أيها تختار؟</span></div>
+  <div class="hk"><b>Suspense</b><span>المستشرف يطالع القمر: في جيل بيكبر هناك</span></div>
+  <div class="meta"><i>S01</i><i>S03</i><i>C01</i><i>C02</i></div>
+</article>
+<article class="ep" id="ep-9">
+  <span class="num">9</span>
+  <header><b>Episode 9</b><i class="bt major">إبهار كبير</i></header>
+  <p class="syn">النافذة تنفتح على قاعدة القمر: شاب الجيل في قبة زجاجية يطالع الأرض الزرقاء. أطفال يدرسون ويزرعون على القمر. المستشرف يقول إن الحدود اللي نشوفها اليوم بتصير أول خطوة لجيلكم.</p>
+  <div class="hk"><b>Hook</b><span>وش لو بيتك القادم على القمر؟</span></div>
+  <div class="hk"><b>Suspense</b><span>المستشرف يعترف إن عدسته ما تشوف أبعد من ٢٠٥٠</span></div>
+  <div class="meta"><i>S01</i><i>S07</i><i>C01</i><i>C02</i></div>
+</article>
+<article class="ep" id="ep-10">
+  <span class="num">10</span>
+  <header><b>Episode 10</b><i class="bt major">الكشف الأخير</i></header>
+  <p class="syn">المستشرف يجرب العدسة فما تشوف شي بعد ٢٠٥٠. يلخص كل التخيلات في لقطات سريعة من الحلقات. الكشف: يقلع الرقعة ويمدها للكاميرا، ويقول إن الشي الوحيد اللي ما يقدر الذكاء الاصطناعي يسويه هو أنت، والمستقبل ما يُشاف بل يُصنع.</p>
+  <div class="hk"><b>Hook</b><span>ليش العدسة ما تشوف بعد ٢٠٥٠؟</span></div>
+  <div class="hk"><b>Suspense</b><span>نهاية مفتوحة: الرقعة صارت في يد المشاهد، وش بيشوف فيها؟</span></div>
+  <div class="meta"><i>S01</i><i>S02</i><i>S03</i><i>S04</i><i>C01</i><i>C02</i><i class="warn">手部特写</i></div>
+</article>
+    </div>
+    <button class="epsmore">▾ Show all 10 episodes</button>
+  </div>
+</section>
+
+<section id="sec-scenes">
+  <div class="sec-h"><span class="no">03</span><h2>Scene overview</h2><span class="note">Top right = episodes present</span></div>
+  <div class="scenes">
+<article class="scard">
+  <span class="snum">1–10</span>
+  <h3><span class="id">S01</span>معمل المستشرف<span class="badge">Primary</span></h3>
+  <div class="strip"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="srow"><b>Beats carried</b><span>صدمة الافتتاح · لفّة · صدمة · صدمة كبرى · إبهار · رسالة · دهشة · سؤال أخلاقي · إبهار كبير · الكشف الأخير</span></div>
+  <div class="srow"><b>Cast seen</b><i>C01</i><i>C02</i></div>
+</article>
+<article class="scard">
+  <span class="snum">5 eps</span>
+  <h3><span class="id">S02</span>مدينة ٢٠٥٠<span class="badge">Primary</span></h3>
+  <div class="strip"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i></div>
+  <div class="srow"><b>Beats carried</b><span>صدمة الافتتاح · لفّة · إبهار · رسالة · الكشف الأخير</span></div>
+  <div class="srow"><b>Cast seen</b><i>C01</i><i>C02</i></div>
+</article>
+<article class="scard">
+  <span class="snum">1 · 2 · 8 · 10</span>
+  <h3><span class="id">S03</span>بيت المستقبل<span class="badge">Primary</span></h3>
+  <div class="strip"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class="on"></i></div>
+  <div class="srow"><b>Beats carried</b><span>صدمة الافتتاح · لفّة · سؤال أخلاقي · الكشف الأخير</span></div>
+  <div class="srow"><b>Cast seen</b><i>C01</i><i>C02</i></div>
+</article>
+<article class="scard">
+  <span class="snum">3 · 6 · 10</span>
+  <h3><span class="id">S04</span>فصل المستقبل<span class="badge">Primary</span></h3>
+  <div class="strip"><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i></div>
+  <div class="srow"><b>Beats carried</b><span>صدمة · رسالة · الكشف الأخير</span></div>
+  <div class="srow"><b>Cast seen</b><i>C01</i><i>C02</i></div>
+</article>
+<article class="scard">
+  <span class="snum">4</span>
+  <h3><span class="id">S05</span>مستشفى الجسد الرقمي<span class="badge once">One-off</span></h3>
+  <div class="strip"><i class=""></i><i class=""></i><i class=""></i><i class="on lt"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+  <div class="srow"><b>Beats carried</b><span>صدمة كبرى</span></div>
+  <div class="srow"><b>Reuse plan</b><span class="reuse">نعيد استخدام أصل بيت المستقبل بإضاءة بيضاء سريرية وشاشات هولوغرام طبية</span></div>
+</article>
+<article class="scard">
+  <span class="snum">7</span>
+  <h3><span class="id">S06</span>واحة الحيوانات<span class="badge once">One-off</span></h3>
+  <div class="strip"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on lt"></i><i class=""></i><i class=""></i><i class=""></i></div>
+  <div class="srow"><b>Beats carried</b><span>دهشة</span></div>
+  <div class="srow"><b>Reuse plan</b><span class="reuse">نعيد استخدام أطراف مدينة ٢٠٥٠ وقت الغروب مع نخيل وحيوانات ومترجم هولوغرام</span></div>
+</article>
+<article class="scard">
+  <span class="snum">9</span>
+  <h3><span class="id">S07</span>قاعدة القمر<span class="badge once">One-off</span></h3>
+  <div class="strip"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on lt"></i><i class=""></i></div>
+  <div class="srow"><b>Beats carried</b><span>إبهار كبير</span></div>
+  <div class="srow"><b>Reuse plan</b><span class="reuse">نعيد بناء فصل المستقبل كقبة زجاجية وخلفها سطح القمر والأرض في السماء</span></div>
+</article>
+  </div>
+</section>
+
+<section id="sec-decisions">
+  <div class="sec-h"><span class="no">04</span><h2>Key decisions</h2><span class="note">The three sign-off items, on paper</span></div>
+  <div class="dec3">
+  <div class="dcol">
+    <h3 class="sub">Which lines were cut</h3>
+    <p class="dnote">No lines cut (faithful adaptation)</p>
+    
+  </div>
+  <div class="dcol">
+    <h3 class="sub">Who got merged</h3>
+    <p class="dhead">2 cast slots (leads 1 · supporting 0 · functional 1)</p>
+    <p class="dhead">Leads: العالم مستشرف</p>
+    
+    <p class="dnote seal">البطولة لشخص واحد: العالم مستشرف. شاب الجيل يظهر داخل التخيلات بدون كلام عشان المشاهد يشوف نفسه في المستقبل.</p>
+  </div>
+  <div class="dcol">
+    <h3 class="sub">Where the major beats land</h3>
+    <ul class="dmaj"><li><i>ep1</i><span><b>صدمة الافتتاح</b> نشوف يوم كامل في ٢٠٥…</span><em>First</em></li><li><i>ep4</i><span><b>صدمة كبرى</b> النسخة تكشف المرض قب…</span></li><li><i>ep6</i><span><b>رسالة</b> المستشرف يعطي الجيل …</span></li><li><i>ep9</i><span><b>إبهار كبير</b> شاب الجيل يطالع الأر…</span></li><li><i>ep10</i><span><b>الكشف الأخير</b> يقلع الرقعة ويعطيها …</span><em>Final</em></li></ul>
+  </div>
+</div>
+</section>
+
+<section id="sec-matrix">
+  <div class="sec-h"><span class="no">05</span><h2>Dispatch matrix</h2><span class="note">One column = who and where for that episode</span></div>
+  <div class="matrix" style="--cw:26px">
+  <table>
+    <tr><th>Character / Scene / Prop</th><th>Tier</th><th class="ep-h">1</th><th class="ep-h">2</th><th class="ep-h">3</th><th class="ep-h">4</th><th class="ep-h">5</th><th class="ep-h">6</th><th class="ep-h">7</th><th class="ep-h">8</th><th class="ep-h">9</th><th class="ep-h">10</th><th>Total</th></tr>
+    <tr><td class="name">العالم مستشرف</td><td class="tier">Lead</td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="n">10</td></tr>
+<tr><td class="name">شاب الجيل</td><td class="tier">Functional</td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="mc on"></td><td class="n">10</td></tr>
+<tr class="div"><td colspan="13">Scenes</td></tr>
+<tr><td class="name">معمل المستشرف</td><td class="tier">Primary</td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc on sc"></td><td class="n">10</td></tr>
+<tr><td class="name">مدينة ٢٠٥٠</td><td class="tier">Primary</td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc"></td><td class="mc"></td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc on sc"></td><td class="n">5</td></tr>
+<tr><td class="name">بيت المستقبل</td><td class="tier">Primary</td><td class="mc on sc"></td><td class="mc on sc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc on sc"></td><td class="mc"></td><td class="mc on sc"></td><td class="n">4</td></tr>
+<tr><td class="name">فصل المستقبل</td><td class="tier">Primary</td><td class="mc"></td><td class="mc"></td><td class="mc on sc"></td><td class="mc"></td><td class="mc"></td><td class="mc on sc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc on sc"></td><td class="n">3</td></tr>
+<tr><td class="name">مستشفى الجسد الرقمي</td><td class="tier">One-off</td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc on sc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="n">1 ⚠</td></tr>
+<tr><td class="name">واحة الحيوانات</td><td class="tier">One-off</td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc on sc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="n">1 ⚠</td></tr>
+<tr><td class="name">قاعدة القمر</td><td class="tier">One-off</td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc"></td><td class="mc on sc"></td><td class="mc"></td><td class="n">1 ⚠</td></tr>
+<tr class="div"><td colspan="13">Props</td></tr>
+<tr><td class="name">عدسة الاستشراف (الرقعة)</td><td class="tier">B01, B10</td><td class="mc on pp"></td><td class="mc on pp"></td><td class="mc on pp"></td><td class="mc on pp"></td><td class="mc on pp"></td><td class="mc on pp"></td><td class="mc on pp"></td><td class="mc on pp"></td><td class="mc on pp"></td><td class="mc on pp"></td><td class="n">10</td></tr>
+  </table>
+  <p class="mnote">⚠ مستشفى الجسد الرقمي · Reuse plan: نعيد استخدام أصل بيت المستقبل بإضاءة بيضاء سريرية وشاشات هولوغرام طبية<br>⚠ واحة الحيوانات · Reuse plan: نعيد استخدام أطراف مدينة ٢٠٥٠ وقت الغروب مع نخيل وحيوانات ومترجم هولوغرام<br>⚠ قاعدة القمر · Reuse plan: نعيد بناء فصل المستقبل كقبة زجاجية وخلفها سطح القمر والأرض في السماء</p>
+</div>
+</section>
+
+<section id="sec-plan">
+  <div class="sec-h"><span class="no">06</span><h2>Asset conversion</h2><span class="note">Converted per tier · never hand-written</span></div>
+  <div class="plan">
+  <table><thead><tr><th>Tier</th><th>Count</th><th>Cast</th><th>Asset workload</th></tr></thead>
+<tbody><tr><td>Lead</td><td>1</td><td>العالم مستشرف</td><td>Full model sheets + per-shot consistency checks</td></tr>
+<tr><td>Named supporting</td><td>0</td><td>—</td><td>Bust reference, checks on key scenes</td></tr>
+<tr><td>Functional</td><td>1</td><td>شاب الجيل</td><td>Prompt-only, loose consistency is fine</td></tr>
+<tr><td>Scene environments</td><td>4+3</td><td>معمل المستشرف, مدينة ٢٠٥٠, بيت المستقبل, فصل المستقبل (+ مستشفى الجسد الرقمي, واحة الحيوانات, قاعدة القمر via reuse)</td><td>One environment reference set + lighting key per primary scene</td></tr>
+<tr><td>Narrative props</td><td>1</td><td>عدسة الاستشراف (الرقعة)</td><td>One white-plate sheet plus state variants each; must stay identical across episodes</td></tr>
+<tr><td>Production risks</td><td>2</td><td>手部特写 ×2 (ep 1, 10)</td><td>Walk the warning list before generation</td></tr></tbody></table>
+  </div>
+</section>
+
+<section id="sec-characters">
+  <div class="sec-h"><span class="no">07</span><h2>Cast table</h2></div>
+  <table><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Role</th><th>Arc</th><th>← Change record</th></tr></thead>
+<tbody><tr><td>C01</td><td>العالم مستشرف</td><td>Lead</td><td>الراوي والبطل: عالم عجوز يشوف المستقبل من رقعة عينه</td><td>من حارس أسرار المستقبل اللي يخوّف الجيل بصدمات ٢٠٥٠، إلى مرشد يسلّمهم المفتاح في الحلقة الأخيرة: المستقبل ما يُشاف، يُصنع</td><td>原创; ورقة تصميم الشخصية المرفقة</td></tr>
+<tr><td>C02</td><td>شاب الجيل</td><td>Functional</td><td>شاب سعودي صامت يظهر داخل التخيلات كأنه المشاهد نفسه بعد ٢٥ سنة</td><td>—</td><td>原创</td></tr></tbody></table>
+</section>
+
+<section id="sec-adaptation">
+  <div class="sec-h"><span class="no">08</span><h2>Adaptation notes</h2><span class="note">Why these changes · with source evidence</span></div>
+  <p class="core">عالم عجوز برقعة عين هي في الحقيقة عدسة تشوف المستقبل؛ كل حلقة يرفعها، يفتح نافذة على عام ٢٠٥٠، ويرجع يقول للجيل وش يسوون من اليوم.</p>
+  <h3 class="sub">Keep</h3><table><thead><tr><th>What</th><th>Why</th><th>Evidence</th></tr></thead>
+<tbody><tr><td>العالم بيتكلم عن المستقبل واستشراف المستقبل ويوجه رسالة للجيل</td><td>هذا جوهر السلسلة كما طلبه صاحب العمل؛ كل حلقة تنتهي برسالة عملية</td><td><q>العالم بيدي بيتكلم عن المستقبل واستشراف المستقبل، وبيوجه رسالة للجيل</q></td></tr>
+<tr><td>تخيلات حلوة خارج الصندوق في كل حلقة</td><td>المشهد المستقبلي هو الهدية البصرية اللي توقف السكرول</td><td><q>نطلع كده اوت اوف بوكس ونتخيل، وكل شوية يديهم تخيلات حلوة</q></td></tr>
+<tr><td>شكل الشخصية من ورقة التصميم المرفقة: أصلع، شنب أسود كث، رقعة على عينه اليسرى، ندبة مخيطة أعلى الجبهة، لبس أسود كامل وبوت</td><td>هوية مقفولة؛ نضيف فقط معطف معمل اختياري في المعمل دون تغيير الوجه</td><td>—</td></tr></tbody></table>
+  
+  
+  <h3 class="sub">Risks &amp; plans</h3><table><thead><tr><th>What</th><th>Plan</th></tr></thead>
+<tbody><tr><td>تكرار نفس الحركة (رفع الرقعة) يصير مملاً</td><td>نخلي الطقس ثابت لكن كل حلقة يفتح النافذة بطريقة مختلفة: ضوء، شرارة، زجاج يتكسر، هولوغرام</td></tr>
+<tr><td>ادعاءات علمية مبالغ فيها</td><td>نصيغ كل تخيل كـ (تخيّل) أو (ممكن) وما نذكر أرقام ولا إحصائيات ما لها مصدر</td></tr>
+<tr><td>ثبات الشخصية عبر عشرات اللقطات</td><td>كل صورة تُولّد مع ورقة التصميم كمرجع + فحص بصري لكل إطار قبل الاعتماد</td></tr></tbody></table>
+</section>
+
+<section id="sec-gates">
+  <div class="sec-h"><span class="no">09</span><h2>Quality gates</h2></div>
+  <ul class="gate">
+  <li class="ok"><span class="m">✓</span><span>Leads 1–2</span></li>
+  <li class="ok"><span class="m">✓</span><span>Named supporting cast ≤ 3</span></li>
+  <li class="ok"><span class="m">✓</span><span>Functional roles ≤ 4</span></li>
+  <li class="ok"><span class="m">✓</span><span>Primary scenes ≤ 5</span></li>
+  <li class="ok"><span class="m">✓</span><span>Narrative props ≤ 8</span></li>
+  <li class="ok"><span class="m">✓</span><span>One-off scenes carry a reuse plan</span></li>
+  <li class="ok"><span class="m">✓</span><span>Beat gap ≤ 3 episodes, no dead zone</span></li>
+  <li class="ok"><span class="m">✓</span><span>Episode 1 has a hook</span></li>
+  <li class="ok"><span class="m">✓</span><span>Major beats do not first appear only in the final episode</span></li>
+  <li class="ok"><span class="m">✓</span><span>All three fields per episode (synopsis, hook, suspense)</span></li>
+  <li class="ok"><span class="m">✓</span><span>Three or more on screen carries a breakdown plan</span></li>
+  <li class="ok"><span class="m">✓</span><span>Production risks flagged in the warning list</span></li>
+  <li class="ok"><span class="m">✓</span><span>Scene / character / prop references complete — no jobless characters, no unused scenes, no unused props</span></li>
+  <li class="ok"><span class="m">✓</span><span>Synopses in narrative prose, no quoted dialogue</span></li>
+</ul>
+  <p class="gsum">All passed</p>
+</section>
+
+<p class="foot">Outline generated by the model from the source text; quality gates checked deterministically by script.</p>
+</div>
+
+<script type="application/json" id="outline-data">{"source":"نافذة ٢٠٥٠ — العالم مستشرف (سلسلة أصلية)","lang":"en","params":{"episodes":10,"minutesPerEpisode":1,"genre":"استشراف المستقبل · خيال علمي تحفيزي للجيل","adaptMode":"忠实","preferences":["العالم مستشرف هو الراوي الوحيد ويكلم الجيل مباشرة","صوت أجش حكيم بنبرة رجل كبير في السن","ليب سينك يدل إن الكلام طالع من الشخصية (مو شرط ١٠٠٪)","كل حلقة فيها تخيلات مستقبلية خارج الصندوق + رسالة للجيل"],"thresholds":{"maxLeads":2,"maxSupport":3,"maxFunctional":4}},"adaptation":{"core":"عالم عجوز برقعة عين هي في الحقيقة عدسة تشوف المستقبل؛ كل حلقة يرفعها، يفتح نافذة على عام ٢٠٥٠، ويرجع يقول للجيل وش يسوون من اليوم.","keep":[{"what":"العالم بيتكلم عن المستقبل واستشراف المستقبل ويوجه رسالة للجيل","why":"هذا جوهر السلسلة كما طلبه صاحب العمل؛ كل حلقة تنتهي برسالة عملية","evidence":"العالم بيدي بيتكلم عن المستقبل واستشراف المستقبل، وبيوجه رسالة للجيل"},{"what":"تخيلات حلوة خارج الصندوق في كل حلقة","why":"المشهد المستقبلي هو الهدية البصرية اللي توقف السكرول","evidence":"نطلع كده اوت اوف بوكس ونتخيل، وكل شوية يديهم تخيلات حلوة"},{"what":"شكل الشخصية من ورقة التصميم المرفقة: أصلع، شنب أسود كث، رقعة على عينه اليسرى، ندبة مخيطة أعلى الجبهة، لبس أسود كامل وبوت","why":"هوية مقفولة؛ نضيف فقط معطف معمل اختياري في المعمل دون تغيير الوجه"}],"cut":[],"merge":[],"risks":[{"what":"تكرار نفس الحركة (رفع الرقعة) يصير مملاً","plan":"نخلي الطقس ثابت لكن كل حلقة يفتح النافذة بطريقة مختلفة: ضوء، شرارة، زجاج يتكسر، هولوغرام"},{"what":"ادعاءات علمية مبالغ فيها","plan":"نصيغ كل تخيل كـ (تخيّل) أو (ممكن) وما نذكر أرقام ولا إحصائيات ما لها مصدر"},{"what":"ثبات الشخصية عبر عشرات اللقطات","plan":"كل صورة تُولّد مع ورقة التصميم كمرجع + فحص بصري لكل إطار قبل الاعتماد"}],"mergeNote":"البطولة لشخص واحد: العالم مستشرف. شاب الجيل يظهر داخل التخيلات بدون كلام عشان المشاهد يشوف نفسه في المستقبل."},"characters":[{"id":"C01","name":"العالم مستشرف","role":"الراوي والبطل: عالم عجوز يشوف المستقبل من رقعة عينه","arc":"من حارس أسرار المستقبل اللي يخوّف الجيل بصدمات ٢٠٥٠، إلى مرشد يسلّمهم المفتاح في الحلقة الأخيرة: المستقبل ما يُشاف، يُصنع","from":["原创","ورقة تصميم الشخصية المرفقة"],"tier":"lead"},{"id":"C02","name":"شاب الجيل","role":"شاب سعودي صامت يظهر داخل التخيلات كأنه المشاهد نفسه بعد ٢٥ سنة","from":["原创"],"tier":"functional"}],"scenes":[{"id":"S01","name":"معمل المستشرف","primary":true},{"id":"S02","name":"مدينة ٢٠٥٠","primary":true},{"id":"S03","name":"بيت المستقبل","primary":true},{"id":"S04","name":"فصل المستقبل","primary":true},{"id":"S05","name":"مستشفى الجسد الرقمي","primary":false,"reusePlan":"نعيد استخدام أصل بيت المستقبل بإضاءة بيضاء سريرية وشاشات هولوغرام طبية"},{"id":"S06","name":"واحة الحيوانات","primary":false,"reusePlan":"نعيد استخدام أطراف مدينة ٢٠٥٠ وقت الغروب مع نخيل وحيوانات ومترجم هولوغرام"},{"id":"S07","name":"قاعدة القمر","primary":false,"reusePlan":"نعيد بناء فصل المستقبل كقبة زجاجية وخلفها سطح القمر والأرض في السماء"}],"props":[{"id":"P01","name":"عدسة الاستشراف (الرقعة)","function":"رقعة العين هي بوابة السلسلة: لما يرفعها يطلع ضوء ونفتح نافذة ٢٠٥٠. لو ضاعت ما فيه سلسلة","beatIds":["B01","B10"]}],"beats":[{"id":"B01","type":"صدمة الافتتاح","weight":"major","episode":1,"setup":"المستشرف يقول إن جوالك بيختفي","payoff":"نشوف يوم كامل في ٢٠٥٠ بدون جوال؛ كل شيء في النظارة والجدار"},{"id":"B02","type":"لفّة","weight":"minor","episode":2,"setup":"نسختك الرقمية تحضر الاجتماع بدالك","payoff":"النسخة تطلع أشطر منك، والسؤال: وش يبقى لك؟"},{"id":"B03","type":"صدمة","weight":"minor","episode":3,"setup":"مدرسة بلا فصول","payoff":"كل طفل عنده معلم ذكي يعرف كيف يفكر هو بالذات"},{"id":"B04","type":"صدمة كبرى","weight":"major","episode":4,"setup":"جسمك له نسخة رقمية","payoff":"النسخة تكشف المرض قبل ما يجيك بسنة"},{"id":"B05","type":"إبهار","weight":"minor","episode":5,"setup":"مدن تفكر","payoff":"تاكسي طائر وشوارع تشحن السيارة وهي ماشية"},{"id":"B06","type":"رسالة","weight":"major","episode":6,"setup":"وظائف ما لها اسم اليوم","payoff":"المستشرف يعطي الجيل ثلاث مهارات يبدؤون فيها من الليلة"},{"id":"B07","type":"دهشة","weight":"minor","episode":7,"setup":"مترجم يفهم الحيوانات","payoff":"أول جملة يقولها جمل للبشر"},{"id":"B08","type":"سؤال أخلاقي","weight":"minor","episode":8,"setup":"ذكرياتك محفوظة وتقدر تعيدها","payoff":"المستشرف يرفض يشوف ذكرى معينة؛ ليش؟"},{"id":"B09","type":"إبهار كبير","weight":"major","episode":9,"setup":"أول جيل يعيش على القمر","payoff":"شاب الجيل يطالع الأرض من قاعدة القمر"},{"id":"B10","type":"الكشف الأخير","weight":"major","episode":10,"setup":"المستشرف يقول ما يقدر يشوف أبعد من ٢٠٥٠","payoff":"يقلع الرقعة ويعطيها للمشاهد: المستقبل ما يُشاف، يُصنع"}],"episodes":[{"ep":1,"synopsis":"المستشرف في معمله المظلم يواجه الكاميرا ويعلن إن الجوال اللي في يدك له عمر قصير. يرفع الرقعة فيطلع ضوء أزرق ونعبر لبيت المستقبل ثم مدينة ٢٠٥٠: شاب الجيل يصحى، يكلم الجدار، يدفع بنظرة، ويمشي في شارع كل لوحاته هولوغرام. يرجع المستشرف ويقول للجيل إن اللي يتعلم يكلم الذكاء الاصطناعي من الحين هو اللي بيقود.","hook":"إذا الجوال بيختفي، وش اللي بيصير في يدك بداله؟","suspense":"المستشرف يلمّح إن عنده نسخة ثانية منه تشتغل الحين في مكان ثاني","sceneIds":["S01","S03","S02"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":["手部特写"]},{"ep":2,"synopsis":"المستشرف يكشف إن نسخته الرقمية تحضر عنه اجتماعاً الحين. نشوف شاب الجيل في ٢٠٥٠ ونسخته الهولوغرامية تتفاوض وتتعلم بدال عنه. اللفة: النسخة صارت أشطر منه. يرجع المستشرف ويقول إن الشي الوحيد اللي ما ينسخ هو قرارك وقيمك.","hook":"لو نسختك الرقمية أشطر منك، مين فيكم الأصل؟","suspense":"المستشرف يقول إن المدرسة نفسها بتختفي","sceneIds":["S01","S03","S02"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":[]},{"ep":3,"synopsis":"المستشرف يطرق على السبورة ويعلن نهاية الفصل التقليدي. ننتقل لفصل المستقبل: كل طالب حوله معلم ذكي على شكل ضوء يشرح بطريقته، ودرس التاريخ يصير رحلة تمشي فيها. يختم المستشرف بأن المهارة الأهم هي إنك تعرف تسأل سؤال صح.","hook":"وش لو المعلم يعرف كيف تفكر أنت بالذات؟","suspense":"المستشرف يقول إن جسمك بيصير له توأم رقمي يعرف عنك أكثر منك","sceneIds":["S01","S04"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":[]},{"ep":4,"synopsis":"المستشرف يضع يده على صدره ويقول إن قلبك له نسخة رقمية. في مستشفى الجسد الرقمي يشوف شاب الجيل توأمه الهولوغرامي ونظام ينبهه لمرض قبل سنة من ظهوره. يرجع المستشرف بنبرة جادة: صحتك بيانات، اهتم فيها من اليوم.","hook":"لو عرفت مرضك قبل ما يجيك بسنة، وش بتغير؟","suspense":"المستشرف يرفع عينه للسماء: المدن نفسها بتفكر","sceneIds":["S01","S05"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":[]},{"ep":5,"synopsis":"المستشرف يفتح النافذة على مدينة ٢٠٥٠ من فوق: تاكسي طائر، شوارع تشحن السيارة وهي ماشية، إشارات تعرف زحمتك قبل ما تطلع. شاب الجيل يركب التاكسي الطائر. المستشرف يسأل الجيل: مين بيصمم هالمدن؟ أنتم.","hook":"وش لو الشارع نفسه يعرف وين رايح؟","suspense":"المستشرف يقول إن نص الوظائف اللي تعرفها ما بتكون موجودة","sceneIds":["S01","S02"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":[]},{"ep":6,"synopsis":"المستشرف يعرض لوحة وظائف ٢٠٥٠ بأسماء غريبة: مصمم ذكريات، مدرب روبوتات، مهندس مدن طائرة. شاب الجيل يشتغل في فصل المستقبل كمدرب ذكاء اصطناعي. يختم المستشرف بثلاث مهارات يبدأ فيها الجيل من الليلة: الفضول، التعلم السريع، والعمل مع الآلة.","hook":"الوظيفة اللي بتشتغلها بعد ٢٠ سنة ما لها اسم اليوم","suspense":"المستشرف يسمع صوت جمل ويبتسم: الحيوانات بتتكلم","sceneIds":["S01","S04","S02"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":[]},{"ep":7,"synopsis":"في واحة الحيوانات وقت الغروب، شاب الجيل يلبس سماعة تترجم أصوات الحيوانات، والجمل يرد عليه بجملة تضحك. المستشرف يرجع ويقول إن الذكاء الاصطناعي ممكن يفتح لنا لغات ما فهمناها أبداً، والفضول هو المفتاح.","hook":"وش أول شي بيقوله جمل لو فهمناه؟","suspense":"المستشرف يمسك صورة قديمة: ذكرياتك بتصير محفوظة","sceneIds":["S01","S06"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":[]},{"ep":8,"synopsis":"المستشرف يشرح إن ذكرياتك بتنحفظ وتقدر تعيدها كأنك فيها. في بيت المستقبل يعيش شاب الجيل يوم طفولته من جديد. اللفة: المستشرف يرفض يعيد ذكرى خاصة فيه. الرسالة: التقنية قوية، والحكمة هي إنك تعرف متى توقف.","hook":"لو تقدر تعيش أي ذكرى من جديد، أيها تختار؟","suspense":"المستشرف يطالع القمر: في جيل بيكبر هناك","sceneIds":["S01","S03"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":[]},{"ep":9,"synopsis":"النافذة تنفتح على قاعدة القمر: شاب الجيل في قبة زجاجية يطالع الأرض الزرقاء. أطفال يدرسون ويزرعون على القمر. المستشرف يقول إن الحدود اللي نشوفها اليوم بتصير أول خطوة لجيلكم.","hook":"وش لو بيتك القادم على القمر؟","suspense":"المستشرف يعترف إن عدسته ما تشوف أبعد من ٢٠٥٠","sceneIds":["S01","S07"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":[]},{"ep":10,"synopsis":"المستشرف يجرب العدسة فما تشوف شي بعد ٢٠٥٠. يلخص كل التخيلات في لقطات سريعة من الحلقات. الكشف: يقلع الرقعة ويمدها للكاميرا، ويقول إن الشي الوحيد اللي ما يقدر الذكاء الاصطناعي يسويه هو أنت، والمستقبل ما يُشاف بل يُصنع.","hook":"ليش العدسة ما تشوف بعد ٢٠٥٠؟","suspense":"نهاية مفتوحة: الرقعة صارت في يد المشاهد، وش بيشوف فيها؟","sceneIds":["S01","S02","S03","S04"],"characterIds":["C01","C02"],"propIds":["P01"],"warnings":["手部特写"]}]}</script>
+<script>
+// beat rhythm: chart / table toggle
+document.querySelectorAll('.tab').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach((b) => b.classList.toggle('on', b === btn));
+    document.querySelectorAll('.tabpane').forEach((p) => p.classList.toggle('on', p.id === btn.dataset.pane));
+  });
+});
+
+// episode overview: first three by default, one click expands for good
+const epsMore = document.querySelector('.epsmore');
+if (epsMore) {
+  epsMore.addEventListener('click', () => {
+    document.querySelector('.epswrap').classList.remove('clip');
+    epsMore.remove();
+  });
+}
+
+// export: the report carries outline.json verbatim; the download is byte-identical
+document.querySelector('.expo').addEventListener('click', (e) => {
+  const btn = e.currentTarget;
+  const url = URL.createObjectURL(
+    new Blob([document.getElementById('outline-data').textContent], { type: 'application/json' }),
+  );
+  const a = Object.assign(document.createElement('a'), { href: url, download: btn.dataset.name });
+  a.click();
+  // don't revoke immediately — Safari may kill the blob before the download finishes reading
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+});
+</script>
+</body></html>
