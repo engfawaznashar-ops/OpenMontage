@@ -21,6 +21,8 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Callable, Optional
 
+from lib import hw_accel
+
 
 def _load_dotenv() -> None:
     """Load .env into os.environ once at import time.
@@ -641,12 +643,47 @@ class BaseTool(ABC):
 
         On Windows, resolves .cmd/.bat wrappers (e.g. npx, npm) via
         shutil.which() so subprocess.run() can find them without shell=True.
+
+        Uses the GPU where it can (see lib/hw_accel.py): a libx264 ffmpeg
+        encode runs on Intel Quick Sync first and falls back to the original
+        command if that fails, and Remotion renders get ``--gl=angle``.
         """
         resolved_cmd = list(cmd)
         if platform.system() == "Windows" and resolved_cmd:
             exe = shutil.which(resolved_cmd[0])
             if exe:
                 resolved_cmd[0] = exe
+        resolved_cmd = hw_accel.with_remotion_gl(resolved_cmd)
+
+        qsv_cmd = hw_accel.hw_variant(resolved_cmd)
+        if qsv_cmd is not None:
+            target = hw_accel.output_target(resolved_cmd)
+            if target is not None and cwd is not None and not target.is_absolute():
+                target = Path(cwd) / target
+            existed_before = target is not None and target.exists()
+            try:
+                return self._run_checked(qsv_cmd, timeout=timeout, cwd=cwd)
+            except ToolCommandError as exc:
+                hw_accel.log.warning(
+                    "%s: Quick Sync encode failed (exit %s); re-running with libx264. %s",
+                    self.name, exc.returncode, (exc.detail or "")[-300:],
+                )
+                # Remove a partial file the failed run left, so the original
+                # command (which may lack -y) can write it.
+                if target is not None and not existed_before:
+                    try:
+                        target.unlink(missing_ok=True)
+                    except OSError:
+                        pass
+        return self._run_checked(resolved_cmd, timeout=timeout, cwd=cwd)
+
+    def _run_checked(
+        self,
+        resolved_cmd: list[str],
+        *,
+        timeout: Optional[int],
+        cwd: Optional[Path],
+    ) -> subprocess.CompletedProcess:
         try:
             return subprocess.run(
                 resolved_cmd,
