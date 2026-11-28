@@ -111,6 +111,17 @@ def _block_network():
         socket.create_connection = _real_create_connection
 
 
+@pytest.fixture(autouse=True)
+def _no_hardware_acceleration(monkeypatch):
+    """Keep commands identical on every machine: no Quick Sync, no Remotion --gl.
+
+    lib/hw_accel.py rewrites encodes for the local GPU. Tests that cover it
+    turn it back on with monkeypatch.setenv.
+    """
+    monkeypatch.setenv("OPENMONTAGE_HW_ENCODE", "off")
+    monkeypatch.setenv("OPENMONTAGE_REMOTION_GL", "off")
+
+
 def pytest_configure(config):
     config.addinivalue_line(
         "markers",
